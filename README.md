@@ -1,8 +1,8 @@
 # java-sdk
 chain waas client sdk
 
-usage:
-`
+使用方式:
+
 WaasConfig cfg = new WaasConfig();
 //cfg.setDomain("接口域名");
 cfg.setAppId("商户app id");
@@ -65,4 +65,4 @@ System.out.print(client.getAsyncNotifyApi().VerifyRequest("密文"));
 
 //加密二次验证响应数据
 System.out.print(client.getAsyncNotifyApi().VerifyResponse(withdraw.getData()));
-`
+
