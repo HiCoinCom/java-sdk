@@ -1,13 +1,20 @@
 # java-sdk
+
 chain waas client sdk
 
-编辑jar包
- mvn clean install -DskipTests=true
+编译 jar 包
+
+```
+mvn clean install -DskipTests=true
+```
 
 使用方式:
+
+```
+
 WaasConfig cfg = new WaasConfig();
 //cfg.setDomain("接口域名");
-cfg.setAppId("商户app id");
+cfg.setAppId("商户 app id");
 
 cfg.setUserPrivateKey("商户私钥");
 
@@ -67,4 +74,5 @@ System.out.print(client.getAsyncNotifyApi().VerifyRequest("密文"));
 
 //加密二次验证响应数据
 System.out.print(client.getAsyncNotifyApi().VerifyResponse(withdraw.getData()));
+```
 
