@@ -7,6 +7,14 @@ chain waas client sdk
 ```
 mvn clean install -DskipTests=true
 ```
+使用manve
+```
+<dependency>
+  <groupId>com.github.hicoincom</groupId>
+  <artifactId>waas-sdk</artifactId>
+  <version>1.0.0-release</version>
+</dependency>
+```
 
 使用方式:
 
