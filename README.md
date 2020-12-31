@@ -2,12 +2,13 @@
 
 chain waas client sdk
 
-编译 jar 包
+普通项目编译 jar 包
 
 ```
 mvn clean install -DskipTests=true
 ```
-使用manve
+
+maven项目直接引用
 ```
 <dependency>
   <groupId>com.github.hicoincom</groupId>
