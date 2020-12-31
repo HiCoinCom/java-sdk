@@ -1,8 +1,10 @@
 # java-sdk
 chain waas client sdk
 
-使用方式:
+编辑jar包
+ mvn clean install -DskipTests=true
 
+使用方式:
 WaasConfig cfg = new WaasConfig();
 //cfg.setDomain("接口域名");
 cfg.setAppId("商户app id");

@@ -2,10 +2,12 @@ package org.example;
 
 import static org.junit.Assert.assertTrue;
 
-import com.chainup.waas.WaasClient;
-import com.chainup.waas.WaasClientFactory;
-import com.chainup.waas.WaasConfig;
-import com.chainup.waas.api.bean.*;
+import com.github.hicoincom.WaasClient;
+import com.github.hicoincom.WaasClientFactory;
+import com.github.hicoincom.WaasConfig;
+import com.github.hicoincom.api.bean.UserInfoResult;
+import com.github.hicoincom.api.bean.WithdrawArgs;
+import com.github.hicoincom.api.bean.WithdrawResult;
 import org.junit.Test;
 
 import java.math.BigDecimal;
