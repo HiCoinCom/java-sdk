@@ -13,19 +13,19 @@ public interface IAsyncNotifyApi {
      * @param cipher
      * @return
      */
-    AsyncNotifyArgs NotifyRequest(String cipher)throws CryptoException;
+    AsyncNotifyArgs NotifyRequest(String cipher);
 
     /**
      *  解密提现二次验证请求参数
      * @param cipher
      * @return
      */
-    Withdraw VerifyRequest(String cipher)throws CryptoException;
+    Withdraw VerifyRequest(String cipher);
 
     /**
      *  加密二次验证提现响应数据
      * @param withdraw
      * @return
      */
-    String VerifyResponse(Withdraw withdraw)throws CryptoException;
+    String VerifyResponse(Withdraw withdraw);
 }

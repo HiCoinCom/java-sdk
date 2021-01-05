@@ -7,11 +7,11 @@ import com.github.hicoincom.exception.CryptoException;
  *  用户api
  */
 public interface IUserApi {
-    UserInfoResult RegisterMobileUser(String country, String mobile) throws CryptoException;
+    UserInfoResult RegisterMobileUser(String country, String mobile) ;
 
-    UserInfoResult RegisterEmailUser(String email)throws CryptoException;
+    UserInfoResult RegisterEmailUser(String email);
 
-    UserInfoResult GetMobileUser(String country, String mobile) throws CryptoException;
+    UserInfoResult GetMobileUser(String country, String mobile) ;
 
-    UserInfoResult GetEmailUser(String email)throws CryptoException;
+    UserInfoResult GetEmailUser(String email);
 }
