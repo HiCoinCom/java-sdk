@@ -17,7 +17,7 @@ public class UserApi extends WaasApi implements IUserApi{
     }
 
     @Override
-    public UserInfoResult RegisterMobileUser(String country, String mobile)throws CryptoException {
+    public UserInfoResult RegisterMobileUser(String country, String mobile) {
         RegisterArgs args = new RegisterArgs();
         args.setCountry(country);
         args.setMobile(mobile);
@@ -25,14 +25,14 @@ public class UserApi extends WaasApi implements IUserApi{
     }
 
     @Override
-    public UserInfoResult RegisterEmailUser(String email)throws CryptoException{
+    public UserInfoResult RegisterEmailUser(String email){
         RegisterArgs args = new RegisterArgs();
         args.setEmail(email);
         return this.invoke(ApiUri.CREATE_USER_EMAIL, args, UserInfoResult.class);
     }
 
     @Override
-    public UserInfoResult GetMobileUser(String country, String mobile) throws CryptoException{
+    public UserInfoResult GetMobileUser(String country, String mobile) {
         UserInfoArgs args = new UserInfoArgs();
         args.setCountry(country);
         args.setMobile(mobile);
@@ -40,7 +40,7 @@ public class UserApi extends WaasApi implements IUserApi{
     }
 
     @Override
-    public UserInfoResult GetEmailUser(String email)throws CryptoException{
+    public UserInfoResult GetEmailUser(String email){
         UserInfoArgs args = new UserInfoArgs();
         args.setEmail(email);
         return this.invoke(ApiUri.GET_USER_INFO, args, UserInfoResult.class);

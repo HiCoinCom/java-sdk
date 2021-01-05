@@ -17,7 +17,7 @@ public class AsyncNotifyApi extends  WaasApi implements IAsyncNotifyApi{
     }
 
     @Override
-    public AsyncNotifyArgs NotifyRequest(String cipher)throws CryptoException {
+    public AsyncNotifyArgs NotifyRequest(String cipher) {
         if(StringUtils.isBlank(cipher)){
             logger.info("NotifyRequest cipher can not be empty");
             return null;
@@ -44,7 +44,7 @@ public class AsyncNotifyApi extends  WaasApi implements IAsyncNotifyApi{
      * @return
      */
     @Override
-    public Withdraw VerifyRequest(String cipher)throws CryptoException {
+    public Withdraw VerifyRequest(String cipher) {
         if(StringUtils.isBlank(cipher)){
             logger.info("VerifyRequest cipher can not be empty");
             return null;
@@ -71,7 +71,7 @@ public class AsyncNotifyApi extends  WaasApi implements IAsyncNotifyApi{
      * @return
      */
     @Override
-    public String VerifyResponse(Withdraw withdraw)throws CryptoException{
+    public String VerifyResponse(Withdraw withdraw){
         if(withdraw == null){
             logger.info("VerifyResponse withdraw can not be empty");
             return null;

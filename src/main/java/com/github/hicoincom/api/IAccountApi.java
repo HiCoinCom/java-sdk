@@ -10,10 +10,10 @@ import com.github.hicoincom.api.bean.UserAddressResult;
  */
 public interface IAccountApi {
 
-    UserAccountResult GetUserAccount(Integer uid, String symbol) throws CryptoException;
+    UserAccountResult GetUserAccount(Integer uid, String symbol) ;
 
-    UserAddressResult GetUserAddress(Integer uid, String symbol) throws CryptoException;
+    UserAddressResult GetUserAddress(Integer uid, String symbol) ;
 
-    AccountResult GetCompanyAccount(String symbol) throws CryptoException;
+    AccountResult GetCompanyAccount(String symbol) ;
 
 }

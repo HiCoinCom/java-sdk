@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 1L;
+    private static final String SUCCESS_CODE = "0";
 
     private String code;
     private String msg;
@@ -37,5 +38,9 @@ public class Result<T> implements Serializable {
 
     public String toJson(){
         return JSONObject.toJSONString(this);
+    }
+
+    public boolean isSuccess(){
+        return SUCCESS_CODE.equals(this.getCode());
     }
 }

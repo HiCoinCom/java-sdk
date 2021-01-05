@@ -14,7 +14,7 @@ public class AccountApi extends  WaasApi implements IAccountApi{
     }
 
     @Override
-    public UserAccountResult GetUserAccount(Integer uid, String symbol) throws CryptoException {
+    public UserAccountResult GetUserAccount(Integer uid, String symbol)  {
         UserAccountArgs args = new UserAccountArgs();
         args.setSymbol(symbol);
         args.setUid(uid);
@@ -22,7 +22,7 @@ public class AccountApi extends  WaasApi implements IAccountApi{
     }
 
     @Override
-    public UserAddressResult GetUserAddress(Integer uid, String symbol) throws CryptoException{
+    public UserAddressResult GetUserAddress(Integer uid, String symbol) {
         UserAddressArgs args = new UserAddressArgs();
         args.setSymbol(symbol);
         args.setUid(uid);
@@ -30,7 +30,7 @@ public class AccountApi extends  WaasApi implements IAccountApi{
     }
 
     @Override
-    public AccountResult GetCompanyAccount(String symbol) throws CryptoException{
+    public AccountResult GetCompanyAccount(String symbol) {
         CompanyAccountArgs args = new CompanyAccountArgs();
         args.setSymbol(symbol);
 

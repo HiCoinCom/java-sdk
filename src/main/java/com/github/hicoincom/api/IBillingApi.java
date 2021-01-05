@@ -11,13 +11,13 @@ import java.util.List;
  *  资金相关api
  */
 public interface IBillingApi {
-    WithdrawResult Withdraw(WithdrawArgs args)  throws Exception;
+    WithdrawResult Withdraw(WithdrawArgs args) ;
 
-    WithdrawListResult WithdrawList(List<String> requestIdList)  throws Exception;
+    WithdrawListResult WithdrawList(List<String> requestIdList) ;
 
-    WithdrawListResult SyncWithdrawList(int maxId)  throws Exception;
+    WithdrawListResult SyncWithdrawList(int maxId) ;
 
-    DepositListResult DepositList(List<Integer> waasIdList)  throws Exception;
+    DepositListResult DepositList(List<Integer> waasIdList) ;
 
-    DepositListResult SyncDepositList(int maxId)  throws Exception;
+    DepositListResult SyncDepositList(int maxId) ;
 }

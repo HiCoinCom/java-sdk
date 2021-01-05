@@ -49,7 +49,7 @@ public class WaasApi {
      * @param <T>
      * @return
      */
-    protected <T> T invoke(ApiUri uri, BaseWaasArgs args, Class<T> clazz) throws CryptoException {
+    protected <T> T invoke(ApiUri uri, BaseWaasArgs args, Class<T> clazz)  {
         //默认参数
         args.setCharset(this.cfg.getCharset());
         args.setTime(System.currentTimeMillis());

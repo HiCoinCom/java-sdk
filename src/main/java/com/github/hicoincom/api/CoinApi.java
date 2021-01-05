@@ -20,7 +20,7 @@ public class CoinApi extends WaasApi implements ICoinApi{
      *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_getCoinList.html
      * @return
      */
-    public CoinInfoListResult getCoinList() throws CryptoException {
+    public CoinInfoListResult getCoinList()  {
         CoinInfoArgs args = new CoinInfoArgs();
         return this.invoke(ApiUri.COIN_LIST, args, CoinInfoListResult.class);
     }
