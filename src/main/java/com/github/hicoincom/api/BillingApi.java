@@ -51,4 +51,18 @@ public class BillingApi extends  WaasApi implements IBillingApi{
         args.setMaxId(maxId);
         return this.invoke(ApiUri.SYNC_DEPOSIT, args, DepositListResult.class);
     }
+
+    @Override
+    public MinerFeeListResult MinerFeeList(List<Integer> idList)  {
+        StringIdsArgs args = new StringIdsArgs();
+        args.setIdList(StringUtils.join(idList, ","));
+        return this.invoke(ApiUri.MINER_FEE_LIST, args, MinerFeeListResult.class);
+    }
+
+    @Override
+    public MinerFeeListResult SyncMinerFeeList(int maxId)  {
+        SyncDepositArgs args = new SyncDepositArgs();
+        args.setMaxId(maxId);
+        return this.invoke(ApiUri.SYNC_MINER_FEE, args, MinerFeeListResult.class);
+    }
 }

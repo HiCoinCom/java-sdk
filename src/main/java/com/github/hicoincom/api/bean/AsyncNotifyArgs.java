@@ -20,7 +20,7 @@ public class AsyncNotifyArgs extends BaseWaasArgs implements Serializable {
     private Date notifyTime;
     @JSONField(name ="request_id")
     private String requestId;
-    private String id;
+    private Integer id;
     private String uid;
     private String symbol;
     private BigDecimal amount;
@@ -66,11 +66,11 @@ public class AsyncNotifyArgs extends BaseWaasArgs implements Serializable {
         this.requestId = requestId;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

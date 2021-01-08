@@ -7,6 +7,7 @@ public class WaasConfig {
     private String domain = "https://openapi.hicoin.vip/api/v2";
     private String version = "v2";
     private String charset = "utf-8";
+    private Boolean enableLog = true;
 
     public String getAppId() {
         return appId;
@@ -54,5 +55,13 @@ public class WaasConfig {
 
     public void setCharset(String charset) {
         this.charset = charset;
+    }
+
+    public Boolean getEnableLog() {
+        return enableLog;
+    }
+
+    public void setEnableLog(Boolean enableLog) {
+        this.enableLog = enableLog;
     }
 }

@@ -1,6 +1,5 @@
 package com.github.hicoincom.api.bean;
 
-
 import com.alibaba.fastjson.annotation.JSONField;
 
 import java.io.Serializable;
@@ -8,27 +7,20 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- *  用户提现记录同步
- *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_syncWithdrawList.html
+ *  批量查询提归集记录
+ *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_depositList.html
  */
-public class Withdraw implements Serializable {
+public class MinerFee implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JSONField(name ="request_id")
-    private String requestId;
     private Integer id;
     private String uid;
     private String symbol;
     private BigDecimal amount;
-    @JSONField(name ="withdraw_fee_symbol")
-    private String withdrawFeeSymbol;
-    @JSONField(name ="withdraw_fee")
-    private BigDecimal withdrawFee;
-    @JSONField(name ="fee_symbol")
-    private String feeSymbol;
-    @JSONField(name ="real_fee")
-    private BigDecimal realFee;
+    private BigDecimal fee;
+    @JSONField(name ="address_from")
+    private String addressFrom;
     @JSONField(name ="address_to")
     private String addressTo;
     @JSONField(name ="created_at")
@@ -38,21 +30,6 @@ public class Withdraw implements Serializable {
     private String txid;
     private Integer confirmations;
     private Integer status;
-
-    @JSONField(name ="address_from")
-    private String addressFrom;
-    @JSONField(name ="saas_status")
-    private Integer saasStatus;
-    @JSONField(name ="companyStatus")
-    private Integer company_status;
-
-    public String getRequestId() {
-        return requestId;
-    }
-
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
-    }
 
     public Integer getId() {
         return id;
@@ -86,36 +63,12 @@ public class Withdraw implements Serializable {
         this.amount = amount;
     }
 
-    public String getWithdrawFeeSymbol() {
-        return withdrawFeeSymbol;
+    public BigDecimal getFee() {
+        return fee;
     }
 
-    public void setWithdrawFeeSymbol(String withdrawFeeSymbol) {
-        this.withdrawFeeSymbol = withdrawFeeSymbol;
-    }
-
-    public BigDecimal getWithdrawFee() {
-        return withdrawFee;
-    }
-
-    public void setWithdrawFee(BigDecimal withdrawFee) {
-        this.withdrawFee = withdrawFee;
-    }
-
-    public String getFeeSymbol() {
-        return feeSymbol;
-    }
-
-    public void setFeeSymbol(String feeSymbol) {
-        this.feeSymbol = feeSymbol;
-    }
-
-    public BigDecimal getRealFee() {
-        return realFee;
-    }
-
-    public void setRealFee(BigDecimal realFee) {
-        this.realFee = realFee;
+    public void setFee(BigDecimal fee) {
+        this.fee = fee;
     }
 
     public String getAddressTo() {
@@ -124,6 +77,14 @@ public class Withdraw implements Serializable {
 
     public void setAddressTo(String addressTo) {
         this.addressTo = addressTo;
+    }
+
+    public String getAddressFrom() {
+        return addressFrom;
+    }
+
+    public void setAddressFrom(String addressFrom) {
+        this.addressFrom = addressFrom;
     }
 
     public Date getCreatedAt() {
@@ -164,29 +125,5 @@ public class Withdraw implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    public String getAddressFrom() {
-        return addressFrom;
-    }
-
-    public void setAddressFrom(String addressFrom) {
-        this.addressFrom = addressFrom;
-    }
-
-    public Integer getSaasStatus() {
-        return saasStatus;
-    }
-
-    public void setSaasStatus(Integer saasStatus) {
-        this.saasStatus = saasStatus;
-    }
-
-    public Integer getCompany_status() {
-        return company_status;
-    }
-
-    public void setCompany_status(Integer company_status) {
-        this.company_status = company_status;
     }
 }

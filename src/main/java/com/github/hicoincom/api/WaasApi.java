@@ -57,9 +57,9 @@ public class WaasApi {
 
         //加密参数
         String raw = args.toJson();
-        logger.info("{}  raw args:", uri.getValue(), raw);
+        this.info("{}  raw args:{}", uri.getValue(), raw);
         String data = this.dataCrypto.encode(raw);
-        logger.info("{}  encode args:{}", data);
+        this.info("{}  encode args:{}", data);
 
         if(StringUtils.isBlank(data)){
             logger.error("{} encode args return null", uri.getValue());
@@ -77,7 +77,7 @@ public class WaasApi {
             resp = HttpClientUtil.getInstance().doPostWithJsonResult(url, params.toMap());
         }
 
-        logger.info("{} raw result:{}", uri.getValue(), resp);
+        this.info("{} raw result:{}", uri.getValue(), resp);
         //接口返回数据为空
         if(StringUtils.isBlank(resp)){
             logger.error("{} api return null", uri.getValue());
@@ -93,7 +93,7 @@ public class WaasApi {
 
         //解密响应数据
         String respRaw = this.dataCrypto.decode(jsonObject.getString("data"));
-        logger.info("{} decode result :{}", uri.getValue(), respRaw);
+        this.info("{} decode result :{}", uri.getValue(), respRaw);
         if(StringUtils.isBlank(respRaw)){
             logger.error("{} decode result return null", uri.getValue());
             return null;
@@ -105,5 +105,11 @@ public class WaasApi {
             return null;
         }
         return result;
+    }
+
+    protected void info(String format, Object...  object){
+        if(this.getCfg().getEnableLog()) {
+            logger.info(format, object);
+        }
     }
 }

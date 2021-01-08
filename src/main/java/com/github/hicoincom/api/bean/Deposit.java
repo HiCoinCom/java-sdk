@@ -14,10 +14,12 @@ public class Deposit implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String id;
+    private Integer id;
     private String uid;
     private String symbol;
     private BigDecimal amount;
+    @JSONField(name ="address_from")
+    private String addressFrom;
     @JSONField(name ="address_to")
     private String addressTo;
     @JSONField(name ="created_at")
@@ -27,12 +29,14 @@ public class Deposit implements Serializable {
     private String txid;
     private Integer confirmations;
     private Integer status;
+    @JSONField(name ="is_mining")
+    private Byte mining;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -66,6 +70,14 @@ public class Deposit implements Serializable {
 
     public void setAddressTo(String addressTo) {
         this.addressTo = addressTo;
+    }
+
+    public String getAddressFrom() {
+        return addressFrom;
+    }
+
+    public void setAddressFrom(String addressFrom) {
+        this.addressFrom = addressFrom;
     }
 
     public Date getCreatedAt() {
@@ -106,5 +118,13 @@ public class Deposit implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Byte getMining() {
+        return mining;
+    }
+
+    public void setMining(Byte mining) {
+        this.mining = mining;
     }
 }

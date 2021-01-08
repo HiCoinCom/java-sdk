@@ -1,9 +1,6 @@
 package com.github.hicoincom.api;
 
-import com.github.hicoincom.api.bean.DepositListResult;
-import com.github.hicoincom.api.bean.WithdrawArgs;
-import com.github.hicoincom.api.bean.WithdrawResult;
-import com.github.hicoincom.api.bean.WithdrawListResult;
+import com.github.hicoincom.api.bean.*;
 
 import java.util.List;
 
@@ -20,4 +17,8 @@ public interface IBillingApi {
     DepositListResult DepositList(List<Integer> waasIdList) ;
 
     DepositListResult SyncDepositList(int maxId) ;
+
+    MinerFeeListResult MinerFeeList(List<Integer> waasIdList) ;
+
+    MinerFeeListResult SyncMinerFeeList(int maxId) ;
 }

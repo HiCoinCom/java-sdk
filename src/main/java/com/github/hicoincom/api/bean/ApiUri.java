@@ -67,6 +67,16 @@ public enum  ApiUri {
      */
      DEPOSIT_LIST (  "/billing/depositList", "POST"),
 
+    /**
+     * 同步矿工费记录
+     */
+    SYNC_MINER_FEE(  "/billing/syncMinerFeeList", "POST"),
+
+    /**
+     * 批量获取矿工费记录
+     */
+    MINER_FEE_LIST (  "/billing/minerFeeList", "POST"),
+
     ;
 
      private String value;
