@@ -43,8 +43,8 @@ public class Withdraw implements Serializable {
     private String addressFrom;
     @JSONField(name ="saas_status")
     private Integer saasStatus;
-    @JSONField(name ="companyStatus")
-    private Integer company_status;
+    @JSONField(name ="company_status")
+    private Integer companyStatus;
 
     public String getRequestId() {
         return requestId;
@@ -182,11 +182,11 @@ public class Withdraw implements Serializable {
         this.saasStatus = saasStatus;
     }
 
-    public Integer getCompany_status() {
-        return company_status;
+    public Integer getCompanyStatus() {
+        return companyStatus;
     }
 
-    public void setCompany_status(Integer company_status) {
-        this.company_status = company_status;
+    public void setCompanyStatus(Integer companyStatus) {
+        this.companyStatus = companyStatus;
     }
 }

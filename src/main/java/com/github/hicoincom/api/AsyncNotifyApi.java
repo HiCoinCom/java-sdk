@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.hicoincom.WaasConfig;
 import com.github.hicoincom.api.bean.AsyncNotifyArgs;
 import com.github.hicoincom.api.bean.Withdraw;
+import com.github.hicoincom.api.bean.WithdrawArgs;
 import com.github.hicoincom.crypto.IDataCrypto;
 import com.github.hicoincom.exception.CryptoException;
 import org.apache.commons.lang3.StringUtils;
@@ -44,20 +45,20 @@ public class AsyncNotifyApi extends  WaasApi implements IAsyncNotifyApi{
      * @return
      */
     @Override
-    public Withdraw VerifyRequest(String cipher) {
+    public WithdrawArgs VerifyRequest(String cipher) {
         if(StringUtils.isBlank(cipher)){
-            logger.info("VerifyRequest cipher can not be empty");
+            this.info("VerifyRequest cipher can not be empty");
             return null;
         }
 
         String raw = this.dataCrypto.decode(cipher);
-        logger.info("VerifyRequest decode data:{}", raw);
+        this.info("VerifyRequest decode data:{}", raw);
         if(StringUtils.isBlank(raw)){
             logger.error("VerifyRequest decode cipher return null");
             return null;
         }
 
-        Withdraw withdraw = JSONObject.parseObject(raw, Withdraw.class);
+        WithdrawArgs withdraw = JSONObject.parseObject(raw, WithdrawArgs.class);
         if(withdraw == null){
             logger.error("VerifyRequest json decode withdraw return null");
             return null;
@@ -71,9 +72,9 @@ public class AsyncNotifyApi extends  WaasApi implements IAsyncNotifyApi{
      * @return
      */
     @Override
-    public String VerifyResponse(Withdraw withdraw){
+    public String VerifyResponse(WithdrawArgs withdraw){
         if(withdraw == null){
-            logger.info("VerifyResponse withdraw can not be empty");
+            logger.error("VerifyResponse withdraw can not be empty");
             return null;
         }
 

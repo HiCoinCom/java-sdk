@@ -1,8 +1,7 @@
 package com.github.hicoincom.api;
 
 import com.github.hicoincom.api.bean.AsyncNotifyArgs;
-import com.github.hicoincom.api.bean.Withdraw;
-import com.github.hicoincom.exception.CryptoException;
+import com.github.hicoincom.api.bean.WithdrawArgs;
 
 /**
  *  异步回调通知相关api(提供给waas的接口)
@@ -20,12 +19,12 @@ public interface IAsyncNotifyApi {
      * @param cipher
      * @return
      */
-    Withdraw VerifyRequest(String cipher);
+    WithdrawArgs VerifyRequest(String cipher);
 
     /**
      *  加密二次验证提现响应数据
      * @param withdraw
      * @return
      */
-    String VerifyResponse(Withdraw withdraw);
+    String VerifyResponse(WithdrawArgs withdraw);
 }

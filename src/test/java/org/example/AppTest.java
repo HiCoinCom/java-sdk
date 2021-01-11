@@ -86,7 +86,7 @@ public class AppTest
         System.out.print(client.getAsyncNotifyApi().VerifyRequest("密文"));
 
         //加密二次验证响应数据
-        System.out.print(client.getAsyncNotifyApi().VerifyResponse(withdraw.getData()));
+        System.out.print(client.getAsyncNotifyApi().VerifyResponse(args));
 
         assertTrue( true );
     }
