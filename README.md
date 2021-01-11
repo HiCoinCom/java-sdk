@@ -13,7 +13,7 @@ maven项目直接引用
 <dependency>
   <groupId>com.github.hicoincom</groupId>
   <artifactId>waas-sdk</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 
@@ -82,6 +82,6 @@ System.out.print(client.getAsyncNotifyApi().NotifyRequest("密文"));
 System.out.print(client.getAsyncNotifyApi().VerifyRequest("密文"));
 
 //加密二次验证响应数据
-System.out.print(client.getAsyncNotifyApi().VerifyResponse(withdraw.getData()));
+System.out.print(client.getAsyncNotifyApi().VerifyResponse(args));
 ```
 
