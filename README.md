@@ -32,7 +32,7 @@ cfg.setWaasPublickKey("waas 公钥");
 WaasClient client = WaasClientFactory.CreateClient(cfg);
 
 //注册邮箱用户
-System.out.print(client.getUserApi().GetEmailUser("test@admin.com").toJson());
+System.out.print(client.getUserApi().RegisterEmailUser("test@admin.com").toJson());
 //查询用户信息
 UserInfoResult userInfo = client.getUserApi().GetEmailUser("test@admin.com");
 System.out.print(userInfo.toJson());
