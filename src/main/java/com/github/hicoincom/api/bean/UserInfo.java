@@ -13,7 +13,7 @@ public class UserInfo implements Serializable {
     protected Integer uid;
 
     @JSONField(name ="nickname")
-    protected Integer nickname;
+    protected String nickname;
 
     public Integer getUid() {
         return uid;
@@ -23,11 +23,11 @@ public class UserInfo implements Serializable {
         this.uid = uid;
     }
 
-    public Integer getNickname() {
+    public String getNickname() {
         return nickname;
     }
 
-    public void setNickname(Integer nickname) {
+    public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 }
