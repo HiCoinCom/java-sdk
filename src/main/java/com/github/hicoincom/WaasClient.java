@@ -8,6 +8,7 @@ public class WaasClient {
     private IBillingApi billingApi;
     private ICoinApi coinApi;
     private IUserApi userApi;
+    private ITransferApi transferApi;
 
     public WaasClient(){}
 
@@ -50,4 +51,8 @@ public class WaasClient {
     public void setUserApi(IUserApi userApi) {
         this.userApi = userApi;
     }
+
+    public ITransferApi getTransferApi() { return transferApi; }
+
+    public void setTransferApi(ITransferApi transferApi) { this.transferApi = transferApi; }
 }

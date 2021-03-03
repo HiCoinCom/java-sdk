@@ -17,6 +17,7 @@ public class WaasClientFactory {
         client.setBillingApi(new BillingApi(cfg, crypto));
         client.setCoinApi(new CoinApi(cfg, crypto));
         client.setUserApi(new UserApi(cfg, crypto));
+        client.setTransferApi(new TransferApi(cfg, crypto));
         return client;
     }
 }

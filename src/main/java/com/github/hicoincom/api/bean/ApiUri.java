@@ -77,6 +77,20 @@ public enum  ApiUri {
      */
     MINER_FEE_LIST (  "/billing/minerFeeList", "POST"),
 
+    /**
+     * WaaS内部商户互相转账
+     */
+    ACCOUNT_TRANSFER("/account/transfer","POST") ,
+
+    /**
+     * 查询转账记录
+     */
+    ACCOUNT_TRANSFER_LIST("/account/transferList","POST"),
+
+    /**
+     * 同步转账记录
+     */
+    SYNC_ACCOUNT_TRANSFER_LIST("/account/syncTransferList","POST")
     ;
 
      private String value;

@@ -7,7 +7,7 @@
   <groupId>com.github.hicoincom</groupId>
   <artifactId>waas-sdk</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 
   <name>waas-sdk</name>
   <description>chainup waas client sdk</description>
