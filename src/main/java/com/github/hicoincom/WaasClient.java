@@ -10,7 +10,8 @@ public class WaasClient {
     private IUserApi userApi;
     private ITransferApi transferApi;
 
-    public WaasClient(){}
+    public WaasClient() {
+    }
 
     public IAccountApi getAccountApi() {
         return accountApi;
@@ -52,7 +53,11 @@ public class WaasClient {
         this.userApi = userApi;
     }
 
-    public ITransferApi getTransferApi() { return transferApi; }
+    public ITransferApi getTransferApi() {
+        return transferApi;
+    }
 
-    public void setTransferApi(ITransferApi transferApi) { this.transferApi = transferApi; }
+    public void setTransferApi(ITransferApi transferApi) {
+        this.transferApi = transferApi;
+    }
 }

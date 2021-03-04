@@ -28,10 +28,10 @@ public class TransferApi extends WaasApi implements ITransferApi {
      * 查询转账记录
      */
     @Override
-    public TransferListResult getAccountTransferList(String ids, String ids_type) {
+    public TransferListResult getAccountTransferList(String ids, String idsType) {
         TransferListArgs args = new TransferListArgs();
         args.setIds(ids);
-        args.setIds_type(ids_type);
+        args.setIdsType(idsType);
         return this.invoke(ApiUri.ACCOUNT_TRANSFER_LIST, args, TransferListResult.class);
     }
 
@@ -39,9 +39,9 @@ public class TransferApi extends WaasApi implements ITransferApi {
      * 同步转账记录
      */
     @Override
-    public TransferListResult syncAccountTransferList(Integer max_id) {
+    public TransferListResult syncAccountTransferList(Integer maxId) {
         SyncTransferListArgs args = new SyncTransferListArgs();
-        args.setMax_id(max_id);
+        args.setMaxId(maxId);
         return this.invoke(ApiUri.SYNC_ACCOUNT_TRANSFER_LIST, args, TransferListResult.class);
     }
 

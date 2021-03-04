@@ -6,7 +6,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- * 短信邮箱注册参数
+ * 转账信息实体类
  */
 public class Transfer implements Serializable {
 

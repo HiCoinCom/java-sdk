@@ -1,18 +1,21 @@
 package com.github.hicoincom.api.bean;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * 短信邮箱注册参数
+ * 转账入参
  */
 public class TransferArgs extends BaseWaasArgs implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String symbol;
-    private String request_id;
+    @JSONField(name = "request_id")
+    private String requestId;
     private String to;
     private String remark;
     private BigDecimal amount;
@@ -25,12 +28,12 @@ public class TransferArgs extends BaseWaasArgs implements Serializable {
         this.symbol = symbol;
     }
 
-    public String getRequest_id() {
-        return request_id;
+    public String getRequestId() {
+        return requestId;
     }
 
-    public void setRequest_id(String request_id) {
-        this.request_id = request_id;
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
     }
 
     public String getTo() {

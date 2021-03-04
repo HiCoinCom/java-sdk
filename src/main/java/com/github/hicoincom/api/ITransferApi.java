@@ -20,11 +20,11 @@ public interface ITransferApi {
     /**
      * 查询转账记录
      */
-    TransferListResult getAccountTransferList(String ids, String ids_type);
+    TransferListResult getAccountTransferList(String ids, String idsType);
 
     /**
      * 同步转账记录
      */
-    TransferListResult syncAccountTransferList(Integer max_id);
+    TransferListResult syncAccountTransferList(Integer maxId);
 
 }

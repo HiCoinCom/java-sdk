@@ -107,7 +107,7 @@ public class AppTest {
         TransferArgs args = new TransferArgs();
         args.setAmount(new BigDecimal("0.001"));
         args.setRemark("this is a transfer operation");
-        args.setRequest_id("23434341");
+        args.setRequestId("234343411");
         args.setSymbol("usdt");
         args.setTo("10c533a212a795f692db6684d70c95e9");
         System.out.println("转账结果：---"+client.getTransferApi().accountTransfer(args).toJson());

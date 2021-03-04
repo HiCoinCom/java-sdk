@@ -1,6 +1,8 @@
 package com.github.hicoincom.api.bean;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -10,13 +12,14 @@ public class SyncTransferListArgs extends BaseWaasArgs implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer max_id;
+    @JSONField(name = "max_id")
+    private Integer maxId;
 
-    public Integer getMax_id() {
-        return max_id;
+    public Integer getMaxId() {
+        return maxId;
     }
 
-    public void setMax_id(Integer max_id) {
-        this.max_id = max_id;
+    public void setMaxId(Integer maxId) {
+        this.maxId = maxId;
     }
 }

@@ -14,7 +14,7 @@ public class TransferListArgs extends BaseWaasArgs implements Serializable {
     /**
      * id 类型（request_id：请求ID（默认）；receipt：转账凭证）
      */
-    private String ids_type;
+    private String idsType;
 
     public String getIds() {
         return ids;
@@ -24,11 +24,11 @@ public class TransferListArgs extends BaseWaasArgs implements Serializable {
         this.ids = ids;
     }
 
-    public String getIds_type() {
-        return ids_type;
+    public String getIdsType() {
+        return idsType;
     }
 
-    public void setIds_type(String ids_type) {
-        this.ids_type = ids_type;
+    public void setIdsType(String idsType) {
+        this.idsType = idsType;
     }
 }
