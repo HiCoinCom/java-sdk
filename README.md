@@ -13,7 +13,7 @@ maven项目直接引用
 <dependency>
   <groupId>com.github.hicoincom</groupId>
   <artifactId>waas-sdk</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 </dependency>
 ```
 
@@ -82,6 +82,20 @@ System.out.print(client.getAsyncNotifyApi().NotifyRequest("密文"));
 System.out.print(client.getAsyncNotifyApi().VerifyRequest("密文"));
 
 //加密二次验证响应数据
-System.out.print(client.getAsyncNotifyApi().VerifyResponse(args));
+System.out.print(client.getAsyncNotifyApi().VerifyResponse(args))
+
+//转账及查询转账记录等相关操作
+TransferArgs args = new TransferArgs();
+args.setAmount(new BigDecimal("0.001"));
+args.setRemark("this is a transfer operation");
+args.setRequestId("234343411");
+args.setSymbol("usdt");
+args.setTo("10c533a212a795f692db6684d70c95e9");
+System.out.println("转账结果：---"+client.getTransferApi().accountTransfer(args).toJson());
+
+System.out.println("获取转账记录：---"+client.getTransferApi().getAccountTransferList("123", ITransferApi.REQUEST_ID).toJson());
+
+System.out.println("同步转账记录：---"+client.getTransferApi().syncAccountTransferList(0).toJson());
+
 ```
 
