@@ -28,7 +28,7 @@ public class CoinInfo implements Serializable {
     private Byte supportMemo;
     @JSONField(name ="support_token")
     private Byte supportToken;
-    @JSONField(name ="addres_regex")
+    @JSONField(name ="address_regex")
     private String addressRegex;
     @JSONField(name ="address_tag_regex")
     private String addressTagRegex;

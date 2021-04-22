@@ -13,7 +13,7 @@ maven项目直接引用
 <dependency>
   <groupId>com.github.hicoincom</groupId>
   <artifactId>waas-sdk</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
 </dependency>
 ```
 

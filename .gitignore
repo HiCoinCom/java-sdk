@@ -1,5 +1,5 @@
 *.class
-
+deploy.txt
 # Package Files #
 *.jar
 *.war

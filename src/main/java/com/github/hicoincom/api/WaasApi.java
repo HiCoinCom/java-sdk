@@ -59,7 +59,7 @@ public class WaasApi {
         String raw = args.toJson();
         this.info("{}  raw args:{}", uri.getValue(), raw);
         String data = this.dataCrypto.encode(raw);
-        this.info("{}  encode args:{}", data);
+        this.info("{}  encode args:{}", uri.getValue(), data);
 
         if(StringUtils.isBlank(data)){
             logger.error("{} encode args return null", uri.getValue());
