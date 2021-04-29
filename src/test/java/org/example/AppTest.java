@@ -8,13 +8,14 @@ import com.github.hicoincom.api.bean.TransferArgs;
 import com.github.hicoincom.api.bean.UserInfoResult;
 import com.github.hicoincom.api.bean.WithdrawArgs;
 import com.github.hicoincom.api.bean.WithdrawResult;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * Unit test for simple App.
@@ -23,7 +24,7 @@ public class AppTest {
     /**
      * Rigorous Test :-)
      */
-    @Test
+    //@Test
     public void shouldAnswerWithTrue() throws Exception {
         WaasConfig cfg = new WaasConfig();
         //cfg.setDomain("接口域名");
