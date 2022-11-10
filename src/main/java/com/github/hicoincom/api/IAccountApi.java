@@ -6,7 +6,7 @@ import com.github.hicoincom.api.bean.AccountResult;
 import com.github.hicoincom.api.bean.UserAddressResult;
 
 /**
- *  账户操作相关api
+ *  Account operation related api
  */
 public interface IAccountApi {
 

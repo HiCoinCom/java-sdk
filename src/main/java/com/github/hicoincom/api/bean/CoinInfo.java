@@ -6,7 +6,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- *  获取币种列表
+ *  Get a list of currencies
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_getCoinList.html
  */
 public class CoinInfo implements Serializable {

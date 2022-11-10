@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- *  异步通知接口参数
+ *  Asynchronous notification interface parameters
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_notify.html
  */
 public class AsyncNotifyArgs extends BaseWaasArgs implements Serializable {

@@ -4,7 +4,7 @@ import com.github.hicoincom.api.bean.UserInfoResult;
 import com.github.hicoincom.exception.CryptoException;
 
 /**
- *  用户api
+ *  user related api
  */
 public interface IUserApi {
     UserInfoResult RegisterMobileUser(String country, String mobile) ;

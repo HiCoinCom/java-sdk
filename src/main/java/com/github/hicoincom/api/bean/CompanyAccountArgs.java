@@ -4,7 +4,7 @@ package com.github.hicoincom.api.bean;
 import java.io.Serializable;
 
 /**
- *  归集商户 账户余额
+ *  Collect merchant account balance
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/account_getCompanyBySymbol.html
  */
 public class CompanyAccountArgs extends BaseWaasArgs implements Serializable {

@@ -6,7 +6,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- *  用户提现记录同步
+ *  User withdrawal record synchronization
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_syncWithdrawList.html
  */
 public class SyncWithdrawArgs extends BaseWaasArgs implements Serializable {

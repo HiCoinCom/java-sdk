@@ -4,7 +4,7 @@ package com.github.hicoincom.api.bean;
 import java.io.Serializable;
 
 /**
- *  短信邮箱注册参数
+ *  SMS mailbox registration parameters
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_createUser.html
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_registerEmail.html
  */

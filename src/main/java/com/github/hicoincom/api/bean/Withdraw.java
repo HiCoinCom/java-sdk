@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- *  用户提现记录同步
+ *  withdrawal entity
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_syncWithdrawList.html
  */
 public class Withdraw implements Serializable {

@@ -42,7 +42,7 @@ public class WaasApi {
     }
 
     /**
-     *  请求waas 接口
+     *  call waas api
      * @param uri
      * @param args
      * @param clazz

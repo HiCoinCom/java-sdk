@@ -6,7 +6,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- * 转账记录列表参数
+ * Transfer Record List Parameters
  */
 public class TransferListArgs extends BaseWaasArgs implements Serializable {
 
@@ -14,7 +14,7 @@ public class TransferListArgs extends BaseWaasArgs implements Serializable {
 
     private String ids;
     /**
-     * id 类型（request_id：请求ID（默认）；receipt：转账凭证） ids_type
+     * id type（request_id：request ID（default）；receipt：） ids_type
      */
     @JSONField(name = "ids_type")
     private String idsType;

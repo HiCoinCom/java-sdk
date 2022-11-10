@@ -19,17 +19,17 @@ import java.util.*;
 public class RSAHelper {
 
 	/** *//**
-	 * 加密算法RSA
+	 * Encryption Algorithm RSA
 	 */
 	public static final String KEY_ALGORITHM = "RSA";
 
 	/** *//**
-	 * RSA最大加密明文大小
+	 * RSA maximum encrypted plaintext size
 	 */
 	private static final int MAX_ENCRYPT_BLOCK = 234;
 
 	/** *//**
-	 * RSA最大解密密文大小
+	 * RSA maximum decrypted ciphertext size
 	 */
 	private static final int MAX_DECRYPT_BLOCK = 256;
 
@@ -37,7 +37,7 @@ public class RSAHelper {
 	private static final String CHARSET ="UTF-8";
 
 	/**
-	 * 产生公钥和私钥
+	 * Generate public and private keys
 	 */
 	public static RSAKey genRSAKeys() {
 		RSAKey key = null;
@@ -69,9 +69,9 @@ public class RSAHelper {
 	}
 
 	/**
-	 * 得到公钥
+	 * get the public key
 	 *
-	 * @param key 公钥字符串（经过base64编码）
+	 * @param key public key string (base 64 encoded)
 	 * @throws Exception
 	 */
 	public static PublicKey getPublicKey(String key) throws Exception {
@@ -93,9 +93,9 @@ public class RSAHelper {
 	}
 
 	/**
-	 * 得到私钥
+	 * get private key
 	 *
-	 * @param key 私钥字符串（经过base64编码）
+	 * @param key Private key string (base 64 encoded)
 	 * @throws Exception
 	 */
 	public static PrivateKey getPrivateKey(String key) throws Exception {
@@ -108,7 +108,7 @@ public class RSAHelper {
 	}
 
 	/**
-	 * 得到密钥字符串（经过base64编码）
+	 * Get the key string (base64 encoded)
 	 *
 	 * @return
 	 */
@@ -119,10 +119,10 @@ public class RSAHelper {
 	}
 
 	/**
-	 *  公钥验证签名
-	 * @param data 待验证的数据
-	 * @param sigStr 待验证的签名
-	 * @param pubKey  base64公钥
+	 *  Public key verification signature
+	 * @param data Data to be verified
+	 * @param sigStr Signature to be verified
+	 * @param pubKey  base 64 public key
 	 * @return
 	 * @throws Exception
 	 */
@@ -145,9 +145,9 @@ public class RSAHelper {
 	}
 
 	/**
-	 *  私钥生成签名
-	 * @param data 待签名的数据
-	 * @param privKey base64私钥
+	 *  Private key to generate signature
+	 * @param data data to be signed
+	 * @param privKey base 64 private key
 	 * @return
 	 * @throws Exception
 	 */
@@ -193,11 +193,11 @@ public class RSAHelper {
 
 	/** *//**
 	 * <p>
-	 * 公钥解密
+	 * public key decryption
 	 * </p>
 	 *
-	 * @param encryptedData 已加密数据
-	 * @param publicKey 公钥(BASE64编码)
+	 * @param encryptedData encrypted data
+	 * @param publicKey public key base 64 encoded
 	 * @return
 	 * @throws Exception
 	 */
@@ -231,9 +231,9 @@ public class RSAHelper {
 	}
 
 	/**
-	 *  公钥分段解密
-	 * @param encryptedData 加密的base64数据
-	 * @param publicKey rsa 公钥
+	 *  Public key segment decryption
+	 * @param encryptedData encrypted base 64 data
+	 * @param publicKey rsa public key
 	 * @return
 	 */
 	public static String decryptByPublicKey(String encryptedData, String publicKey){
@@ -257,11 +257,11 @@ public class RSAHelper {
 
 	/** *//**
 	 * <p>
-	 * 私钥加密
+	 * private key encryption
 	 * </p>
 	 *
-	 * @param data 源数据
-	 * @param privateKey 私钥(BASE64编码)
+	 * @param data source data
+	 * @param privateKey Private key (BASE 64 encoded)
 	 * @return
 	 * @throws Exception
 	 */
@@ -295,9 +295,9 @@ public class RSAHelper {
 	}
 
 	/**
-	 *  私钥分段加密数据
-	 * @param data 待加密数据
-	 * @param privateKey  私钥
+	 *  Private key segment decryption
+	 * @param data data to be encrypted
+	 * @param privateKey  private key
 	 * @return
 	 */
 	public static String encryptByPrivateKey(String data, String privateKey){
@@ -331,7 +331,7 @@ public class RSAHelper {
 		params.put("a",  "eth");
 		params.put("b",  "0.000001");
 		params.put("c",  "12");
-		params.put("d",  "中文");
+		params.put("d",  "English");
 
 		byte[] data = httpParamsBuild(params).getBytes("UTF-8");
 
@@ -343,10 +343,10 @@ public class RSAHelper {
 		System.out.println("pub verify sign: " + verifySign(data, sign, key.getPublicKey()));
 
 		//错误签名
-		System.out.println("pub verify sign: " + verifySign("b=0.000001&a=eth&c=12&d=中文&time=1585032445347".getBytes("UTF-8"), sign, key.getPublicKey()));
+		System.out.println("pub verify sign: " + verifySign("b=0.000001&a=eth&c=12&d=English&time=1585032445347".getBytes("UTF-8"), sign, key.getPublicKey()));
 
 		//错误签名
-		System.out.println("pub verify sign: " + verifySign("b=0.000001&c=12&d=中文".getBytes("UTF-8"), sign, key.getPublicKey()));
+		System.out.println("pub verify sign: " + verifySign("b=0.000001&c=12&d=English".getBytes("UTF-8"), sign, key.getPublicKey()));
 
 	}
 

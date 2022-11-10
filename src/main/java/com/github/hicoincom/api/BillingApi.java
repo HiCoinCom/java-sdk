@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 /**
- *  资金相关api
+ *  Fund related api
  */
 public class BillingApi extends  WaasApi implements IBillingApi{
     public BillingApi(WaasConfig cfg, IDataCrypto crypto){

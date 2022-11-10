@@ -1,12 +1,12 @@
 package com.github.hicoincom.api.bean;
 
 /**
- *  waas调用平台接口数据类型
+ *  waas call platform interface data type
  */
 public enum AsyncNotifyType {
-    /**充值提现通知*/
+    /**Deposit and withdrawal notice*/
     withdrawOrDeposit,
-    /**商户划账通知**/
+    /**Merchant Transfer Notice**/
     transfer,
     ;
 }

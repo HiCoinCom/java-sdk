@@ -3,14 +3,12 @@ package com.github.hicoincom.api;
 import com.alibaba.fastjson.JSONObject;
 import com.github.hicoincom.WaasConfig;
 import com.github.hicoincom.api.bean.AsyncNotifyArgs;
-import com.github.hicoincom.api.bean.Withdraw;
 import com.github.hicoincom.api.bean.WithdrawArgs;
 import com.github.hicoincom.crypto.IDataCrypto;
-import com.github.hicoincom.exception.CryptoException;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- *  异步回调通知相关api(提供给waas的接口)
+ *  Asynchronous callback notification related api (interface provided to waas)
  */
 public class AsyncNotifyApi extends  WaasApi implements IAsyncNotifyApi{
     public AsyncNotifyApi(WaasConfig cfg, IDataCrypto crypto){
@@ -40,7 +38,7 @@ public class AsyncNotifyApi extends  WaasApi implements IAsyncNotifyApi{
     }
 
     /**
-     *  解密提现二次验证请求参数
+     *  Decryption withdrawal secondary verification request parameters
      * @param cipher
      * @return
      */
@@ -67,7 +65,7 @@ public class AsyncNotifyApi extends  WaasApi implements IAsyncNotifyApi{
     }
 
     /**
-     *  加密二次验证提现响应数据
+     * Encrypt the secondary verification withdrawal response data
      * @param withdraw
      * @return
      */

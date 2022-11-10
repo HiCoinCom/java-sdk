@@ -6,7 +6,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- * 转账信息实体类
+ * Transfer information entity class
  */
 public class Transfer implements Serializable {
 

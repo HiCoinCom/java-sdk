@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- *  批量查询提归集记录
+ *  Batch query collection records
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_depositList.html
  */
 public class MinerFee implements Serializable {

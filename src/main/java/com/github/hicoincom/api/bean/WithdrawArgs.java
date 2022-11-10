@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- *  用户提现
+ *  withdraw args
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_withdraw.html
  */
 public class WithdrawArgs extends BaseWaasArgs implements Serializable {

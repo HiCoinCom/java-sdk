@@ -4,7 +4,7 @@ package com.github.hicoincom.api.bean;
 import java.io.Serializable;
 
 /**
- *  短信邮箱注册参数
+ *  user account args
  */
 public class UserAccountArgs extends BaseWaasArgs implements Serializable {
 

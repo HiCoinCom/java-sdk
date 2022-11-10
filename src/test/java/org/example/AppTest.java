@@ -27,12 +27,11 @@ public class AppTest {
     //@Test
     public void shouldAnswerWithTrue() throws Exception {
         WaasConfig cfg = new WaasConfig();
-        //cfg.setDomain("接口域名");
-        cfg.setAppId("商户app id");
+        cfg.setAppId("Merchant app id");
 
-        cfg.setUserPrivateKey("商户私钥");
+        cfg.setUserPrivateKey("Merchant Private key");
 
-        cfg.setWaasPublickKey("waas 公钥");
+        cfg.setWaasPublickKey("waas public key");
 
         WaasClient client = WaasClientFactory.CreateClient(cfg);
 
@@ -96,12 +95,11 @@ public class AppTest {
     @Test
     public void acountTransferOperations()  {
         WaasConfig cfg = new WaasConfig();
-        //cfg.setDomain("接口域名");
-        cfg.setAppId("商户app id");
+        cfg.setAppId("Merchant app id");
 
-        cfg.setUserPrivateKey("商户私钥");
+        cfg.setUserPrivateKey("Merchant private key");
 
-        cfg.setWaasPublickKey("waas 公钥");
+        cfg.setWaasPublickKey("waas public key");
 
         WaasClient client = WaasClientFactory.CreateClient(cfg);
 
@@ -111,11 +109,11 @@ public class AppTest {
         args.setRequestId("234343411");
         args.setSymbol("usdt");
         args.setTo("10c533a212a795f692db6684d70c95e9");
-        System.out.println("转账结果：---"+client.getTransferApi().accountTransfer(args).toJson());
+        System.out.println("transfer result：---"+client.getTransferApi().accountTransfer(args).toJson());
 
-        System.out.println("获取转账记录：---"+client.getTransferApi().getAccountTransferList("123", ITransferApi.REQUEST_ID).toJson());
+        System.out.println("gain transfer record ：---"+client.getTransferApi().getAccountTransferList("123", ITransferApi.REQUEST_ID).toJson());
 
-        System.out.println("同步转账记录：---"+client.getTransferApi().syncAccountTransferList(0).toJson());
+        System.out.println("Sync transfer records：---"+client.getTransferApi().syncAccountTransferList(0).toJson());
 
     }
 }

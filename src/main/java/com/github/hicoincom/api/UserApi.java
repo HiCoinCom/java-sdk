@@ -9,7 +9,7 @@ import com.github.hicoincom.crypto.IDataCrypto;
 import com.github.hicoincom.exception.CryptoException;
 
 /**
- *  用户api
+ *  user related api
  */
 public class UserApi extends WaasApi implements IUserApi{
     public UserApi(WaasConfig cfg, IDataCrypto crypto){

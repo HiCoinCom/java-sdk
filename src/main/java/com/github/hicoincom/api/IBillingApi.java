@@ -5,7 +5,7 @@ import com.github.hicoincom.api.bean.*;
 import java.util.List;
 
 /**
- *  资金相关api
+ *  Funding related APIs
  */
 public interface IBillingApi {
     WithdrawResult Withdraw(WithdrawArgs args) ;

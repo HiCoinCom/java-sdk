@@ -8,7 +8,7 @@ import com.github.hicoincom.crypto.IDataCrypto;
 import com.github.hicoincom.exception.CryptoException;
 
 /**
- *  币种api
+ *   coin related api
  */
 public class CoinApi extends WaasApi implements ICoinApi{
     public CoinApi(WaasConfig cfg, IDataCrypto crypto){
@@ -16,7 +16,7 @@ public class CoinApi extends WaasApi implements ICoinApi{
     }
 
     /**
-     *  获取币种列表
+     *  get coin list
      *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_getCoinList.html
      * @return
      */

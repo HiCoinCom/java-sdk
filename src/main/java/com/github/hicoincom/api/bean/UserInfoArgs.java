@@ -4,7 +4,7 @@ package com.github.hicoincom.api.bean;
 import java.io.Serializable;
 
 /**
- *  用户信息查询
+ *  userinfo query args
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_info.html
  */
 public class UserInfoArgs extends BaseWaasArgs implements Serializable {

@@ -6,11 +6,11 @@ import com.github.hicoincom.exception.CryptoException;
 import java.util.List;
 
 /**
- *  币种api
+ *  coin related api
  */
 public interface ICoinApi {
     /**
-     *  获取币种列表
+     *  get coin list
      *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_getCoinList.html
      * @return
      */

@@ -6,89 +6,89 @@ package com.github.hicoincom.api.bean;
 public enum  ApiUri {
 
     /**
-     * 用户手机注册地址
+     * User's mobile phone registration address
      */
      CREATE_USER_MOBILE ( "/user/createUser", "POST"),
 
     /**
-     * 用户邮箱（虚拟账号）注册
+     * User email (virtual account) registration
      */
      CREATE_USER_EMAIL ( "/user/registerEmail", "POST"),
 
 
     /**
-     * 查询用户信息
+     * Query user information
      */
      GET_USER_INFO ( "/user/info", "POST"),
 
     /**
-     * 	获取商户的币种列表
+     * 	Obtain the currency list of the merchant
      */
      COIN_LIST ( "/user/getCoinList", "POST"),
 
     /**
-     * 获取用户指定币账户
+     * Obtain the user's specified currency account
      */
      USER_SYMBOL_ACCOUNT (  "/account/getByUidAndSymbol", "POST"),
 
     /**
-     * 获取商户归集账户余额
+     * Obtain the balance of merchant collection account
      */
      COMPANY_SYMBOL_ACCOUNT ( "/account/getCompanyBySymbol", "POST"),
 
     /**
-     * 获取用户指定币账户地址
+     * Obtain the account address in the currency specified by the user
      */
      USER_DEPOSIT_ADDRESS (  "/account/getDepositAddress", "POST"),
 
     /**
-     * 提现操作
+     * Withdrawal operation
      */
      BILLING_WITHDRAW (  "/billing/withdraw", "POST"),
 
     /**
-     * 同步提现记录
+     * Sync withdrawal record
      */
      SYNC_WITHDRAW (  "/billing/syncWithdrawList", "POST"),
 
 
     /**
-     * 批量获取提现记录
+     * Batch access to withdrawal records
      */
      WITHDRAW_LIST (  "/billing/withdrawList", "POST"),
 
     /**
-     * 同步充值记录
+     * Sync recharge record
      */
      SYNC_DEPOSIT (  "/billing/syncDepositList", "POST"),
 
     /**
-     * 批量获取充值记录
+     * Obtain recharge records in batches
      */
      DEPOSIT_LIST (  "/billing/depositList", "POST"),
 
     /**
-     * 同步矿工费记录
+     * Sync miner fee records
      */
     SYNC_MINER_FEE(  "/billing/syncMinerFeeList", "POST"),
 
     /**
-     * 批量获取矿工费记录
+     * Get miner fee records in batches
      */
     MINER_FEE_LIST (  "/billing/minerFeeList", "POST"),
 
     /**
-     * WaaS内部商户互相转账
+     * WaaS internal merchants transfer money to each other
      */
     ACCOUNT_TRANSFER("/account/transfer","POST") ,
 
     /**
-     * 查询转账记录
+     * Query transfer records
      */
     ACCOUNT_TRANSFER_LIST("/account/transferList","POST"),
 
     /**
-     * 同步转账记录
+     * Sync transfer records
      */
     SYNC_ACCOUNT_TRANSFER_LIST("/account/syncTransferList","POST")
     ;

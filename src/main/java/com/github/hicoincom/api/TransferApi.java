@@ -6,7 +6,7 @@ import com.github.hicoincom.crypto.IDataCrypto;
 import com.github.hicoincom.exception.ArgsNullException;
 
 /**
- * 转账操作相关api
+ * Transfer operation related api
  */
 public class TransferApi extends WaasApi implements ITransferApi {
     public TransferApi(WaasConfig cfg, IDataCrypto crypto) {
@@ -14,7 +14,7 @@ public class TransferApi extends WaasApi implements ITransferApi {
     }
 
     /**
-     * WaaS内部商户互相转账
+     * WaaS internal merchants transfer money to each other
      */
     @Override
     public TransferResult accountTransfer(TransferArgs args) {
@@ -25,7 +25,7 @@ public class TransferApi extends WaasApi implements ITransferApi {
     }
 
     /**
-     * 查询转账记录
+     * Query transfer records
      */
     @Override
     public TransferListResult getAccountTransferList(String ids, String idsType) {
@@ -36,7 +36,7 @@ public class TransferApi extends WaasApi implements ITransferApi {
     }
 
     /**
-     * 同步转账记录
+     * Sync transfer records
      */
     @Override
     public TransferListResult syncAccountTransferList(Integer maxId) {

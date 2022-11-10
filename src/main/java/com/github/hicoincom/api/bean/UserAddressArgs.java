@@ -4,7 +4,7 @@ package com.github.hicoincom.api.bean;
 import java.io.Serializable;
 
 /**
- *  用户币种充值地址查询
+ *  User currency recharge address query
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/account_getDepositAddress.html
  */
 public class UserAddressArgs extends BaseWaasArgs implements Serializable {

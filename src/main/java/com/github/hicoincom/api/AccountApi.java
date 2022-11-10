@@ -6,7 +6,7 @@ import com.github.hicoincom.crypto.IDataCrypto;
 import com.github.hicoincom.exception.CryptoException;
 
 /**
- *  账户操作相关api
+ * API related to account operation
  */
 public class AccountApi extends  WaasApi implements IAccountApi{
     public AccountApi(WaasConfig cfg, IDataCrypto crypto){

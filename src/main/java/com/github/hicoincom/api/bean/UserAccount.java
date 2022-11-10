@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- *  短信邮箱注册参数
+ *  user account entity
  */
 public class UserAccount  implements Serializable {
 

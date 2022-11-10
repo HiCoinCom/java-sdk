@@ -6,7 +6,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- *  批量查询提现记录
+ *  Batch query withdrawal records
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_withdrawList.html
  */
 public class StringIdsArgs extends BaseWaasArgs implements Serializable {

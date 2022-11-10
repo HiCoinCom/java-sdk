@@ -5,7 +5,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- *  用户归集记录同步
+ *  User collection record synchronization
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_syncDepositList.html
  */
 public class SyncMinerFeeArgs extends BaseWaasArgs implements Serializable {

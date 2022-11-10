@@ -4,25 +4,25 @@ import com.github.hicoincom.api.bean.AsyncNotifyArgs;
 import com.github.hicoincom.api.bean.WithdrawArgs;
 
 /**
- *  异步回调通知相关api(提供给waas的接口)
+ *  Asynchronous callback notification related api (interface provided to waas)
  */
 public interface IAsyncNotifyApi {
     /**
-     *  解密充值提现通知参数
+     *  Decrypt deposit and withdrawal notification parameters
      * @param cipher
      * @return
      */
     AsyncNotifyArgs NotifyRequest(String cipher);
 
     /**
-     *  解密提现二次验证请求参数
+     *  Decryption withdrawal secondary verification request parameters
      * @param cipher
      * @return
      */
     WithdrawArgs VerifyRequest(String cipher);
 
     /**
-     *  加密二次验证提现响应数据
+     *  Encrypt the secondary verification withdrawal response data
      * @param withdraw
      * @return
      */

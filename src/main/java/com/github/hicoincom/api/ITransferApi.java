@@ -5,7 +5,7 @@ import com.github.hicoincom.api.bean.TransferListResult;
 import com.github.hicoincom.api.bean.TransferResult;
 
 /**
- * 转账操作相关api
+ * Transfer operation related api
  */
 public interface ITransferApi {
 
@@ -13,17 +13,17 @@ public interface ITransferApi {
     String RECEIPT = "receipt";
 
     /**
-     * WaaS内部商户互相转账
+     * WaaS internal merchants transfer money to each other
      */
     TransferResult accountTransfer(TransferArgs args);
 
     /**
-     * 查询转账记录
+     * Query transfer records
      */
     TransferListResult getAccountTransferList(String ids, String idsType);
 
     /**
-     * 同步转账记录
+     * Sync transfer records
      */
     TransferListResult syncAccountTransferList(Integer maxId);
 
