@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- *  Get a list of currencies
+ *  obtain coins list
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_getCoinList.html
  */
 public class CoinInfoListResult extends Result<List<CoinInfo>> implements Serializable {

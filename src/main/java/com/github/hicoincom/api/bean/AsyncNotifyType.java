@@ -1,7 +1,7 @@
 package com.github.hicoincom.api.bean;
 
 /**
- *  waas call platform interface data type
+ *  waas API data types
  */
 public enum AsyncNotifyType {
     /**Deposit and withdrawal notice*/

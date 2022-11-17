@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- *  Collect merchant account balance
+ *  Merchant account balance
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/account_getCompanyBySymbol.html
  */
 public class CompanyAccountResult implements Serializable {

@@ -6,7 +6,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- * Transfer information entity class
+ * Transaction information in entity class(which is the waas defined data type)
  */
 public class Transfer implements Serializable {
 

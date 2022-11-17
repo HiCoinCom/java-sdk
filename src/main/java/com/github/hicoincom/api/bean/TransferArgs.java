@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * Transfer in reference
+ * transaction parameters
  */
 public class TransferArgs extends BaseWaasArgs implements Serializable {
 

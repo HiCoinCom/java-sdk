@@ -35,22 +35,22 @@ public class AppTest {
 
         WaasClient client = WaasClientFactory.CreateClient(cfg);
 
-        //注册邮箱用户
+        //register email user
         System.out.print(client.getUserApi().GetEmailUser("test@admin.com").toJson());
-        //查询用户信息
+        //Query user information
         UserInfoResult userInfo = client.getUserApi().GetEmailUser("test@admin.com");
         System.out.print(userInfo.toJson());
 
-        //查询商户归集账户余额
+        //Querying Merchant Account Balance
         System.out.print(client.getAccountApi().GetCompanyAccount("ETH").toJson());
-        //查询用户余额
+        //Query user balance
         System.out.print(client.getAccountApi().GetUserAccount(userInfo.getData().getUid(), "ETH").toJson());
-        //查询用户充值地址
+        //Query user recharge address
         System.out.print(client.getAccountApi().GetUserAddress(userInfo.getData().getUid(), "ETH").toJson());
-        //查询币种列表
+        //Query currency list
         System.out.print(client.getCoinApi().getCoinList().toJson());
 
-        //提现
+        //Withdraw
         WithdrawArgs args = new WithdrawArgs();
         args.setAmount(BigDecimal.ONE);
         args.setSymbol("USDT");
@@ -61,31 +61,31 @@ public class AppTest {
         WithdrawResult withdraw = client.getBillingApi().Withdraw(args);
         System.out.print(withdraw.toJson());
 
-        //同步提现记录
+        //sync withdrawal record
         System.out.print(client.getBillingApi().SyncWithdrawList(0).toJson());
 
-        //批量查询提现记录
+        //batch query withdrawal record
         List<String> requestIdList = new ArrayList<>();
         requestIdList.add(args.getRequestId());
         requestIdList.add("123");
         System.out.print(client.getBillingApi().WithdrawList(requestIdList).toJson());
 
-        //同步充值记录
+        //sync deposit record
         System.out.print(client.getBillingApi().SyncDepositList(0).toJson());
 
-        //批量查询充值记录
+        //batch query deposit record
         List<Integer> waasDepositIdList = new ArrayList<>();
         waasDepositIdList.add(1);
         waasDepositIdList.add(1000);
         System.out.print(client.getBillingApi().DepositList(waasDepositIdList).toJson());
 
-        //解密充提通知参数
+        //Decryption deposit and withdrawal notification parameters
         System.out.print(client.getAsyncNotifyApi().NotifyRequest("密文"));
 
-        //解密二次验证参数
+        //decrypt secondary verification parameters
         System.out.print(client.getAsyncNotifyApi().VerifyRequest("密文"));
 
-        //加密二次验证响应数据
+        //Encrypt secondary verification response data
         System.out.print(client.getAsyncNotifyApi().VerifyResponse(args));
 
 

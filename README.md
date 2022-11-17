@@ -2,13 +2,13 @@
 
 chain waas client sdk
 
-普通项目编译 jar 包
+Project compile jar package
 
 ```
 mvn clean install -DskipTests=true
 ```
 
-maven项目直接引用
+maven project direct reference
 ```
 <dependency>
   <groupId>com.github.hicoincom</groupId>
@@ -17,36 +17,36 @@ maven项目直接引用
 </dependency>
 ```
 
-使用方式:
+How to use:
 
 ```
 
 WaasConfig cfg = new WaasConfig();
-//cfg.setDomain("接口域名");
-cfg.setAppId("商户 app id");
+//cfg.setDomain("interface domain name");
+cfg.setAppId("app id");
 
-cfg.setUserPrivateKey("商户私钥");
+cfg.setUserPrivateKey("Merchant private key");
 
-cfg.setWaasPublickKey("waas 公钥");
+cfg.setWaasPublickKey("waas public key");
 
 WaasClient client = WaasClientFactory.CreateClient(cfg);
 
-//注册邮箱用户
+//Register Email User
 System.out.print(client.getUserApi().RegisterEmailUser("test@admin.com").toJson());
-//查询用户信息
+//Query user information
 UserInfoResult userInfo = client.getUserApi().GetEmailUser("test@admin.com");
 System.out.print(userInfo.toJson());
 
-//查询商户归集账户余额
+//Querying Merchant Collection Account Balance
 System.out.print(client.getAccountApi().GetCompanyAccount("ETH").toJson());
-//查询用户余额
+//Query user balance
 System.out.print(client.getAccountApi().GetUserAccount(userInfo.getData().getUid(),"ETH").toJson());
-//查询用户充值地址
+//Query user recharge address
 System.out.print(client.getAccountApi().GetUserAddress(userInfo.getData().getUid(), "ETH").toJson());
-//查询币种列表
+//Query currency list
 System.out.print(client.getCoinApi().getCoinList().toJson());
 
-//提现
+//Withdraw
 WithdrawArgs args = new WithdrawArgs();
 args.setAmount(BigDecimal.ONE);
 args.setSymbol("USDT");
@@ -57,45 +57,45 @@ args.setToAddress("16ASftbAGPCSMpb1tU9GCxmWi59BPncttK");
 WithdrawResult withdraw = client.getBillingApi().Withdraw(args);
 System.out.print(withdraw.toJson());
 
-//同步提现记录
+//Synchronized withdrawal record
 System.out.print(client.getBillingApi().SyncWithdrawList(0).toJson());
 
-//批量查询提现记录
+//Batch query withdrawal records
 List<String> requestIdList = new ArrayList<>();
 requestIdList.add(args.getRequestId());
 requestIdList.add("123");
 System.out.print(client.getBillingApi().WithdrawList(requestIdList).toJson());
 
-//同步充值记录
+//Synchronized recharge record
 System.out.print(client.getBillingApi().SyncDepositList(0).toJson());
 
-//批量查询充值记录
+//Batch query recharge records
 List<Integer> waasDepositIdList = new ArrayList<>();
 waasDepositIdList.add(1);
 waasDepositIdList.add(1000);
 System.out.print(client.getBillingApi().DepositList(waasDepositIdList).toJson());
 
-//解密充提通知参数
-System.out.print(client.getAsyncNotifyApi().NotifyRequest("密文"));
+//Decryption deposit and withdrawal notification parameters
+System.out.print(client.getAsyncNotifyApi().NotifyRequest("ciphertext"));
 
-//解密二次验证参数
-System.out.print(client.getAsyncNotifyApi().VerifyRequest("密文"));
+//Decrypt secondary verification parameters
+System.out.print(client.getAsyncNotifyApi().VerifyRequest("ciphertext"));
 
-//加密二次验证响应数据
+//Encrypt secondary verification response data
 System.out.print(client.getAsyncNotifyApi().VerifyResponse(args))
 
-//转账及查询转账记录等相关操作
+//Transfer and query transfer records and other related operations
 TransferArgs args = new TransferArgs();
 args.setAmount(new BigDecimal("0.001"));
 args.setRemark("this is a transfer operation");
 args.setRequestId("234343411");
 args.setSymbol("usdt");
 args.setTo("10c533a212a795f692db6684d70c95e9");
-System.out.println("转账结果：---"+client.getTransferApi().accountTransfer(args).toJson());
+System.out.println("Transfer result：---"+client.getTransferApi().accountTransfer(args).toJson());
 
-System.out.println("获取转账记录：---"+client.getTransferApi().getAccountTransferList("123", ITransferApi.REQUEST_ID).toJson());
+System.out.println("Get transfer records：---"+client.getTransferApi().getAccountTransferList("123", ITransferApi.REQUEST_ID).toJson());
 
-System.out.println("同步转账记录：---"+client.getTransferApi().syncAccountTransferList(0).toJson());
+System.out.println("Sync transfer records：---"+client.getTransferApi().syncAccountTransferList(0).toJson());
 
 ```
 

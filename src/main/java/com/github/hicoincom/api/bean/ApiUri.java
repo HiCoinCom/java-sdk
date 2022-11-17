@@ -6,7 +6,7 @@ package com.github.hicoincom.api.bean;
 public enum  ApiUri {
 
     /**
-     * User's mobile phone registration address
+     * User mobile phone registration address
      */
      CREATE_USER_MOBILE ( "/user/createUser", "POST"),
 
@@ -22,22 +22,22 @@ public enum  ApiUri {
      GET_USER_INFO ( "/user/info", "POST"),
 
     /**
-     * 	Obtain the currency list of the merchant
+     * 	obtain merchant's coin list
      */
      COIN_LIST ( "/user/getCoinList", "POST"),
 
     /**
-     * Obtain the user's specified currency account
+     * Obtain the user-specified coin account
      */
      USER_SYMBOL_ACCOUNT (  "/account/getByUidAndSymbol", "POST"),
 
     /**
-     * Obtain the balance of merchant collection account
+     * Obtain the balance of the merchant account
      */
      COMPANY_SYMBOL_ACCOUNT ( "/account/getCompanyBySymbol", "POST"),
 
     /**
-     * Obtain the account address in the currency specified by the user
+     * Obtain the address of the user-specified coin account
      */
      USER_DEPOSIT_ADDRESS (  "/account/getDepositAddress", "POST"),
 
@@ -53,32 +53,32 @@ public enum  ApiUri {
 
 
     /**
-     * Batch access to withdrawal records
+     * Batch query withdrawal records
      */
      WITHDRAW_LIST (  "/billing/withdrawList", "POST"),
 
     /**
-     * Sync recharge record
+     * Sync deposit record
      */
      SYNC_DEPOSIT (  "/billing/syncDepositList", "POST"),
 
     /**
-     * Obtain recharge records in batches
+     * Batch query deposit records
      */
      DEPOSIT_LIST (  "/billing/depositList", "POST"),
 
     /**
-     * Sync miner fee records
+     * Sync gas fee records
      */
     SYNC_MINER_FEE(  "/billing/syncMinerFeeList", "POST"),
 
     /**
-     * Get miner fee records in batches
+     * Batch query gas fee records
      */
     MINER_FEE_LIST (  "/billing/minerFeeList", "POST"),
 
     /**
-     * WaaS internal merchants transfer money to each other
+     * WaaS internal merchants transfers(Transfers funds between waas merchants)
      */
     ACCOUNT_TRANSFER("/account/transfer","POST") ,
 

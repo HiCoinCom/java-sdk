@@ -6,7 +6,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- * Synchronous transfer record list parameters
+ * Sync transfer record list parameters
  */
 public class SyncTransferListArgs extends BaseWaasArgs implements Serializable {
 

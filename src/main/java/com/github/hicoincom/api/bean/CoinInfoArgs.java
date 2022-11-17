@@ -4,7 +4,7 @@ package com.github.hicoincom.api.bean;
 import java.io.Serializable;
 
 /**
- *  Get a list of currencies
+ *  obtain coins list
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_getCoinList.html
  */
 public class CoinInfoArgs extends BaseWaasArgs implements Serializable {

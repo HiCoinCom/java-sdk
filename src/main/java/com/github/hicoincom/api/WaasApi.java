@@ -50,12 +50,12 @@ public class WaasApi {
      * @return
      */
     protected <T> T invoke(ApiUri uri, BaseWaasArgs args, Class<T> clazz)  {
-        //默认参数
+        //default parameters
         args.setCharset(this.cfg.getCharset());
         args.setTime(System.currentTimeMillis());
         args.setVersion(cfg.getVersion());
 
-        //加密参数
+        //encryption parameters
         String raw = args.toJson();
         this.info("{}  raw args:{}", uri.getValue(), raw);
         String data = this.dataCrypto.encode(raw);
@@ -66,7 +66,7 @@ public class WaasApi {
             throw new CryptoException("data crypto return null");
         }
 
-        //请求接口
+        //request interface
         String url = String.format("%s/%s", this.cfg.getDomain(), uri.getValue());
         Args params = new Args(this.cfg.getAppId(), data);
         String resp = null;
@@ -78,7 +78,7 @@ public class WaasApi {
         }
 
         this.info("{} raw result:{}", uri.getValue(), resp);
-        //接口返回数据为空
+        //The interface return data is empty
         if(StringUtils.isBlank(resp)){
             logger.error("{} api return null", uri.getValue());
             return null;
@@ -86,12 +86,12 @@ public class WaasApi {
 
         JSONObject jsonObject = JSONObject.parseObject(resp);
         if(jsonObject == null || !jsonObject.containsKey("data") || StringUtils.isBlank(jsonObject.getString("data"))){
-            //接口返回数据未包含data字段
+            //The data returned by the interface does not contain the data field
             logger.error("{} result do not found data field or data field is empty", uri.getValue());
             return null;
         }
 
-        //解密响应数据
+        //Decrypt response data
         String respRaw = this.dataCrypto.decode(jsonObject.getString("data"));
         this.info("{} decode result :{}", uri.getValue(), respRaw);
         if(StringUtils.isBlank(respRaw)){

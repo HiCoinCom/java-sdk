@@ -43,13 +43,13 @@ public class RSAHelper {
 		RSAKey key = null;
 		try {
 			KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("RSA");
-			// 密钥位数
+			// Key digits
 			keyPairGen.initialize(2048);
-			// 密钥对
+			// key pair
 			KeyPair keyPair = keyPairGen.generateKeyPair();
-			// 公钥
+			// public key
 			PublicKey pubKey = (RSAPublicKey) keyPair.getPublic();
-			// 私钥
+			// private key
 			PrivateKey privKey = (RSAPrivateKey) keyPair.getPrivate();
 			String publicKey = getKeyString(pubKey);
 //			System.out.println("publicKey \n"+publicKey);
@@ -185,7 +185,7 @@ public class RSAHelper {
 		}
 
 		//System.out.println("params build: " + sb.toString());
-		//去除最后一个&
+		//remove the last&
 		String strBuild = sb.substring(0, sb.length() - 1);
 		//System.out.println("params build: " + strBuild);
 		return strBuild;
@@ -214,7 +214,7 @@ public class RSAHelper {
 		int offSet = 0;
 		byte[] cache;
 		int i = 0;
-		// 对数据分段解密
+		// Decrypt data segments
 		while (inputLen - offSet > 0) {
 			if (inputLen - offSet > MAX_DECRYPT_BLOCK) {
 				cache = cipher.doFinal(encryptedData, offSet, MAX_DECRYPT_BLOCK);
@@ -278,7 +278,7 @@ public class RSAHelper {
 		int offSet = 0;
 		byte[] cache;
 		int i = 0;
-		// 对数据分段加密
+		// Encrypt data segments
 		while (inputLen - offSet > 0) {
 			if (inputLen - offSet > MAX_ENCRYPT_BLOCK) {
 				cache = cipher.doFinal(data, offSet, MAX_ENCRYPT_BLOCK);
@@ -335,17 +335,17 @@ public class RSAHelper {
 
 		byte[] data = httpParamsBuild(params).getBytes("UTF-8");
 
-		//生成签名
+		//generate signature
 		String sign = getSign(data, key.getPrivateKey());
 		System.out.println("prive sign: " + sign);
 
-		//验证签名
+		//verify signature
 		System.out.println("pub verify sign: " + verifySign(data, sign, key.getPublicKey()));
 
-		//错误签名
+		//wrong signature
 		System.out.println("pub verify sign: " + verifySign("b=0.000001&a=eth&c=12&d=English&time=1585032445347".getBytes("UTF-8"), sign, key.getPublicKey()));
 
-		//错误签名
+		//wrong signature
 		System.out.println("pub verify sign: " + verifySign("b=0.000001&c=12&d=English".getBytes("UTF-8"), sign, key.getPublicKey()));
 
 	}

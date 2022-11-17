@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- *  Batch query withdrawal and recharge records
+ *  Batch query withdrawal and deposit records
  *  http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_depositList.html
  */
 public class Deposit implements Serializable {

@@ -27,18 +27,18 @@
     </developer>
   </developers>
 
-  <!-- 代码库 -->
+  <!-- Code library -->
   <scm>
     <url>https://github.com/HiCoinCom/java-sdk</url>
   </scm>
 
   <profiles>
     <profile>
-      <!-- 这个id就是打包时的 -P 参数 -->
+      <!-- This id is the -P parameter when packaging -->
       <id>release</id>
       <build>
         <plugins>
-          <!-- Source插件-->
+          <!-- Source plugin-->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
@@ -52,7 +52,7 @@
               </execution>
             </executions>
           </plugin>
-          <!-- Javadoc插件 -->
+          <!-- Javadoc plugin -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
@@ -66,7 +66,7 @@
               </execution>
             </executions>
           </plugin>
-          <!-- GPG加密插件 -->
+          <!-- GPG encryption plugin -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
@@ -84,7 +84,7 @@
       </build>
       <distributionManagement>
         <snapshotRepository>
-          <!--- 此处的id需要和setting.xml 配置的service的id一致 -->
+          <!--- The id here needs to be consistent with the id of the service configured in setting.xml -->
           <id>oss</id>
           <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
