@@ -80,10 +80,10 @@ public class AppTest {
         System.out.print(client.getBillingApi().DepositList(waasDepositIdList).toJson());
 
         //Decryption deposit and withdrawal notification parameters
-        System.out.print(client.getAsyncNotifyApi().NotifyRequest("密文"));
+        System.out.print(client.getAsyncNotifyApi().NotifyRequest("cipherText"));
 
         //decrypt secondary verification parameters
-        System.out.print(client.getAsyncNotifyApi().VerifyRequest("密文"));
+        System.out.print(client.getAsyncNotifyApi().VerifyRequest("cipherText"));
 
         //Encrypt secondary verification response data
         System.out.print(client.getAsyncNotifyApi().VerifyResponse(args));
