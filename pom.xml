@@ -7,7 +7,7 @@
   <groupId>com.github.hicoincom</groupId>
   <artifactId>waas-sdk</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.9</version>
+  <version>1.1.0</version>
 
   <name>waas-sdk</name>
   <description>chainup waas client sdk</description>
@@ -66,32 +66,19 @@
               </execution>
             </executions>
           </plugin>
-          <!-- GPG encryption plugin -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
-            <executions>
-              <execution>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
+       </plugins>
       </build>
       <distributionManagement>
         <snapshotRepository>
           <!--- The id here needs to be consistent with the id of the service configured in setting.xml -->
-          <id>oss</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/HiCoinCom/java-sdk</url>
         </snapshotRepository>
         <repository>
-          <id>oss</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/HiCoinCom/java-sdk</url>
         </repository>
+
       </distributionManagement>
 
     </profile>
