@@ -2,13 +2,14 @@ package com.github.hicoincom.crypto.rsa;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-import sun.security.rsa.RSAPrivateCrtKeyImpl;
+//import sun.misc.BASE64Decoder;
+//import sun.misc.BASE64Encoder;
+//import sun.security.rsa.RSAPrivateCrtKeyImpl;
 
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;
 import java.security.*;
+import java.security.interfaces.RSAPrivateCrtKey;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
@@ -76,7 +77,7 @@ public class RSAHelper {
 	 */
 	public static PublicKey getPublicKey(String key) throws Exception {
 		byte[] keyBytes;
-		keyBytes = (new BASE64Decoder()).decodeBuffer(key);
+		keyBytes = Base64.decodeBase64(key);
 
 		X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -86,7 +87,8 @@ public class RSAHelper {
 
 	public static  String getPublicKeyStringByPrivateKey(String privKey)throws Exception{
 		PrivateKey privateKey = getPrivateKey(privKey);
-		RSAPrivateCrtKeyImpl rsaPrivateKey = (RSAPrivateCrtKeyImpl)privateKey;
+		RSAPrivateCrtKey rsaPrivateKey = (RSAPrivateCrtKey) privateKey;
+//		RSAPrivateCrtKeyImpl rsaPrivateKey = (RSAPrivateCrtKeyImpl)privateKey;
 		//create a KeySpec and let the Factory due the Rest. You could also create the KeyImpl by your own.
 		PublicKey publicKey = KeyFactory.getInstance("RSA").generatePublic(new RSAPublicKeySpec(rsaPrivateKey.getModulus(), rsaPrivateKey.getPublicExponent()));
 		return getKeyString(publicKey).replace("\r", "").replace("\n", "");
@@ -100,7 +102,7 @@ public class RSAHelper {
 	 */
 	public static PrivateKey getPrivateKey(String key) throws Exception {
 		byte[] keyBytes;
-		keyBytes = (new BASE64Decoder()).decodeBuffer(key);
+		keyBytes = Base64.decodeBase64(key);
 		PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 		PrivateKey privateKey = keyFactory.generatePrivate(keySpec);
@@ -114,7 +116,7 @@ public class RSAHelper {
 	 */
 	public static String getKeyString(Key key) throws Exception {
 		byte[] keyBytes = key.getEncoded();
-		String s = (new BASE64Encoder()).encode(keyBytes);
+		String s = Base64.encodeBase64String(keyBytes);
 		return s;
 	}
 
@@ -157,7 +159,7 @@ public class RSAHelper {
 		sign.initSign(key);
 		sign.update(data);
 		byte[] signByte = sign.sign();
-		return (new BASE64Encoder()).encode(signByte);
+		return Base64.encodeBase64String(signByte);
 	}
 
 	public static String getSign(String text, String privKey){
@@ -203,7 +205,7 @@ public class RSAHelper {
 	 */
 	public static byte[] decryptByPublicKey(byte[] encryptedData, String publicKey)
 			throws Exception {
-		byte[] keyBytes =  (new BASE64Decoder()).decodeBuffer(publicKey);
+		byte[] keyBytes =  Base64.decodeBase64(publicKey);
 		X509EncodedKeySpec x509KeySpec = new X509EncodedKeySpec(keyBytes);
 		KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
 		Key publicK = keyFactory.generatePublic(x509KeySpec);
@@ -267,7 +269,7 @@ public class RSAHelper {
 	 */
 	public static byte[] encryptByPrivateKey(byte[] data, String privateKey)
 			throws Exception {
-		byte[] keyBytes =  (new BASE64Decoder()).decodeBuffer(privateKey);
+		byte[] keyBytes = Base64.decodeBase64(privateKey);
 		PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);
 		KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
 		Key privateK = keyFactory.generatePrivate(pkcs8KeySpec);
@@ -327,7 +329,7 @@ public class RSAHelper {
 		System.out.println("pub: " + key.getPublicKey());
 
 		Map<String, Object> params = new HashMap<>();
-		params.put("time",  new Date().getTime());
+		params.put("time",  System.currentTimeMillis());
 		params.put("a",  "eth");
 		params.put("b",  "0.000001");
 		params.put("c",  "12");
