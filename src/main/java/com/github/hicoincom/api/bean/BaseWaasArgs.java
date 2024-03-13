@@ -3,7 +3,11 @@ package com.github.hicoincom.api.bean;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 
+/**
+ * @author ChainUp
+ */
 public class BaseWaasArgs {
+
     @JSONField(name ="app_id")
     protected String appId;
 

@@ -3,11 +3,11 @@ package org.example;
 import com.github.hicoincom.WaasClient;
 import com.github.hicoincom.WaasClientFactory;
 import com.github.hicoincom.WaasConfig;
-import com.github.hicoincom.api.ITransferApi;
-import com.github.hicoincom.api.bean.TransferArgs;
-import com.github.hicoincom.api.bean.UserInfoResult;
-import com.github.hicoincom.api.bean.WithdrawArgs;
-import com.github.hicoincom.api.bean.WithdrawResult;
+import com.github.hicoincom.api.custody.ITransferApi;
+import com.github.hicoincom.api.bean.custody.TransferArgs;
+import com.github.hicoincom.api.bean.custody.UserInfoResult;
+import com.github.hicoincom.api.bean.custody.WithdrawArgs;
+import com.github.hicoincom.api.bean.custody.WithdrawResult;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

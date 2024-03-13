@@ -1,6 +1,7 @@
 package com.github.hicoincom;
 
 public class WaasConfig {
+
     private String appId;
     private String userPrivateKey;
     private String waasPublickKey;
