@@ -8,6 +8,7 @@ public class MpcClient {
     private IDepositApi depositApi;
     private IWithdrawApi withdrawApi;
     private IWeb3Api web3Api;
+    private IAutoSweepApi autoSweepApi;
 
     public IWorkSpaceApi getWorkSpaceApi() {
         return workSpaceApi;
@@ -49,6 +50,14 @@ public class MpcClient {
         this.web3Api = web3Api;
     }
 
+    public IAutoSweepApi getAutoSweepApi() {
+        return autoSweepApi;
+    }
+
+    public void setAutoSweepApi(IAutoSweepApi autoSweepApi) {
+        this.autoSweepApi = autoSweepApi;
+    }
+
 
     public static final class MpcClientBuilder {
         private IWorkSpaceApi workSpaceApi;
@@ -56,6 +65,7 @@ public class MpcClient {
         private IDepositApi depositApi;
         private IWithdrawApi withdrawApi;
         private IWeb3Api web3Api;
+        private IAutoSweepApi autoSweepApi;
 
         private MpcClientBuilder() {
         }
@@ -89,6 +99,11 @@ public class MpcClient {
             return this;
         }
 
+        public MpcClientBuilder autoSweepApi(IAutoSweepApi autoSweepApi) {
+            this.autoSweepApi = autoSweepApi;
+            return this;
+        }
+
         public MpcClient build() {
             MpcClient mpcClient = new MpcClient();
             mpcClient.setWorkSpaceApi(workSpaceApi);
@@ -96,6 +111,7 @@ public class MpcClient {
             mpcClient.setDepositApi(depositApi);
             mpcClient.setWithdrawApi(withdrawApi);
             mpcClient.setWeb3Api(web3Api);
+            mpcClient.setAutoSweepApi(autoSweepApi);
             return mpcClient;
         }
     }

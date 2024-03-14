@@ -36,6 +36,7 @@ public class WaasClientFactory {
                 .depositApi(new DepositApi(crypto, cfg))
                 .withdrawApi(new WithdrawApi(crypto, cfg))
                 .web3Api(new Web3Api(crypto, cfg))
+                .autoSweepApi(new AutoSweepApi(crypto, cfg))
                 .build();
     }
 
