@@ -30,7 +30,7 @@ public class MpcWithdrawRecord implements Serializable {
     private String symbol;
 
     /**
-     *transfer coin’s contract address
+     * transfer coin’s contract address
      */
     private String contractAddress;
 
@@ -38,6 +38,11 @@ public class MpcWithdrawRecord implements Serializable {
      * The unique identifier of the main chain of the coin to be transferred, e.g.：ETH
      */
     private String baseSymbol;
+
+    /**
+     * from account address
+     */
+    private String addressFrom;
 
     /**
      * to account address
@@ -151,6 +156,14 @@ public class MpcWithdrawRecord implements Serializable {
 
     public void setBaseSymbol(String baseSymbol) {
         this.baseSymbol = baseSymbol;
+    }
+
+    public String getAddressFrom() {
+        return addressFrom;
+    }
+
+    public void setAddressFrom(String addressFrom) {
+        this.addressFrom = addressFrom;
     }
 
     public String getAddressTo() {

@@ -128,6 +128,26 @@ public enum MpcApiUri {
      */
     SYNC_WEB3_RECORDS("/api/mpc/web3/sync_trans_list", HttpGet.METHOD_NAME),
 
+    /**
+     * Get Auto-Sweep Wallets
+     * Retrieve the auto-sweep wallet and auto fueling wallet for a specific coin.
+     * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/consolidation/consolidation-subwallet
+     */
+    AUTO_COLLECT_WALLETS("/api/mpc/auto_collect/sub_wallets", HttpGet.METHOD_NAME),
+
+    /**
+     * Configure Auto-Sweep for Coin
+     * Set the minimum auto-sweep amount and the maximum miner fee for refueling.
+     * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/consolidation/consolidation-symbol-set
+     */
+    SET_AUTO_COLLECT_SYMBOL("/api/mpc/billing/auto_collect/symbol/set", HttpPost.METHOD_NAME),
+
+    /**
+     * Sync Auto Sweeping Records
+     * Retrieve up to 100 sweeping records for all wallets under a workspace.
+     * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/consolidation/consolidation-sync-list
+     */
+    SYNC_AUTO_SWEEP_RECORDS("/api/mpc/billing/sync_auto_collect_list", HttpGet.METHOD_NAME),
 
     ;
 
