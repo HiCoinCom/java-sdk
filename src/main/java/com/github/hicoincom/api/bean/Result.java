@@ -1,6 +1,5 @@
 package com.github.hicoincom.api.bean;
 
-import com.alibaba.fastjson.JSONObject;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 
@@ -44,10 +43,6 @@ public class Result<T> implements Serializable {
     }
 
     public String toJson() {
-        return JSONObject.toJSONString(this);
-    }
-
-    public String lowerCaseWithUnderscoresJson() {
         return new GsonBuilder()
                 .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create()

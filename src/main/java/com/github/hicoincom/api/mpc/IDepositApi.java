@@ -1,7 +1,7 @@
 package com.github.hicoincom.api.mpc;
 
 
-import com.github.hicoincom.api.bean.mpc.MpcDepositRecordResult;
+import com.github.hicoincom.api.bean.mpc.DepositRecordResult;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public interface IDepositApi {
      * @param ids required: true
      *            Receiving id
      */
-    MpcDepositRecordResult getDepositRecords(List<Integer> ids);
+    DepositRecordResult getDepositRecords(List<Integer> ids);
 
     /**
      * Synchronize Transfer(deposit) Records
@@ -27,5 +27,5 @@ public interface IDepositApi {
      * @param maxId required: true
      *              receiving record initial id, e.g.：100
      */
-    MpcDepositRecordResult syncDepositRecords(Integer maxId);
+    DepositRecordResult syncDepositRecords(Integer maxId);
 }

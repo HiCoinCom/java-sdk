@@ -1,19 +1,22 @@
 package com.github.hicoincom;
 
-import com.github.hicoincom.api.custody.impl.*;
+import com.github.hicoincom.api.waas.impl.*;
 import com.github.hicoincom.api.mpc.impl.*;
 import com.github.hicoincom.crypto.DataCrypto;
 import com.github.hicoincom.crypto.IDataCrypto;
 
+/**
+ * @author ChainUp Custody
+ */
 public class WaasClientFactory {
+
     public static WaasClient CreateClient(WaasConfig cfg) {
         DataCrypto crypto = new DataCrypto(cfg.getUserPrivateKey(), cfg.getWaasPublickKey());
         return CreateClient(cfg, crypto);
     }
 
     public static WaasClient CreateClient(WaasConfig cfg, IDataCrypto crypto) {
-       return WaasClient.WaasClientBuilder
-                .aWaasClient()
+        return WaasClient.WaasClientBuilder.builder()
                 .accountApi(new AccountApi(cfg, crypto))
                 .asyncNotifyApi(new AsyncNotifyApi(cfg, crypto))
                 .billingApi(new BillingApi(cfg, crypto))
@@ -23,20 +26,19 @@ public class WaasClientFactory {
                 .build();
     }
 
-    public static MpcClient CreateMpcClient(CustodyMpcConfig cfg) {
-        DataCrypto crypto = new DataCrypto(cfg.getUserPrivateKey(), cfg.getCustodyPublicKey());
+    public static MpcClient CreateMpcClient(MpcConfig cfg) {
+        DataCrypto crypto = new DataCrypto(cfg.getUserPrivateKey(), cfg.getWaasPublickKey());
         return CreateMpcClient(cfg, crypto);
     }
 
-    public static MpcClient CreateMpcClient(CustodyMpcConfig cfg, IDataCrypto crypto) {
-        return MpcClient.MpcClientBuilder
-                .aMpcClient()
-                .workSpaceApi(new WorkSpaceApi(crypto, cfg))
-                .walletApi(new WalletApi(crypto, cfg))
-                .depositApi(new DepositApi(crypto, cfg))
-                .withdrawApi(new WithdrawApi(crypto, cfg))
-                .web3Api(new Web3Api(crypto, cfg))
-                .autoSweepApi(new AutoSweepApi(crypto, cfg))
+    public static MpcClient CreateMpcClient(MpcConfig cfg, IDataCrypto crypto) {
+        return MpcClient.MpcClientBuilder.builder()
+                .workSpaceApi(new WorkSpaceApi(cfg, crypto))
+                .walletApi(new WalletApi(cfg, crypto))
+                .depositApi(new DepositApi(cfg, crypto))
+                .withdrawApi(new WithdrawApi(cfg, crypto))
+                .web3Api(new Web3Api(cfg, crypto))
+                .autoSweepApi(new AutoSweepApi(cfg, crypto))
                 .build();
     }
 

@@ -1,9 +1,9 @@
 package com.github.hicoincom.api.mpc;
 
 
-import com.github.hicoincom.api.bean.mpc.MpcAutoCollectRecordResult;
-import com.github.hicoincom.api.bean.mpc.MpcAutoCollectWalletsResult;
-import com.github.hicoincom.api.bean.mpc.MpcSetAutoCollectSymbolResult;
+import com.github.hicoincom.api.bean.mpc.AutoCollectRecordResult;
+import com.github.hicoincom.api.bean.mpc.AutoCollectWalletsResult;
+import com.github.hicoincom.api.bean.mpc.SetAutoCollectSymbolResult;
 
 /**
  * @author ChainUp Custody
@@ -18,7 +18,7 @@ public interface IAutoSweepApi {
      * @param symbol required: true
      *               Unique identifier for the coin, e.g.：USDTERC20
      */
-    MpcAutoCollectWalletsResult autoCollectSubWallets(String symbol);
+    AutoCollectWalletsResult autoCollectSubWallets(String symbol);
 
 
     /**
@@ -31,7 +31,7 @@ public interface IAutoSweepApi {
      * @param fuelingLimit required: true
      *                     Maximum miner fee amount for auto-sweep; up to 6 decimal places, not exceeding 9999999999999999
      */
-    MpcSetAutoCollectSymbolResult setAutoCollectSymbol(String symbol, String collectMin, String fuelingLimit);
+    SetAutoCollectSymbolResult setAutoCollectSymbol(String symbol, String collectMin, String fuelingLimit);
 
     /**
      * Sync Auto Sweeping Records
@@ -39,6 +39,6 @@ public interface IAutoSweepApi {
      * @param maxId required: true, default:0
      *              Starting ID for sweeping records
      */
-    MpcAutoCollectRecordResult syncAutoCollectRecords(Integer maxId);
+    AutoCollectRecordResult syncAutoCollectRecords(Integer maxId);
 
 }

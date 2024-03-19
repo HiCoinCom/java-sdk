@@ -21,7 +21,7 @@ public interface IWalletApi {
      * @param showStatus required: false
      *                   Whether to display the wallet on the app and web after creation, 1 display, 2 not display; Default not displayed
      */
-    MpcWalletResult createWallet(String walletName, AppShowStatus showStatus);
+    WalletResult createWallet(String walletName, AppShowStatus showStatus);
 
 
     /**
@@ -34,7 +34,7 @@ public interface IWalletApi {
      * @param symbol   required: true
      *                 Unique identifier for the coin, e.g.：ETH
      */
-    MpcWalletAddressResult createWalletAddress(Integer walletId, String symbol);
+    WalletAddressResult createWalletAddress(Integer walletId, String symbol);
 
 
     /**
@@ -49,7 +49,7 @@ public interface IWalletApi {
      * @param maxId    required: true
      *                 Starting address id, default is 0
      */
-    MpcWalletAddressListResult queryWalletAddress(Integer walletId, String symbol, Integer maxId);
+    WalletAddressListResult queryWalletAddress(Integer walletId, String symbol, Integer maxId);
 
 
     /**
@@ -62,7 +62,7 @@ public interface IWalletApi {
      * @param symbol   required: true
      *                 Unique identifier for the coin, used for transfers, e.g.：ETH
      */
-    MpcWalletAssetsResult getWalletAssets(Integer walletId, String symbol);
+    WalletAssetsResult getWalletAssets(Integer walletId, String symbol);
 
     /**
      * Modify the Wallet Display Status
@@ -86,7 +86,7 @@ public interface IWalletApi {
      * @param memo    required: false
      *                If it’s a Memo type, input the memo
      */
-    MpcWalletAddressInfoResult walletAddressInfo(String address, String memo);
+    WalletAddressInfoResult walletAddressInfo(String address, String memo);
 
 
 }

@@ -2,12 +2,21 @@ package com.github.hicoincom;
 
 import com.github.hicoincom.api.mpc.*;
 
+/**
+ * @author ChainUp Custody
+ */
 public class MpcClient {
+
     private IWorkSpaceApi workSpaceApi;
+
     private IWalletApi walletApi;
+
     private IDepositApi depositApi;
+
     private IWithdrawApi withdrawApi;
+
     private IWeb3Api web3Api;
+
     private IAutoSweepApi autoSweepApi;
 
     public IWorkSpaceApi getWorkSpaceApi() {
@@ -70,7 +79,7 @@ public class MpcClient {
         private MpcClientBuilder() {
         }
 
-        public static MpcClientBuilder aMpcClient() {
+        public static MpcClientBuilder builder() {
             return new MpcClientBuilder();
         }
 

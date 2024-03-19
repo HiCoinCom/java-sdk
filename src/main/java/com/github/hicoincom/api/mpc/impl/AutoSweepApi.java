@@ -1,7 +1,7 @@
 package com.github.hicoincom.api.mpc.impl;
 
-import com.github.hicoincom.CustodyMpcConfig;
-import com.github.hicoincom.api.MpcApi;
+import com.github.hicoincom.MpcConfig;
+import com.github.hicoincom.api.WaasApi;
 import com.github.hicoincom.api.bean.mpc.*;
 import com.github.hicoincom.api.mpc.IAutoSweepApi;
 import com.github.hicoincom.crypto.IDataCrypto;
@@ -13,27 +13,26 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * @author ChainUp Custody
  */
-public class AutoSweepApi extends MpcApi implements IAutoSweepApi {
+public class AutoSweepApi extends WaasApi implements IAutoSweepApi {
 
-    public AutoSweepApi(IDataCrypto dataCrypto, CustodyMpcConfig cfg) {
-        super(dataCrypto, cfg);
+    public AutoSweepApi(MpcConfig cfg, IDataCrypto dataCrypto) {
+        super(cfg, dataCrypto);
     }
 
     @Override
-    public MpcAutoCollectWalletsResult autoCollectSubWallets(String symbol) {
+    public AutoCollectWalletsResult autoCollectSubWallets(String symbol) {
         if (StringUtils.isBlank(symbol)) {
             throw new ArgsNullException("the request parameter 'symbol' empty");
         }
 
-        GetMpcAutoCollectWalletArgs args = GetMpcAutoCollectWalletArgs.GetMpcAutoCollectWalletArgsBuilder
-                .aGetMpcAutoCollectWalletArgs()
-                .symbol(symbol)
-                .build();
-        return this.invoke(MpcApiUri.AUTO_COLLECT_WALLETS, args, MpcAutoCollectWalletsResult.class);
+        GetAutoCollectWalletArgs args = new GetAutoCollectWalletArgs();
+        args.setSymbol(symbol);
+
+        return this.invoke(MpcApiUri.AUTO_COLLECT_WALLETS, args, AutoCollectWalletsResult.class);
     }
 
     @Override
-    public MpcSetAutoCollectSymbolResult setAutoCollectSymbol(String symbol, String collectMin, String fuelingLimit) {
+    public SetAutoCollectSymbolResult setAutoCollectSymbol(String symbol, String collectMin, String fuelingLimit) {
         if (StringUtils.isBlank(symbol)) {
             throw new ArgsNullException("the request parameter 'symbol' empty");
         }
@@ -46,22 +45,19 @@ public class AutoSweepApi extends MpcApi implements IAutoSweepApi {
             throw new ArgsNullException("the request parameter 'fueling_limit' empty");
         }
 
-        MpcSetAutoCollectSymbolArgs args = MpcSetAutoCollectSymbolArgs.MpcSetAutoCollectSymbolArgsBuilder
-                .aMpcSetAutoCollectSymbolArgs()
-                .symbol(symbol)
-                .collectMin(collectMin)
-                .fuelingLimit(fuelingLimit)
-                .build();
+        SetAutoCollectSymbolArgs args = new SetAutoCollectSymbolArgs();
+        args.setSymbol(symbol);
+        args.setCollectMin(collectMin);
+        args.setFuelingLimit(fuelingLimit);
 
-        return this.invoke(MpcApiUri.SET_AUTO_COLLECT_SYMBOL, args, MpcSetAutoCollectSymbolResult.class);
+        return this.invoke(MpcApiUri.SET_AUTO_COLLECT_SYMBOL, args, SetAutoCollectSymbolResult.class);
     }
 
     @Override
-    public MpcAutoCollectRecordResult syncAutoCollectRecords(Integer maxId) {
-        MpcSyncTransactionRecordArgs args = MpcSyncTransactionRecordArgs.MpcSyncTransactionRecordArgsBuilder
-                .aMpcSyncTransactionRecordArgs()
-                .maxId(ObjectUtils.isEmpty(maxId) ? 0 : maxId)
-                .build();
-        return this.invoke(MpcApiUri.SYNC_AUTO_SWEEP_RECORDS, args, MpcAutoCollectRecordResult.class);
+    public AutoCollectRecordResult syncAutoCollectRecords(Integer maxId) {
+        SyncTransactionRecordArgs args = new SyncTransactionRecordArgs();
+        args.setMaxId(ObjectUtils.isEmpty(maxId) ? 0 : maxId);
+
+        return this.invoke(MpcApiUri.SYNC_AUTO_SWEEP_RECORDS, args, AutoCollectRecordResult.class);
     }
 }

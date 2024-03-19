@@ -1,9 +1,9 @@
 package com.github.hicoincom.api.mpc;
 
 
-import com.github.hicoincom.api.bean.mpc.MpcWithdrawArgs;
-import com.github.hicoincom.api.bean.mpc.MpcWithdrawRecordResult;
-import com.github.hicoincom.api.bean.mpc.MpcWithdrawResult;
+import com.github.hicoincom.api.bean.mpc.WithdrawArgs;
+import com.github.hicoincom.api.bean.mpc.WithdrawRecordResult;
+import com.github.hicoincom.api.bean.mpc.WithdrawResult;
 
 import java.util.List;
 
@@ -21,7 +21,17 @@ public interface IWithdrawApi {
      *                            withdraw info args
      * @param needTransactionSign transactions require signature fields
      */
-    MpcWithdrawResult withdraw(MpcWithdrawArgs withdrawArgs, boolean needTransactionSign);
+    WithdrawResult withdraw(WithdrawArgs withdrawArgs, boolean needTransactionSign);
+
+    /**
+     * Transfer (Withdrawal)
+     * Initiate a Transfer
+     * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/withdraw/withdraw
+     *
+     * @param withdrawArgs required true
+     *                     withdraw info args
+     */
+    WithdrawResult withdraw(WithdrawArgs withdrawArgs);
 
     /**
      * Get Transfer Records
@@ -31,7 +41,7 @@ public interface IWithdrawApi {
      * @param requestIds required: true
      *                   many request_id string
      */
-    MpcWithdrawRecordResult getWithdrawRecords(List<String> requestIds);
+    WithdrawRecordResult getWithdrawRecords(List<String> requestIds);
 
     /**
      * Synchronize Transfer(withdraw) Records
@@ -40,5 +50,5 @@ public interface IWithdrawApi {
      * @param maxId required: true
      *              transfer record initial id, default: 0
      */
-    MpcWithdrawRecordResult syncWithdrawRecords(Integer maxId);
+    WithdrawRecordResult syncWithdrawRecords(Integer maxId);
 }

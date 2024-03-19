@@ -1,8 +1,8 @@
 package com.github.hicoincom.api.mpc;
 
 import com.github.hicoincom.api.bean.mpc.GetLastBlockHeightResult;
-import com.github.hicoincom.api.bean.mpc.MpcCoinDetailsResult;
-import com.github.hicoincom.api.bean.mpc.MpcSupportMainChainResult;
+import com.github.hicoincom.api.bean.mpc.CoinDetailsResult;
+import com.github.hicoincom.api.bean.mpc.SupportMainChainResult;
 
 /**
  * @author ChainUp Custody
@@ -15,7 +15,7 @@ public interface IWorkSpaceApi {
      * Get the supported MPC main chain coins and the MPC main chain coins opened in ChainUp Custody.
      * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/wallet/open-coin
      */
-    MpcSupportMainChainResult getSupportMainChain();
+    SupportMainChainResult getSupportMainChain();
 
     /**
      * Get MPC Workspace Coin Details
@@ -29,7 +29,7 @@ public interface IWorkSpaceApi {
      * @param openChain  required: false
      *                   Main chain coin, default to getting all, true to get opened coins, false to get unopened coins
      */
-    MpcCoinDetailsResult getCoinDetails(String symbol, String baseSymbol, Boolean openChain);
+    CoinDetailsResult getCoinDetails(String symbol, String baseSymbol, Boolean openChain);
 
 
     /**

@@ -1,7 +1,7 @@
 package com.github.hicoincom.api.mpc.impl;
 
-import com.github.hicoincom.CustodyMpcConfig;
-import com.github.hicoincom.api.MpcApi;
+import com.github.hicoincom.MpcConfig;
+import com.github.hicoincom.api.WaasApi;
 import com.github.hicoincom.api.bean.Result;
 import com.github.hicoincom.api.bean.mpc.*;
 import com.github.hicoincom.api.mpc.IWalletApi;
@@ -17,15 +17,15 @@ import java.util.List;
 /**
  * @author ChainUp Custody
  */
-public class WalletApi extends MpcApi implements IWalletApi {
+public class WalletApi extends WaasApi implements IWalletApi {
 
-    public WalletApi(IDataCrypto dataCrypto, CustodyMpcConfig cfg) {
-        super(dataCrypto, cfg);
+    public WalletApi(MpcConfig cfg, IDataCrypto dataCrypto) {
+        super(cfg, dataCrypto);
     }
 
     @Override
-    public MpcWalletResult createWallet(String walletName, AppShowStatus showStatus) {
-        if(StringUtils.isBlank(walletName)){
+    public WalletResult createWallet(String walletName, AppShowStatus showStatus) {
+        if (StringUtils.isBlank(walletName)) {
             throw new ArgsNullException("the request parameter 'sub_wallet_name' is required");
         }
 
@@ -37,18 +37,15 @@ public class WalletApi extends MpcApi implements IWalletApi {
             showStatus = AppShowStatus.HIDDEN;
         }
 
+        CreateWalletArgs args = new CreateWalletArgs();
+        args.setSubWalletName(walletName);
+        args.setAppShowStatus(showStatus.getShowStatus());
 
-        MpcCreateWalletArgs args = MpcCreateWalletArgs.MpcCreateWalletArgsBuilder.aMpcCreateWalletArgs()
-                .subWalletName(walletName)
-                .appShowStatus(showStatus.getShowStatus())
-                .build();
-
-
-        return this.invoke(MpcApiUri.CREATE_WALLET, args, MpcWalletResult.class);
+        return this.invoke(MpcApiUri.CREATE_WALLET, args, WalletResult.class);
     }
 
     @Override
-    public MpcWalletAddressResult createWalletAddress(Integer walletId, String symbol) {
+    public WalletAddressResult createWalletAddress(Integer walletId, String symbol) {
         if (ObjectUtils.isEmpty(walletId)) {
             throw new ArgsNullException("the request parameter 'sub_wallet_id' is required");
         }
@@ -57,17 +54,15 @@ public class WalletApi extends MpcApi implements IWalletApi {
             throw new ArgsNullException("the request parameter 'symbol' is required");
         }
 
-        MpcCreateWalletAddressArgs args = MpcCreateWalletAddressArgs.MpcCreateWalletAddressArgsBuilder
-                .aMpcCreateWalletAddressArgs()
-                .subWalletId(walletId)
-                .symbol(symbol)
-                .build();
+        CreateWalletAddressArgs args = new CreateWalletAddressArgs();
+        args.setSubWalletId(walletId);
+        args.setSymbol(symbol);
 
-        return this.invoke(MpcApiUri.CREATE_WALLET_ADDRESS, args, MpcWalletAddressResult.class);
+        return this.invoke(MpcApiUri.CREATE_WALLET_ADDRESS, args, WalletAddressResult.class);
     }
 
     @Override
-    public MpcWalletAddressListResult queryWalletAddress(Integer walletId, String symbol, Integer maxId) {
+    public WalletAddressListResult queryWalletAddress(Integer walletId, String symbol, Integer maxId) {
         if (ObjectUtils.isEmpty(walletId)) {
             throw new ArgsNullException("the request parameter 'sub_wallet_id' is required");
         }
@@ -80,17 +75,16 @@ public class WalletApi extends MpcApi implements IWalletApi {
             maxId = 0;
         }
 
-        MpcQueryAddressArgs args = MpcQueryAddressArgs.QueryMpcAddressArgsBuilder.aQueryMpcAddressArgs()
-                .subWalletId(walletId)
-                .symbol(symbol)
-                .maxId(maxId)
-                .build();
+        QueryAddressArgs args = new QueryAddressArgs();
+        args.setSubWalletId(walletId);
+        args.setSymbol(symbol);
+        args.setMaxId(maxId);
 
-        return this.invoke(MpcApiUri.GET_ADDRESS_LIST, args, MpcWalletAddressListResult.class);
+        return this.invoke(MpcApiUri.GET_ADDRESS_LIST, args, WalletAddressListResult.class);
     }
 
     @Override
-    public MpcWalletAssetsResult getWalletAssets(Integer walletId, String symbol) {
+    public WalletAssetsResult getWalletAssets(Integer walletId, String symbol) {
         if (ObjectUtils.isEmpty(walletId)) {
             throw new ArgsNullException("the request parameter 'sub_wallet_id' is required");
         }
@@ -99,12 +93,11 @@ public class WalletApi extends MpcApi implements IWalletApi {
             throw new ArgsNullException("the request parameter 'symbol' is required");
         }
 
-        GetMpcWalletAssetsArgs args = GetMpcWalletAssetsArgs.GetWalletAssetsArgsBuilder.aGetWalletAssetsArgs()
-                .subWalletId(walletId)
-                .symbol(symbol)
-                .build();
+        GetWalletAssetsArgs args = new GetWalletAssetsArgs();
+        args.setSubWalletId(walletId);
+        args.setSymbol(symbol);
 
-        return this.invoke(MpcApiUri.GET_WALLET_ASSETS, args, MpcWalletAssetsResult.class);
+        return this.invoke(MpcApiUri.GET_WALLET_ASSETS, args, WalletAssetsResult.class);
     }
 
     @Override
@@ -117,29 +110,27 @@ public class WalletApi extends MpcApi implements IWalletApi {
             showStatus = AppShowStatus.HIDDEN;
         }
 
+        ChangeShowStatusArgs args = new ChangeShowStatusArgs();
+        args.setSubWalletIds(StringUtils.join(walletIds, ","));
+        args.setAppShowStatus(showStatus.getShowStatus());
 
-        MpcChangeShowStatusArgs args = MpcChangeShowStatusArgs.MpcChangeShowStatusArgsBuilder.aMpcChangeShowStatusArgs()
-                .subWalletIds(StringUtils.join(walletIds, ","))
-                .appShowStatus(showStatus.getShowStatus())
-                .build();
         Result result = this.invoke(MpcApiUri.CHANGE_SHOW_STATUS, args, Result.class);
-        if (result.getCode().equalsIgnoreCase("0")) {
-            return Boolean.TRUE;
-        }
-        return Boolean.FALSE;
+
+        return !ObjectUtils.isEmpty(result) && result.getCode().equalsIgnoreCase("0");
+
     }
 
     @Override
-    public MpcWalletAddressInfoResult walletAddressInfo(String address, String memo) {
+    public WalletAddressInfoResult walletAddressInfo(String address, String memo) {
         if (StringUtils.isBlank(address)) {
             throw new ArgsNullException("the request parameter 'address' is required");
         }
 
-        GetMpcAddressInfoArgs args = GetMpcAddressInfoArgs.GetMpcAddressInfoArgsBuilder.aGetMpcAddressInfoArgs()
-                .address(address)
-                .memo(memo)
-                .build();
-        return this.invoke(MpcApiUri.ADDRESS_INFO, args, MpcWalletAddressInfoResult.class);
+        GetAddressInfoArgs args = new GetAddressInfoArgs();
+        args.setAddress(address);
+        args.setMemo(memo);
+
+        return this.invoke(MpcApiUri.ADDRESS_INFO, args, WalletAddressInfoResult.class);
     }
 
 

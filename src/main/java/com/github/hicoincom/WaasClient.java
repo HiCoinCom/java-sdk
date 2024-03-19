@@ -1,13 +1,22 @@
 package com.github.hicoincom;
 
-import com.github.hicoincom.api.custody.*;
+import com.github.hicoincom.api.waas.*;
 
+/**
+ * @author ChainUp Custody
+ */
 public class WaasClient {
+
     private IAccountApi accountApi;
+
     private IAsyncNotifyApi asyncNotifyApi;
+
     private IBillingApi billingApi;
+
     private ICoinApi coinApi;
+
     private IUserApi userApi;
+
     private ITransferApi transferApi;
 
     public IAccountApi getAccountApi() {
@@ -58,7 +67,6 @@ public class WaasClient {
         this.transferApi = transferApi;
     }
 
-
     public static final class WaasClientBuilder {
         private IAccountApi accountApi;
         private IAsyncNotifyApi asyncNotifyApi;
@@ -70,7 +78,7 @@ public class WaasClient {
         private WaasClientBuilder() {
         }
 
-        public static WaasClientBuilder aWaasClient() {
+        public static WaasClientBuilder builder() {
             return new WaasClientBuilder();
         }
 

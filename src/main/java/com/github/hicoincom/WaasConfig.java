@@ -2,12 +2,30 @@ package com.github.hicoincom;
 
 public class WaasConfig {
 
+    /**
+     * Custody appId
+     */
     private String appId;
+
+    /**
+     * Customer Rsa private key
+     */
     private String userPrivateKey;
+
+    /**
+     * The Rsa public key provided by Custody
+     */
     private String waasPublickKey;
+
+    /**
+     * Custody domain name
+     */
     private String domain = "https://openapi.hicoin.vip/api/v2";
+
     private String version = "v2";
+
     private String charset = "utf-8";
+
     private Boolean enableLog = true;
 
     public String getAppId() {

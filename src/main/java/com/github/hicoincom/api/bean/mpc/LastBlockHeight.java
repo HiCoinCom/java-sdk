@@ -6,6 +6,7 @@ import java.io.Serializable;
  * @author Chainup Custody
  */
 public class LastBlockHeight implements Serializable {
+
     private static final long serialVersionUID = -3216938055348212336L;
 
     private Long height;

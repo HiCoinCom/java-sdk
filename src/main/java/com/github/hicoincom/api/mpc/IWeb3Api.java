@@ -1,10 +1,10 @@
 package com.github.hicoincom.api.mpc;
 
 
-import com.github.hicoincom.api.bean.mpc.MpcCreateWeb3Result;
-import com.github.hicoincom.api.bean.mpc.MpcWeb3AccelerationArgs;
-import com.github.hicoincom.api.bean.mpc.MpcWeb3RecordResult;
-import com.github.hicoincom.api.bean.mpc.MpcWeb3TransArgs;
+import com.github.hicoincom.api.bean.mpc.CreateWeb3Result;
+import com.github.hicoincom.api.bean.mpc.Web3AccelerationArgs;
+import com.github.hicoincom.api.bean.mpc.Web3RecordResult;
+import com.github.hicoincom.api.bean.mpc.CreateWeb3Args;
 
 import java.util.List;
 
@@ -21,7 +21,16 @@ public interface IWeb3Api {
      *                            create web3 transaction args
      * @param needTransactionSign transactions require signature fields
      */
-    MpcCreateWeb3Result createWeb3Trans(MpcWeb3TransArgs web3TransArgs, boolean needTransactionSign);
+    CreateWeb3Result createWeb3Trans(CreateWeb3Args web3TransArgs, boolean needTransactionSign);
+
+    /**
+     * Create Web3 Transaction
+     * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/web3/web3-create
+     *
+     * @param web3TransArgs required true
+     *                      create web3 transaction args
+     */
+    CreateWeb3Result createWeb3Trans(CreateWeb3Args web3TransArgs);
 
     /**
      * Web3 Transaction Acceleration
@@ -30,7 +39,7 @@ public interface IWeb3Api {
      * @param accelerationArgs required true
      *                         acceleration web3 transaction args
      */
-    boolean accelerationWeb3Trans(MpcWeb3AccelerationArgs accelerationArgs);
+    boolean accelerationWeb3Trans(Web3AccelerationArgs accelerationArgs);
 
 
     /**
@@ -41,7 +50,7 @@ public interface IWeb3Api {
      * @param requestIds required: true
      *                   many request_id string
      */
-    MpcWeb3RecordResult getWeb3Records(List<String> requestIds);
+    Web3RecordResult getWeb3Records(List<String> requestIds);
 
     /**
      * Sync Web3 Transaction Records
@@ -51,7 +60,7 @@ public interface IWeb3Api {
      * @param maxId required: true
      *              Starting ID of Web3 transactions, default:0
      */
-    MpcWeb3RecordResult syncWeb3Records(Integer maxId);
+    Web3RecordResult syncWeb3Records(Integer maxId);
 
 
 }
