@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.waas;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -13,6 +15,7 @@ public class Withdraw implements Serializable {
 
     private static final long serialVersionUID = -687924359027886834L;
 
+    @JSONField(name ="request_id")
     private String requestId;
 
     private Integer id;
@@ -23,18 +26,25 @@ public class Withdraw implements Serializable {
 
     private BigDecimal amount;
 
+    @JSONField(name ="withdraw_fee_symbol")
     private String withdrawFeeSymbol;
 
+    @JSONField(name ="withdraw_fee")
     private BigDecimal withdrawFee;
 
+    @JSONField(name ="fee_symbol")
     private String feeSymbol;
 
+    @JSONField(name ="real_fee")
     private BigDecimal realFee;
 
+    @JSONField(name ="address_to")
     private String addressTo;
 
+    @JSONField(name ="created_at")
     private Date createdAt;
 
+    @JSONField(name ="updated_at")
     private Date updatedAt;
 
     private String txid;
@@ -43,10 +53,13 @@ public class Withdraw implements Serializable {
 
     private Integer status;
 
+    @JSONField(name ="address_from")
     private String addressFrom;
 
+    @JSONField(name ="saas_status")
     private Integer saasStatus;
 
+    @JSONField(name ="company_status")
     private Integer companyStatus;
 
     public String getRequestId() {

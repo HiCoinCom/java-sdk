@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -18,6 +20,7 @@ public class DepositRecord implements Serializable {
     /**
      * wallet id
      */
+    @JSONField(name = "sub_wallet_id")
     private Integer subWalletId;
 
     /**
@@ -28,11 +31,13 @@ public class DepositRecord implements Serializable {
     /**
      * The unique identifier of the main chain of the coin to be received, e.g.：ETH
      */
+    @JSONField(name = "base_symbol")
     private String baseSymbol;
 
     /**
      * received coin’s contract address
      */
+    @JSONField(name = "contract_address")
     private String contractAddress;
 
     /**
@@ -43,11 +48,13 @@ public class DepositRecord implements Serializable {
     /**
      * transfer from address
      */
+    @JSONField(name = "address_from")
     private String addressFrom;
 
     /**
      * receiving address
      */
+    @JSONField(name = "address_to")
     private String addressTo;
 
     /**
@@ -68,6 +75,7 @@ public class DepositRecord implements Serializable {
     /**
      * Block height at which the transaction is completed
      */
+    @JSONField(name = "tx_height")
     private Long txHeight;
 
     /**
@@ -79,21 +87,25 @@ public class DepositRecord implements Serializable {
     /**
      * Deposit Type, 1: Regular coin deposit, 2: NFT deposit
      */
+    @JSONField(name = "deposit_type")
     private Integer depositType;
 
     /**
      * TokenId for NFT deposit, this value is not empty when: deposit_type=2
      */
+    @JSONField(name = "token_id")
     private String tokenId;
 
     /**
      * Creation time timestamp
      */
+    @JSONField(name = "created_at")
     private Long createdAt;
 
     /**
      * Modification time timestamp
      */
+    @JSONField(name = "updated_at")
     private Long updatedAt;
 
     public Integer getId() {

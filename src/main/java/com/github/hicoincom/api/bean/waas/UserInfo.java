@@ -1,6 +1,8 @@
 package com.github.hicoincom.api.bean.waas;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -10,8 +12,10 @@ public class UserInfo implements Serializable {
 
     private static final long serialVersionUID = 5353191359060537483L;
 
+    @JSONField(name ="uid")
     protected Integer uid;
 
+    @JSONField(name ="nickname")
     protected String nickname;
 
     public Integer getUid() {

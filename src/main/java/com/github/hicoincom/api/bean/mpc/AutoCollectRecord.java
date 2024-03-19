@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -17,6 +19,7 @@ public class AutoCollectRecord implements Serializable {
     /**
      * wallet id
      */
+    @JSONField(name ="sub_wallet_id")
     private Integer subWalletId;
 
     /**
@@ -32,6 +35,7 @@ public class AutoCollectRecord implements Serializable {
     /**
      * Fee currency, e.g.：ETH
      */
+    @JSONField(name ="fee_symbol")
     private String feeSymbol;
 
     /**
@@ -42,26 +46,31 @@ public class AutoCollectRecord implements Serializable {
     /**
      * Actual consumed fee, e.g.：0.00111
      */
+    @JSONField(name ="real_fee")
     private String realFee;
 
     /**
      * Creation time timestamp
      */
+    @JSONField(name ="created_at")
     private Long createdAt;
 
     /**
      * Modification time timestamp
      */
+    @JSONField(name ="updated_at")
     private Long updatedAt;
 
     /**
      * Sender’s address
      */
+    @JSONField(name ="address_from")
     private String addressFrom;
 
     /**
      * Consolidation address
      */
+    @JSONField(name ="address_to")
     private String addressTo;
 
     /**
@@ -83,16 +92,19 @@ public class AutoCollectRecord implements Serializable {
     /**
      * Consolidation type: 10. Consolidation Transaction, 11. Consolidation Gas Transaction
      */
+    @JSONField(name ="trans_type")
     private Integer transType;
 
     /**
      * Base currency unique identifier on the main chain, e.g.：ETH
      */
+    @JSONField(name ="base_symbol")
     private String baseSymbol;
 
     /**
      * Contract address for the consolidation currency
      */
+    @JSONField(name ="contract_address")
     private String contractAddress;
 
     public Integer getId() {

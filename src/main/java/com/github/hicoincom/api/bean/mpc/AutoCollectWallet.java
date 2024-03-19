@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -13,11 +15,13 @@ public class AutoCollectWallet implements Serializable {
     /**
      * Auto-consolidation wallet, obtained after configuring the coin
      */
+    @JSONField(name = "collect_sub_wallet_id")
     private Integer collectSubWalletId;
 
     /**
      * Refueling wallet, obtained after configuring the coin
      */
+    @JSONField(name = "fueling_sub_wallet_id")
     private Integer fuelingSubWalletId;
 
     public Integer getCollectSubWalletId() {

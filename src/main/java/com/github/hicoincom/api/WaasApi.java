@@ -1,5 +1,6 @@
 package com.github.hicoincom.api;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.hicoincom.WaasConfig;
 import com.github.hicoincom.api.bean.Args;
 import com.github.hicoincom.api.bean.BaseArgs;
@@ -8,7 +9,6 @@ import com.github.hicoincom.enums.ApiUri;
 import com.github.hicoincom.enums.MpcApiUri;
 import com.github.hicoincom.exception.CryptoException;
 import com.github.hicoincom.util.HttpClientUtil;
-import com.google.gson.*;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.methods.HttpGet;
@@ -97,32 +97,24 @@ public class WaasApi {
             return null;
         }
 
-        JsonObject jsonObject = JsonParser.parseString(resp).getAsJsonObject();
+        JSONObject jsonObject = JSONObject.parseObject(resp);
         if (ObjectUtils.isEmpty(jsonObject)
-                || !jsonObject.has("data")
-                || StringUtils.isBlank(jsonObject.get("data").getAsString())) {
+                || !jsonObject.containsKey("data")
+                || StringUtils.isBlank(jsonObject.getString("data"))) {
             // The data returned by the interface does not contain the data field
             logger.error("request api: {}, result do not found data field or data field is empty", uri);
             return null;
         }
 
         // Decrypt response data
-        String respRaw = this.dataCrypto.decode(jsonObject.get("data").getAsString());
+        String respRaw = this.dataCrypto.decode(jsonObject.getString("data"));
         this.info("request api:{} decode result :{}", uri, respRaw);
         if (StringUtils.isBlank(respRaw)) {
             logger.error("request api:{}, decode result return null", uri);
             return null;
         }
 
-        jsonObject = JsonParser.parseString(respRaw).getAsJsonObject();
-        if (!ObjectUtils.isEmpty(jsonObject.get("code")) && !"0".equals(jsonObject.get("code").getAsString())) {
-            jsonObject.remove("data");
-        }
-
-        T result = new GsonBuilder()
-                .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
-                .fromJson(jsonObject.toString(), clazz);
+        T result = JSONObject.parseObject(respRaw, clazz);
         if (ObjectUtils.isEmpty(result)) {
             logger.error("request api:{}, result parse json to object error, json:{}", uri, respRaw);
             return null;

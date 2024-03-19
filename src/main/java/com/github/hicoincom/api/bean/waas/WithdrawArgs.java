@@ -1,6 +1,7 @@
 package com.github.hicoincom.api.bean.waas;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.github.hicoincom.api.bean.BaseArgs;
 
 import java.io.Serializable;
@@ -15,16 +16,20 @@ public class WithdrawArgs extends BaseArgs implements Serializable {
 
     private static final long serialVersionUID = 3598957308406371406L;
 
+    @JSONField(name ="request_id")
     private String requestId;
 
+    @JSONField(name ="from_uid")
     private Integer fromUid;
 
+    @JSONField(name ="to_address")
     private String toAddress;
 
     private BigDecimal amount;
 
     private String symbol;
 
+    @JSONField(name ="check_sum")
     private String checkSum;
 
     public String getRequestId() {

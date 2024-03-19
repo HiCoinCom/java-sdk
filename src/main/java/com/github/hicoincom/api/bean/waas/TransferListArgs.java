@@ -1,6 +1,7 @@
 package com.github.hicoincom.api.bean.waas;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.github.hicoincom.api.bean.BaseArgs;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ public class TransferListArgs extends BaseArgs implements Serializable {
 
     private static final long serialVersionUID = 2368315566759720927L;
 
+    @JSONField(name = "ids_type")
     private String ids;
 
     /**

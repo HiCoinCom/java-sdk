@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -17,11 +19,13 @@ public class WithdrawRecord implements Serializable {
     /**
      * The unique identifier for transferring coins
      */
+    @JSONField(name = "request_id")
     private String requestId;
 
     /**
      * wallet id
      */
+    @JSONField(name = "sub_wallet_id")
     private Integer subWalletId;
 
     /**
@@ -32,21 +36,25 @@ public class WithdrawRecord implements Serializable {
     /**
      * transfer coin’s contract address
      */
+    @JSONField(name = "contract_address")
     private String contractAddress;
 
     /**
      * The unique identifier of the main chain of the coin to be transferred, e.g.：ETH
      */
+    @JSONField(name = "base_symbol")
     private String baseSymbol;
 
     /**
      * from account address
      */
+    @JSONField(name = "address_from")
     private String addressFrom;
 
     /**
      * to account address
      */
+    @JSONField(name = "address_to")
     private String addressTo;
 
     /**
@@ -67,6 +75,7 @@ public class WithdrawRecord implements Serializable {
     /**
      * gas fee coins, e.g.：ETH
      */
+    @JSONField(name = "fee_symbol")
     private String feeSymbol;
 
     /**
@@ -77,6 +86,7 @@ public class WithdrawRecord implements Serializable {
     /**
      * The actual gas fee consumed, e.g.：0.00111
      */
+    @JSONField(name = "real_fee")
     private String realFee;
 
     /**
@@ -93,21 +103,25 @@ public class WithdrawRecord implements Serializable {
     /**
      * Block height at which the transaction is completed
      */
+    @JSONField(name = "tx_height")
     private Long txHeight;
 
     /**
      * transfer Type： 1app, 2openapi, 3web
      */
+    @JSONField(name = "withdraw_source")
     private Integer withdrawSource;
 
     /**
      * Creation time timestamp
      */
+    @JSONField(name = "created_at")
     private Long createdAt;
 
     /**
      * Modification time timestamp
      */
+    @JSONField(name = "updated_at")
     private Long updatedAt;
 
     public Integer getId() {

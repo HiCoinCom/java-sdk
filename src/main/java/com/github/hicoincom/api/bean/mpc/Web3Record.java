@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -17,11 +19,13 @@ public class Web3Record implements Serializable {
     /**
      * Unique identifier for the transaction
      */
+    @JSONField(name = "request_id")
     private String requestId;
 
     /**
      * Wallet id
      */
+    @JSONField(name = "sub_wallet_id")
     private Integer subWalletId;
 
     /**
@@ -37,6 +41,7 @@ public class Web3Record implements Serializable {
     /**
      * Main chain coin symbol (unique identifier), e.g.：ETH
      */
+    @JSONField(name = "main_chain_symbol")
     private String mainChainSymbol;
 
     /**
@@ -47,6 +52,7 @@ public class Web3Record implements Serializable {
     /**
      * Fee currency, e.g.：ETH
      */
+    @JSONField(name = "fee_symbol")
     private String feeSymbol;
 
     /**
@@ -57,31 +63,37 @@ public class Web3Record implements Serializable {
     /**
      * Actual fee consumed, e.g.：0.00111
      */
+    @JSONField(name = "real_fee")
     private String realFee;
 
     /**
      * Creation time timestamp
      */
+    @JSONField(name = "created_at")
     private Long createdAt;
 
     /**
      * Modification time timestamp
      */
+    @JSONField(name = "updated_at")
     private Long updatedAt;
 
     /**
      * Transaction source address
      */
+    @JSONField(name = "address_from")
     private String addressFrom;
 
     /**
      * Transaction destination address
      */
+    @JSONField(name = "address_to")
     private String addressTo;
 
     /**
      * Interactive contract
      */
+    @JSONField(name = "interactive_contract")
     private String interactiveContract;
 
     /**
@@ -92,12 +104,13 @@ public class Web3Record implements Serializable {
     /**
      * Block height at which the transaction is completed
      */
+    @JSONField(name = "tx_height")
     private Long txHeight;
-
 
     /**
      * Hexadecimal data for contract transaction
      */
+    @JSONField(name = "input_data")
     private String inputData;
 
     /**
@@ -109,6 +122,7 @@ public class Web3Record implements Serializable {
     /**
      * Transaction type： 1app, 2openapi
      */
+    @JSONField(name = "trans_source")
     private Integer transSource;
 
     public Integer getId() {

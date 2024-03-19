@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -17,22 +19,26 @@ public class SupportCoin implements Serializable {
     /**
      * Coin network, e.g.：ETH
      */
+    @JSONField(name = "coin_net")
     private String coinNet;
 
     /**
      * Real name of the coin, e.g.：ETH
      */
+    @JSONField(name = "symbol_alias")
     private String symbolAlias;
 
 
     /**
      * Indicates if acceleration is supported (true/false)
      */
+    @JSONField(name = "support_acceleration")
     private Boolean supportAcceleration;
 
     /**
      * Indicates if the main chain is opened (false/true)
      */
+    @JSONField(name = "if_open_chain")
     private Boolean ifOpenChain;
 
     public String getSymbol() {

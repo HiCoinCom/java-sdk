@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.waas;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -16,22 +18,30 @@ public class CoinInfo implements Serializable {
 
     private String icon;
 
+    @JSONField(name ="real_symbol")
     private String realSymbol;
 
+    @JSONField(name ="base_symbol")
     private String baseSymbol;
 
-    private Integer decimals;
+    private String decimals;
 
+    @JSONField(name ="contract_address")
     private String contractAddress;
 
+    @JSONField(name ="deposit_confirmation")
     private Integer depositConfirmation;
 
+    @JSONField(name ="support_memo")
     private Byte supportMemo;
 
+    @JSONField(name ="support_token")
     private Byte supportToken;
 
+    @JSONField(name ="address_regex")
     private String addressRegex;
 
+    @JSONField(name ="address_tag_regex")
     private String addressTagRegex;
 
     public String getSymbol() {
@@ -66,11 +76,11 @@ public class CoinInfo implements Serializable {
         this.baseSymbol = baseSymbol;
     }
 
-    public Integer getDecimals() {
+    public String getDecimals() {
         return decimals;
     }
 
-    public void setDecimals(Integer decimals) {
+    public void setDecimals(String decimals) {
         this.decimals = decimals;
     }
 

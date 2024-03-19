@@ -1,5 +1,6 @@
 package com.github.hicoincom.api.bean.waas;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.github.hicoincom.api.bean.BaseArgs;
 
 import java.io.Serializable;
@@ -17,8 +18,10 @@ public class AsyncNotifyArgs extends BaseArgs implements Serializable {
 
     private String side;
 
+    @JSONField(name ="notify_time")
     private Date notifyTime;
 
+    @JSONField(name ="request_id")
     private String requestId;
 
     private Integer id;
@@ -29,18 +32,25 @@ public class AsyncNotifyArgs extends BaseArgs implements Serializable {
 
     private BigDecimal amount;
 
+    @JSONField(name ="withdraw_fee_symbol")
     private String withdrawFeeSymbol;
 
+    @JSONField(name ="withdraw_fee")
     private BigDecimal withdrawFee;
 
+    @JSONField(name ="fee_symbol")
     private String feeSymbol;
 
+    @JSONField(name ="real_fee")
     private BigDecimal realFee;
 
+    @JSONField(name ="address_to")
     private String addressTo;
 
+    @JSONField(name ="created_at")
     private Date createdAt;
 
+    @JSONField(name ="updated_at")
     private Date updatedAt;
 
     private String txid;

@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -12,6 +14,7 @@ public class Withdraw implements Serializable {
     /**
      * transfer id
      */
+    @JSONField(name = "withdraw_id")
     private Integer withdrawId;
 
     public Integer getWithdrawId() {

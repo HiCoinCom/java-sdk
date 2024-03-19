@@ -1,13 +1,12 @@
 package com.github.hicoincom.api.waas.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.hicoincom.WaasConfig;
 import com.github.hicoincom.api.WaasApi;
 import com.github.hicoincom.api.bean.waas.AsyncNotifyArgs;
 import com.github.hicoincom.api.bean.waas.WithdrawArgs;
 import com.github.hicoincom.api.waas.IAsyncNotifyApi;
 import com.github.hicoincom.crypto.IDataCrypto;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.GsonBuilder;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -34,11 +33,7 @@ public class AsyncNotifyApi extends WaasApi implements IAsyncNotifyApi {
             return null;
         }
 
-        AsyncNotifyArgs notify = new GsonBuilder()
-                .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
-                .fromJson(raw, AsyncNotifyArgs.class);
-
+        AsyncNotifyArgs notify = JSONObject.parseObject(raw, AsyncNotifyArgs.class);
         if (notify == null) {
             logger.error("NotifyRequest json decode return null");
             return null;
@@ -60,10 +55,7 @@ public class AsyncNotifyApi extends WaasApi implements IAsyncNotifyApi {
             return null;
         }
 
-        WithdrawArgs withdraw = new GsonBuilder()
-                .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
-                .fromJson(raw, WithdrawArgs.class);
+        WithdrawArgs withdraw = JSONObject.parseObject(raw, WithdrawArgs.class);
         if (withdraw == null) {
             logger.error("VerifyRequest json decode withdraw return null");
             return null;
@@ -78,10 +70,7 @@ public class AsyncNotifyApi extends WaasApi implements IAsyncNotifyApi {
             return null;
         }
 
-        String withdrawJson = new GsonBuilder()
-                .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
-                .toJson(withdraw);
+        String withdrawJson = JSONObject.toJSONString(withdraw);
 
         String raw = this.dataCrypto.encode(withdrawJson);
         if (StringUtils.isBlank(raw)) {

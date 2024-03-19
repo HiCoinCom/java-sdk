@@ -1,5 +1,6 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.github.hicoincom.api.bean.BaseArgs;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ public class WithdrawArgs extends BaseArgs implements Serializable {
      * Wallet ID
      * required : true
      */
+    @JSONField(name = "sub_wallet_id")
     private Integer subWalletId;
 
     /**
@@ -34,6 +36,7 @@ public class WithdrawArgs extends BaseArgs implements Serializable {
      * Transfer address
      * required : true
      */
+    @JSONField(name = "address_to")
     private String addressTo;
 
     /**
@@ -52,6 +55,7 @@ public class WithdrawArgs extends BaseArgs implements Serializable {
      * The unique identifier for transferring coins
      * required : true
      */
+    @JSONField(name = "request_id")
     private String requestId;
 
     /**

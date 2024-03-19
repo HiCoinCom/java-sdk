@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -13,6 +15,7 @@ public class Wallet implements Serializable {
     /**
      * wallet id
      */
+    @JSONField(name = "sub_wallet_id")
     private Integer subWalletId;
 
     public Integer getSubWalletId() {
