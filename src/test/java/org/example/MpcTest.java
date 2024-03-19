@@ -1,6 +1,5 @@
 package org.example;
 
-
 import com.github.hicoincom.MpcConfig;
 import com.github.hicoincom.MpcClient;
 import com.github.hicoincom.WaasClientFactory;
@@ -22,19 +21,12 @@ public class MpcTest {
 
     @Before
     public void initMpcClient() {
-        String appId = "";
-        String userPriKey = "";
-        String waasPub = "";
-        String custodyDomain = "";
-        String signPri = "";
-
 
         MpcConfig cfg = new MpcConfig();
-        cfg.setAppId(appId);
-        cfg.setUserPrivateKey(userPriKey);
-        cfg.setWaasPublickKey(waasPub);
-        cfg.setDomain(custodyDomain);
-        cfg.setSignPrivateKey(signPri);
+        cfg.setAppId("custody app id");
+        cfg.setUserPrivateKey("user private key");
+        cfg.setWaasPublickKey("custody public key");
+        cfg.setSignPrivateKey("sign private key");
         cfg.setEnableLog(Boolean.FALSE);
         mpcClient = WaasClientFactory.CreateMpcClient(cfg);
     }
@@ -136,7 +128,7 @@ public class MpcTest {
         withdrawArgs.setAmount("0.00000100000");
 
         // Method 1
-        WithdrawResult withdraw = mpcClient.getWithdrawApi().withdraw(withdrawArgs, Boolean.TRUE);
+        WithdrawResult withdraw = mpcClient.getWithdrawApi().withdraw(withdrawArgs, Boolean.FALSE);
 
         // Method 2
         /*String signPriKey = "";
@@ -157,7 +149,7 @@ public class MpcTest {
 
     @Test
     public void syncList() {
-        WithdrawRecordResult withdrawRecords = mpcClient.getWithdrawApi().syncWithdrawRecords(4229);
+        WithdrawRecordResult withdrawRecords = mpcClient.getWithdrawApi().syncWithdrawRecords(4220);
         System.out.println("sync withdraw records: " + withdrawRecords.toJson());
     }
 

@@ -80,7 +80,7 @@ public class WaasApi {
         }
 
         // request interface
-        String url = String.format("%s/%s", this.cfg.getDomain(), uri);
+        String url = String.format("%s%s", this.cfg.getDomain(), uri);
         Args params = new Args(this.cfg.getAppId(), data);
         String resp;
         if (HttpGet.METHOD_NAME.equalsIgnoreCase(requestMethod)) {
@@ -114,10 +114,15 @@ public class WaasApi {
             return null;
         }
 
+        jsonObject = JsonParser.parseString(respRaw).getAsJsonObject();
+        if (!ObjectUtils.isEmpty(jsonObject.get("code")) && !"0".equals(jsonObject.get("code").getAsString())) {
+            jsonObject.remove("data");
+        }
+
         T result = new GsonBuilder()
                 .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create()
-                .fromJson(respRaw, clazz);
+                .fromJson(jsonObject.toString(), clazz);
         if (ObjectUtils.isEmpty(result)) {
             logger.error("request api:{}, result parse json to object error, json:{}", uri, respRaw);
             return null;
