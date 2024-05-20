@@ -41,6 +41,7 @@ public class Deposit implements Serializable {
 
     private Integer status;
 
+    @JSONField(name ="is_mining")
     private Byte mining;
 
     public Integer getId() {
