@@ -1,6 +1,8 @@
 package com.github.hicoincom.api.bean.waas;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -21,8 +23,10 @@ public class Transfer implements Serializable {
 
     private String to;
 
+    @JSONField(name = "created_at")
     private Long createdAt;
 
+    @JSONField(name = "request_id")
     private String requestId;
 
     private String receipt;

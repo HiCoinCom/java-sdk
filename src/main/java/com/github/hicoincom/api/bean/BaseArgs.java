@@ -1,19 +1,23 @@
 package com.github.hicoincom.api.bean;
 
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.GsonBuilder;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.annotation.JSONField;
 
 /**
  * @author ChainUp
  */
 public class BaseArgs {
 
+    @JSONField(name ="app_id")
     protected String appId;
 
+    @JSONField(name ="version")
     protected String version;
 
+    @JSONField(name ="charset")
     protected String charset;
 
+    @JSONField(name ="time")
     protected Long time;
 
     public String getAppId() {
@@ -49,9 +53,6 @@ public class BaseArgs {
     }
 
     public String toJson() {
-        return new GsonBuilder()
-                .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
-                .toJson(this);
+        return JSONObject.toJSONString(this);
     }
 }

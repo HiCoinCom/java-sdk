@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.waas;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -23,12 +25,16 @@ public class MinerFee implements Serializable {
 
     private BigDecimal fee;
 
+    @JSONField(name ="address_from")
     private String addressFrom;
 
+    @JSONField(name ="address_to")
     private String addressTo;
 
+    @JSONField(name ="created_at")
     private Date createdAt;
 
+    @JSONField(name ="updated_at")
     private Date updatedAt;
 
     private String txid;

@@ -1,5 +1,6 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.github.hicoincom.api.bean.BaseArgs;
 
 import java.io.Serializable;
@@ -16,18 +17,21 @@ public class CreateWeb3Args extends BaseArgs implements Serializable {
      * Wallet ID
      * required : true
      */
+    @JSONField(name = "sub_wallet_id")
     private Integer subWalletId;
 
     /**
      * The unique identifier for transferring coins
      * required : true
      */
+    @JSONField(name = "request_id")
     private String requestId;
 
     /**
      * Main chain coin symbol, Unique identifier for the coin, e.g.：ETH
      * required: true
      */
+    @JSONField(name = "main_chain_symbol")
     private String mainChainSymbol;
 
     /**
@@ -41,6 +45,7 @@ public class CreateWeb3Args extends BaseArgs implements Serializable {
      * Interactive contract
      * required: true
      */
+    @JSONField(name = "interactive_contract")
     private String interactiveContract;
 
     /**
@@ -53,42 +58,49 @@ public class CreateWeb3Args extends BaseArgs implements Serializable {
      * Gas fee，unit：Gwei
      * required : true
      */
+    @JSONField(name = "gas_price")
     private String gasPrice;
 
     /**
      * Gas limit fee
      * required : true
      */
+    @JSONField(name = "gas_limit")
     private String gasLimit;
 
     /**
      * Hexadecimal data for contract transaction
      * required : true
      */
+    @JSONField(name = "input_data")
     private String inputData;
 
     /**
      * 0: Authorization transaction, 1: Other transaction. If 0, the amount field is invalid.
      * required : true
      */
+    @JSONField(name = "trans_type")
     private String transType;
 
     /**
      * Dapp name
      * required : false
      */
+    @JSONField(name = "dapp_name")
     private String dappName;
 
     /**
      * Dapp URL
      * required : false
      */
+    @JSONField(name = "dapp_url")
     private String dappUrl;
 
     /**
      * Dapp image
      * required : false
      */
+    @JSONField(name = "dapp_img")
     private String dappImg;
 
     /**

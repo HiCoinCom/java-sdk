@@ -1,6 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.github.hicoincom.api.bean.BaseArgs;
 
 import java.io.Serializable;
@@ -22,12 +23,14 @@ public class GetCoinDetailsArgs extends BaseArgs implements Serializable {
      * Main chain coins, Unique identifier for the coin, used for transfers, e.g.：ETH
      * required : false
      */
+    @JSONField(name = "base_symbol")
     private String baseSymbol;
 
     /**
      * Main chain coin, default to getting all, true to get opened coins, false to get unopened coins
      * required : false
      */
+    @JSONField(name = "open_chain")
     private Boolean openChain;
 
     public String getSymbol() {

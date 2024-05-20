@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -12,17 +14,20 @@ public class WalletAddressInfo implements Serializable {
     /**
      * Wallet ID
      */
+    @JSONField(name = "sub_wallet_id")
     private Integer subWalletId;
 
     /**
      * Address type, 1: User address, 2: System address (including collection address, change address).
      * System address cannot be assigned to users, change from UTXO transactions will all go to the change address
      */
+    @JSONField(name = "addr_type")
     private Integer addrType;
 
     /**
      * Unique coin identifier
      */
+    @JSONField(name = "merge_address_symbol")
     private String mergeAddressSymbol;
 
     public Integer getSubWalletId() {

@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -12,16 +14,19 @@ public class WalletAssets implements Serializable {
     /**
      * Available balance
      */
+    @JSONField(name = "normal_balance")
     private String normalBalance;
 
     /**
      * Freeze balance
      */
+    @JSONField(name = "lock_balance")
     private String lockBalance;
 
     /**
      * Balance for awaiting consolidation assets
      */
+    @JSONField(name = "collecting_balance")
     private String collectingBalance;
 
     public String getNormalBalance() {

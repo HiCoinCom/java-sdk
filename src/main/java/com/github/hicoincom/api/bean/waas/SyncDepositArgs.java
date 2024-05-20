@@ -1,5 +1,6 @@
 package com.github.hicoincom.api.bean.waas;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.github.hicoincom.api.bean.BaseArgs;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ public class SyncDepositArgs extends BaseArgs implements Serializable {
 
     private static final long serialVersionUID = 9084750848353802771L;
 
+    @JSONField(name ="max_id")
     private Integer maxId;
 
     public Integer getMaxId() {

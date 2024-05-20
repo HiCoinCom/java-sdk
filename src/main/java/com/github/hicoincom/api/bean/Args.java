@@ -1,5 +1,6 @@
 package com.github.hicoincom.api.bean;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.github.hicoincom.enums.AsyncNotifyType;
 
 import java.io.Serializable;
@@ -13,10 +14,13 @@ public class Args implements Serializable {
 
     private static final long serialVersionUID = 9084284544827752321L;
 
+    @JSONField(name ="app_id")
     private String appId;
 
+    @JSONField(name ="data")
     private String data;
 
+    @JSONField(name ="data_type")
     private AsyncNotifyType dataType;
 
     public Args() {

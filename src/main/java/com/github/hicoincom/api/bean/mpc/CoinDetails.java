@@ -1,5 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 
 /**
@@ -12,11 +14,13 @@ public class CoinDetails implements Serializable {
     /**
      * Unique identifier of the base coin of the main chain, e.g.：MATIC1
      */
+    @JSONField(name = "base_symbol")
     private String baseSymbol;
 
     /**
      * Coin network
      */
+    @JSONField(name = "coin_net")
     private String coinNet;
 
     /**
@@ -27,21 +31,25 @@ public class CoinDetails implements Serializable {
     /**
      * Real name of the coin
      */
+    @JSONField(name = "symbol_alias")
     private String symbolAlias;
 
     /**
      * Address regex pattern, e.g.：.*
      */
+    @JSONField(name = "address_regex")
     private String addressRegex;
 
     /**
      * Address tag regex pattern
      */
+    @JSONField(name = "address_tag_regex")
     private String addressTagRegex;
 
     /**
      * Contract address supported by MPC main chain
      */
+    @JSONField(name = "contract_address")
     private String contractAddress;
 
     /**
@@ -52,16 +60,19 @@ public class CoinDetails implements Serializable {
     /**
      * Number of confirmations for deposits
      */
+    @JSONField(name = "deposit_confirmation")
     private Integer depositConfirmation;
 
     /**
      * Prefix for the block explorer address query link.
      */
+    @JSONField(name = "address_link")
     private String addressLink;
 
     /**
      * Prefix for the block explorer address query link.
      */
+    @JSONField(name = "txid_link")
     private String txidLink;
 
     /**
@@ -72,41 +83,49 @@ public class CoinDetails implements Serializable {
     /**
      * Indicates if the main chain is open (false/true)
      */
+    @JSONField(name = "if_open_chain")
     private Boolean ifOpenChain;
 
     /**
      * Name of the coin on the blockchain
      */
+    @JSONField(name = "real_symbol")
     private String realSymbol;
 
     /**
      * Indicates if memo is supported (0:not supported, 1:supported)
      */
+    @JSONField(name = "support_memo")
     private String supportMemo;
 
     /**
      * Indicates if token coins are supported (0:not supported, 1:supported for main chain coins, empty for tokens)
      */
+    @JSONField(name = "support_token")
     private String supportToken;
 
     /**
      * Indicates if acceleration is supported (false/true)
      */
+    @JSONField(name = "support_acceleration")
     private Boolean supportAcceleration;
 
     /**
      * Support for multiple addresses, true: supported, false: not supported
      */
+    @JSONField(name = "support_multi_addr")
     private Boolean supportMultiAddr;
 
     /**
      * Merged address main chain coin, Unique identifier for the coin
      */
+    @JSONField(name = "merge_address_symbol")
     private String mergeAddressSymbol;
 
     /**
      * Belongs to the main chain coin type, 0 for account type, 1 for utxo-type main chain, 2 for Memo type
      */
+    @JSONField(name = "coin_type")
     private Integer coinType;
 
     public String getBaseSymbol() {

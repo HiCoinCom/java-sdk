@@ -1,6 +1,7 @@
 package com.github.hicoincom.api.bean.mpc;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.github.hicoincom.api.bean.BaseArgs;
 
 import java.io.Serializable;
@@ -20,11 +21,13 @@ public class SetAutoCollectSymbolArgs extends BaseArgs implements Serializable {
     /**
      * Minimum amount for auto-sweep; up to 6 decimal places, not exceeding 9999999999999999
      */
+    @JSONField(name = "collect_min")
     private String collectMin;
 
     /**
      * Maximum miner fee amount for auto-sweep; up to 6 decimal places, not exceeding 9999999999999999
      */
+    @JSONField(name = "fueling_limit")
     private String fuelingLimit;
 
     public String getSymbol() {
