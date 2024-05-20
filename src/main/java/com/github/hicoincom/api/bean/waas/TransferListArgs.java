@@ -14,12 +14,12 @@ public class TransferListArgs extends BaseArgs implements Serializable {
 
     private static final long serialVersionUID = 2368315566759720927L;
 
-    @JSONField(name = "ids_type")
     private String ids;
 
     /**
      * id type（request_id：request ID（default）；receipt：） ids_type
      */
+    @JSONField(name = "ids_type")
     private String idsType;
 
     public String getIds() {
