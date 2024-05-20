@@ -37,11 +37,11 @@ public class Deposit implements Serializable {
 
     private String txid;
 
-    @JSONField(name ="is_mining")
     private Integer confirmations;
 
     private Integer status;
 
+    @JSONField(name ="is_mining")
     private Byte mining;
 
     public Integer getId() {
