@@ -1,11 +1,17 @@
 package com.github.hicoincom.api.bean;
 
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.GsonBuilder;
 
 import java.io.Serializable;
 
+/**
+ * @author ChainUp CUstody
+ */
 public class Result<T> implements Serializable {
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = -6240736530698048710L;
+
     private static final String SUCCESS_CODE = "0";
 
     private String code;
@@ -36,11 +42,14 @@ public class Result<T> implements Serializable {
         this.data = data;
     }
 
-    public String toJson(){
-        return JSONObject.toJSONString(this);
+    public String toJson() {
+        return new GsonBuilder()
+                .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .create()
+                .toJson(this);
     }
 
-    public boolean isSuccess(){
+    public boolean isSuccess() {
         return SUCCESS_CODE.equals(this.getCode());
     }
 }
