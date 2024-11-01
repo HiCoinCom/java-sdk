@@ -1,19 +1,21 @@
 package com.github.hicoincom.util;
 
 
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 
-import java.io.IOException;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.entity.UrlEncodedFormEntity;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.ClassicHttpRequest;
+import org.apache.hc.core5.http.HttpStatus;
+import org.apache.hc.core5.http.NameValuePair;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.message.BasicNameValuePair;
+import org.apache.hc.core5.util.Timeout;
+
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ public class HttpClientUtil {
 
     private static HttpClientUtil ins;
 
-    private HttpClient client;
+    private CloseableHttpClient client;
     private int timeout = DEFAULT_TIMEOUT;
 
     private static int maxConnTotal = 200;
@@ -50,63 +52,57 @@ public class HttpClientUtil {
     }
 
     public String doGetWithJsonResult(String uri) {
-        String json = null;
-        HttpResponse response = null;
+        HttpGet request = null;
         try {
-            HttpGet request = new HttpGet(uri);
-            RequestConfig config = RequestConfig.custom().setConnectionRequestTimeout(timeout)
-                    .setConnectTimeout(timeout).setSocketTimeout(timeout).build();
+            RequestConfig config = RequestConfig.custom()
+                    .setConnectionRequestTimeout(Timeout.ofMilliseconds(timeout))
+                    .setConnectTimeout(Timeout.ofMilliseconds(timeout))
+                    .setResponseTimeout(Timeout.ofMilliseconds(timeout))
+                    .build();
+            request = new HttpGet(uri);
             request.setConfig(config);
-            response = client.execute(request);
-            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                json = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
-            }
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        } finally {
-            try {
-                if (response != null) {
-                    EntityUtils.consume(response.getEntity());
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
-        return json;
+
+        return this.doRequest(request);
     }
 
     public String doPostWithJsonResult(String uri, Map<String, String> paramMap) {
-        String json = null;
-        HttpResponse response = null;
+        HttpPost request = null;
         try {
-            HttpPost request = new HttpPost(uri);
-            RequestConfig config = RequestConfig.custom().setConnectionRequestTimeout(timeout)
-                    .setConnectTimeout(timeout).setSocketTimeout(timeout).build();
+            request = new HttpPost(uri);
+            RequestConfig config = RequestConfig.custom()
+                    .setConnectionRequestTimeout(Timeout.ofMilliseconds(timeout))
+                    .setConnectTimeout(Timeout.ofMilliseconds(timeout))
+                    .setResponseTimeout(Timeout.ofMilliseconds(timeout))
+                    .build();
             request.setConfig(config);
             List<NameValuePair> params = new ArrayList<NameValuePair>(0);
             if (paramMap != null && !paramMap.isEmpty()) {
                 for (String key : paramMap.keySet()) {
                     params.add(new BasicNameValuePair(key, paramMap.get(key)));
                 }
-                request.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
+                request.setEntity(new UrlEncodedFormEntity(params, StandardCharsets.UTF_8));
             }
-            response = client.execute(request);
-            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                json = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
-            }
-            request.releaseConnection();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        } finally {
-            try {
-                if (response != null) {
-                    EntityUtils.consume(response.getEntity());
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+        }
+
+        return this.doRequest(request);
+    }
+
+    private String doRequest(ClassicHttpRequest request) {
+        String json = null;
+        try (final CloseableHttpResponse response = client.execute(request)) {
+            if (response.getCode() == HttpStatus.SC_OK) {
+                json = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
         return json;
     }

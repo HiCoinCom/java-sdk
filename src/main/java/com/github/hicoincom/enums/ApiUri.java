@@ -1,6 +1,7 @@
 package com.github.hicoincom.enums;
 
-import org.apache.http.client.methods.HttpPost;
+
+import org.apache.hc.client5.http.classic.methods.HttpPost;
 
 /**
  * @author chainup waas

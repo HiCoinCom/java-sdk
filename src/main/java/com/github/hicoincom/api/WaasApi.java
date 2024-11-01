@@ -11,7 +11,7 @@ import com.github.hicoincom.exception.CryptoException;
 import com.github.hicoincom.util.HttpClientUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.client.methods.HttpGet;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
