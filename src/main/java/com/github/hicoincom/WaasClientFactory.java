@@ -39,6 +39,7 @@ public class WaasClientFactory {
                 .withdrawApi(new WithdrawApi(cfg, crypto))
                 .web3Api(new Web3Api(cfg, crypto))
                 .autoSweepApi(new AutoSweepApi(cfg, crypto))
+                .notifyApi(new NotifyApi(cfg, crypto))
                 .build();
     }
 

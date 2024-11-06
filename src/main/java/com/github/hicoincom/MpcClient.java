@@ -19,6 +19,8 @@ public class MpcClient {
 
     private IAutoSweepApi autoSweepApi;
 
+    private INotifyApi notifyApi;
+
     public IWorkSpaceApi getWorkSpaceApi() {
         return workSpaceApi;
     }
@@ -67,6 +69,13 @@ public class MpcClient {
         this.autoSweepApi = autoSweepApi;
     }
 
+    public INotifyApi getNotifyApi() {
+        return notifyApi;
+    }
+
+    public void setNotifyApi(INotifyApi notifyApi) {
+        this.notifyApi = notifyApi;
+    }
 
     public static final class MpcClientBuilder {
         private IWorkSpaceApi workSpaceApi;
@@ -75,6 +84,7 @@ public class MpcClient {
         private IWithdrawApi withdrawApi;
         private IWeb3Api web3Api;
         private IAutoSweepApi autoSweepApi;
+        private INotifyApi notifyApi;
 
         private MpcClientBuilder() {
         }
@@ -113,6 +123,11 @@ public class MpcClient {
             return this;
         }
 
+        public MpcClientBuilder notifyApi(INotifyApi notifyApi) {
+            this.notifyApi = notifyApi;
+            return this;
+        }
+
         public MpcClient build() {
             MpcClient mpcClient = new MpcClient();
             mpcClient.setWorkSpaceApi(workSpaceApi);
@@ -121,6 +136,7 @@ public class MpcClient {
             mpcClient.setWithdrawApi(withdrawApi);
             mpcClient.setWeb3Api(web3Api);
             mpcClient.setAutoSweepApi(autoSweepApi);
+            mpcClient.setNotifyApi(notifyApi);
             return mpcClient;
         }
     }
