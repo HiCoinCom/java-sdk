@@ -18,6 +18,8 @@ public class UserAddressArgs extends BaseArgs implements Serializable {
 
     private String symbol;
 
+    private String address;
+
     public Integer getUid() {
         return uid;
     }
@@ -32,5 +34,13 @@ public class UserAddressArgs extends BaseArgs implements Serializable {
 
     public void setSymbol(String symbol) {
         this.symbol = symbol;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

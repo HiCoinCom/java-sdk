@@ -11,7 +11,7 @@ import com.github.hicoincom.exception.CryptoException;
 import com.github.hicoincom.util.HttpClientUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.client.methods.HttpGet;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,14 +47,14 @@ public class WaasApi {
     }
 
     /**
-     * call Custody api
+     * call Custody mpc api
      */
     protected <T> T invoke(MpcApiUri uri, BaseArgs args, Class<T> clazz) {
         return this.invoke(uri.getValue(), uri.getMethod(), args, clazz);
     }
 
     /**
-     * call Custody mpc api
+     * call Custody api
      */
     protected <T> T invoke(ApiUri uri, BaseArgs args, Class<T> clazz) {
         return this.invoke(uri.getValue(), uri.getMethod(), args, clazz);

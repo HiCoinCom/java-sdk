@@ -40,4 +40,11 @@ public class AccountApi extends WaasApi implements IAccountApi {
 
         return this.invoke(ApiUri.COMPANY_SYMBOL_ACCOUNT, args, AccountResult.class);
     }
+
+    @Override
+    public UserAddressResult getUserAddressInfo(String address) {
+        UserAddressArgs args = new UserAddressArgs();
+        args.setAddress(address);
+        return this.invoke(ApiUri.USER_DEPOSIT_ADDRESS_INFO, args, UserAddressResult.class);
+    }
 }

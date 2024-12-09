@@ -16,4 +16,6 @@ public interface IAccountApi {
 
     AccountResult getCompanyAccount(String symbol) ;
 
+    UserAddressResult getUserAddressInfo(String address) ;
+
 }
