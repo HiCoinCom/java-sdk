@@ -47,14 +47,14 @@ public class WaasApi {
     }
 
     /**
-     * call Custody api
+     * call Custody mpc api
      */
     protected <T> T invoke(MpcApiUri uri, BaseArgs args, Class<T> clazz) {
         return this.invoke(uri.getValue(), uri.getMethod(), args, clazz);
     }
 
     /**
-     * call Custody mpc api
+     * call Custody api
      */
     protected <T> T invoke(ApiUri uri, BaseArgs args, Class<T> clazz) {
         return this.invoke(uri.getValue(), uri.getMethod(), args, clazz);

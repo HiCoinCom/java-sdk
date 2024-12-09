@@ -14,6 +14,8 @@ public class UserAddress implements Serializable {
 
     private String address;
 
+    private String symbol;
+
     public Integer getUid() {
         return uid;
     }
@@ -28,5 +30,13 @@ public class UserAddress implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 }

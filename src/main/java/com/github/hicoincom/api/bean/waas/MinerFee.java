@@ -43,6 +43,15 @@ public class MinerFee implements Serializable {
 
     private Integer status;
 
+    @JSONField(name ="txid_type")
+    private Byte txType;
+
+    @JSONField(name ="base_symbol")
+    private String baseSymbol;
+
+    @JSONField(name ="contract_address")
+    private String contractAddress;
+
     public Integer getId() {
         return id;
     }
@@ -137,5 +146,29 @@ public class MinerFee implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Byte getTxType() {
+        return txType;
+    }
+
+    public void setTxType(Byte txType) {
+        this.txType = txType;
+    }
+
+    public String getBaseSymbol() {
+        return baseSymbol;
+    }
+
+    public void setBaseSymbol(String baseSymbol) {
+        this.baseSymbol = baseSymbol;
+    }
+
+    public String getContractAddress() {
+        return contractAddress;
+    }
+
+    public void setContractAddress(String contractAddress) {
+        this.contractAddress = contractAddress;
     }
 }

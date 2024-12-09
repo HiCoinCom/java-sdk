@@ -45,6 +45,11 @@ public enum ApiUri {
     USER_DEPOSIT_ADDRESS("/account/getDepositAddress", HttpPost.METHOD_NAME),
 
     /**
+     * Input a specific address and get the response of the corresponding custody user and currency information
+     */
+    USER_DEPOSIT_ADDRESS_INFO("/account/getDepositAddressInfo", HttpPost.METHOD_NAME),
+
+    /**
      * Withdrawal operation
      */
     BILLING_WITHDRAW("/billing/withdraw", HttpPost.METHOD_NAME),

@@ -44,6 +44,27 @@ public class CoinInfo implements Serializable {
     @JSONField(name ="address_tag_regex")
     private String addressTagRegex;
 
+    @JSONField(name ="min_deposit")
+    private String minDeposit;
+
+    @JSONField(name ="symbol_alias")
+    private String symbolAlias;
+
+    @JSONField(name ="coin_net")
+    private String coinNet;
+
+    @JSONField(name ="withdraw_confirmation")
+    private Integer withdrawConfirmation;
+
+    @JSONField(name ="address_link")
+    private String addressLink;
+
+    @JSONField(name ="txid_link")
+    private String txidLink;
+
+    @JSONField(name ="merge_address_symbol")
+    private String mergeAddressSymbol;
+
     public String getSymbol() {
         return symbol;
     }
@@ -130,5 +151,61 @@ public class CoinInfo implements Serializable {
 
     public void setAddressTagRegex(String addressTagRegex) {
         this.addressTagRegex = addressTagRegex;
+    }
+
+    public String getMinDeposit() {
+        return minDeposit;
+    }
+
+    public void setMinDeposit(String minDeposit) {
+        this.minDeposit = minDeposit;
+    }
+
+    public String getSymbolAlias() {
+        return symbolAlias;
+    }
+
+    public void setSymbolAlias(String symbolAlias) {
+        this.symbolAlias = symbolAlias;
+    }
+
+    public String getCoinNet() {
+        return coinNet;
+    }
+
+    public void setCoinNet(String coinNet) {
+        this.coinNet = coinNet;
+    }
+
+    public Integer getWithdrawConfirmation() {
+        return withdrawConfirmation;
+    }
+
+    public void setWithdrawConfirmation(Integer withdrawConfirmation) {
+        this.withdrawConfirmation = withdrawConfirmation;
+    }
+
+    public String getAddressLink() {
+        return addressLink;
+    }
+
+    public void setAddressLink(String addressLink) {
+        this.addressLink = addressLink;
+    }
+
+    public String getTxidLink() {
+        return txidLink;
+    }
+
+    public void setTxidLink(String txidLink) {
+        this.txidLink = txidLink;
+    }
+
+    public String getMergeAddressSymbol() {
+        return mergeAddressSymbol;
+    }
+
+    public void setMergeAddressSymbol(String mergeAddressSymbol) {
+        this.mergeAddressSymbol = mergeAddressSymbol;
     }
 }
