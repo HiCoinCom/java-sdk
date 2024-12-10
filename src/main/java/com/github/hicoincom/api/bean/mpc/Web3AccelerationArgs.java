@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * @author ChainUp Custody
- * @description Web3 Transaction Acceleration, https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/web3/web3-pending
+ * Web3 Transaction Acceleration, https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/web3/web3-pending
  */
 public class Web3AccelerationArgs extends BaseArgs implements Serializable {
 

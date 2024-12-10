@@ -48,6 +48,11 @@ public class WaasApi {
 
     /**
      * call Custody mpc api
+     * @param uri api path
+     * @param args request args
+     * @param clazz response type
+     * @param <T> response
+     * @return T
      */
     protected <T> T invoke(MpcApiUri uri, BaseArgs args, Class<T> clazz) {
         return this.invoke(uri.getValue(), uri.getMethod(), args, clazz);
@@ -55,6 +60,11 @@ public class WaasApi {
 
     /**
      * call Custody api
+     * @param uri ApiUri
+     * @param args BaseArgs
+     * @param clazz Class
+     * @param <T> response
+     * @return T
      */
     protected <T> T invoke(ApiUri uri, BaseArgs args, Class<T> clazz) {
         return this.invoke(uri.getValue(), uri.getMethod(), args, clazz);
@@ -62,6 +72,12 @@ public class WaasApi {
 
     /**
      * call Custody api
+     * @param uri String
+     * @param requestMethod String
+     * @param args BaseArgs
+     * @param clazz  Class
+     * @param <T> response
+     * @return T
      */
     protected <T> T invoke(String uri, String requestMethod, BaseArgs args, Class<T> clazz) {
         // default parameters

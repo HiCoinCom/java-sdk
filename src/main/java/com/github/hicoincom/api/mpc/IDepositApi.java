@@ -17,6 +17,7 @@ public interface IDepositApi {
      *
      * @param ids required: true
      *            Receiving id
+     * @return DepositRecordResult
      */
     DepositRecordResult getDepositRecords(List<Integer> ids);
 
@@ -26,6 +27,7 @@ public interface IDepositApi {
      *
      * @param maxId required: true
      *              receiving record initial id, e.g.：100
+     * @return DepositRecordResult
      */
     DepositRecordResult syncDepositRecords(Integer maxId);
 }

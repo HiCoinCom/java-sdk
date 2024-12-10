@@ -17,6 +17,7 @@ public interface IAutoSweepApi {
      *
      * @param symbol required: true
      *               Unique identifier for the coin, e.g.：USDTERC20
+     * @return AutoCollectWalletsResult
      */
     AutoCollectWalletsResult autoCollectSubWallets(String symbol);
 
@@ -30,6 +31,7 @@ public interface IAutoSweepApi {
      *                     Minimum amount for auto-sweep; up to 6 decimal places, not exceeding 9999999999999999
      * @param fuelingLimit required: true
      *                     Maximum miner fee amount for auto-sweep; up to 6 decimal places, not exceeding 9999999999999999
+     * @return SetAutoCollectSymbolResult
      */
     SetAutoCollectSymbolResult setAutoCollectSymbol(String symbol, String collectMin, String fuelingLimit);
 
@@ -38,6 +40,7 @@ public interface IAutoSweepApi {
      *
      * @param maxId required: true, default:0
      *              Starting ID for sweeping records
+     * @return AutoCollectRecordResult
      */
     AutoCollectRecordResult syncAutoCollectRecords(Integer maxId);
 

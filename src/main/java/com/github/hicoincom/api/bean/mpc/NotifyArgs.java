@@ -96,10 +96,6 @@ public class NotifyArgs extends BaseArgs implements Serializable {
     @JSONField(name ="dapp_url")
     private String dappUrl;
 
-    /**
-     * above web3 info
-     */
-
     public String getSide() {
         return side;
     }

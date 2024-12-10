@@ -15,16 +15,23 @@ public interface ITransferApi {
 
     /**
      * WaaS internal merchants transfer money to each other
+     * @param  args TransferArgs
+     * @return TransferResult
      */
     TransferResult accountTransfer(TransferArgs args);
 
     /**
      * Query transfer records
+     * @param idsType String
+     * @param ids String
+     * @return  TransferListResult
      */
     TransferListResult getAccountTransferList(String ids, String idsType);
 
     /**
      * Sync transfer records
+     * @param maxId Integer
+     * @return TransferListResult
      */
     TransferListResult syncAccountTransferList(Integer maxId);
 

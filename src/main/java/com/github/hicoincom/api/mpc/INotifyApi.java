@@ -7,8 +7,8 @@ public interface INotifyApi {
     /**
      * Decrypt deposit and withdrawal notification parameters
      *
-     * @param cipher
-     * @return
+     * @param cipher String
+     * @return NotifyArgs
      */
     NotifyArgs notifyRequest(String cipher);
 }

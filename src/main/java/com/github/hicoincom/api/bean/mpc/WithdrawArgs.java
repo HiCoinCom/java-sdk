@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * @author ChainUp Custody
- * @description Transfer (Withdrawal) args, https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/withdraw/withdraw
+ * Transfer (Withdrawal) args, https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/withdraw/withdraw
  */
 public class WithdrawArgs extends BaseArgs implements Serializable {
 

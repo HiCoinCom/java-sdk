@@ -20,6 +20,7 @@ public interface IWalletApi {
      *                   wallet name
      * @param showStatus required: false
      *                   Whether to display the wallet on the app and web after creation, 1 display, 2 not display; Default not displayed
+     * @return WalletResult
      */
     WalletResult createWallet(String walletName, AppShowStatus showStatus);
 
@@ -33,6 +34,7 @@ public interface IWalletApi {
      *                 wallet ID
      * @param symbol   required: true
      *                 Unique identifier for the coin, e.g.：ETH
+     * @return WalletAddressResult
      */
     WalletAddressResult createWalletAddress(Integer walletId, String symbol);
 
@@ -48,6 +50,7 @@ public interface IWalletApi {
      *                 Unique identifier for the coin, e.g.：ETH
      * @param maxId    required: true
      *                 Starting address id, default is 0
+     * @return WalletAddressListResult
      */
     WalletAddressListResult queryWalletAddress(Integer walletId, String symbol, Integer maxId);
 
@@ -61,6 +64,7 @@ public interface IWalletApi {
      *                 wallet ID
      * @param symbol   required: true
      *                 Unique identifier for the coin, used for transfers, e.g.：ETH
+     * @return WalletAssetsResult
      */
     WalletAssetsResult getWalletAssets(Integer walletId, String symbol);
 
@@ -73,6 +77,7 @@ public interface IWalletApi {
      *                    A string of multiple wallet ids, separated by commas
      * @param showStatus, required: true
      *                    1 show ,2 don’t show, default: 2
+     * @return boolean
      */
     boolean changeWalletShowStatus(List<Integer> walletIds, AppShowStatus showStatus);
 
@@ -85,6 +90,7 @@ public interface IWalletApi {
      *                Any address
      * @param memo    required: false
      *                If it’s a Memo type, input the memo
+     * @return WalletAddressInfoResult
      */
     WalletAddressInfoResult walletAddressInfo(String address, String memo);
 

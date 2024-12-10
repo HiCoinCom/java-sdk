@@ -12,6 +12,7 @@ public interface ICoinApi {
     /**
      * get coin list
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_getCoinList.html
+     * @return CoinInfoListResult
      */
     CoinInfoListResult getCoinList();
 }

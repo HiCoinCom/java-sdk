@@ -12,24 +12,24 @@ public interface IAsyncNotifyApi {
     /**
      * Decrypt deposit and withdrawal notification parameters
      *
-     * @param cipher
-     * @return
+     * @param cipher String
+     * @return String
      */
     AsyncNotifyArgs notifyRequest(String cipher);
 
     /**
      * Decryption withdrawal secondary verification request parameters
      *
-     * @param cipher
-     * @return
+     * @param cipher String
+     * @return WithdrawArgs
      */
     WithdrawArgs verifyRequest(String cipher);
 
     /**
      * Encrypt the secondary verification withdrawal response data
      *
-     * @param withdraw
-     * @return
+     * @param withdraw WithdrawArgs
+     * @return String
      */
     String verifyResponse(WithdrawArgs withdraw);
 }

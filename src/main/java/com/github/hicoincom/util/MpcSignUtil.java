@@ -93,8 +93,13 @@ public class MpcSignUtil {
 
 
     /**
-     * 1. Sign the parameters in the format k1=v1&k2=v2, and sort k in ASCII ascending order; parameters with empty values are not included in the signature.
-     * 2. The digits involved in the signature must not end with the digit 0, for example, 1.0001000, please use 1.0001 for the signature.
+     * Sign the parameters in the format k1=v1 k2=v2, and sort k in ASCII ascending order;
+     * parameters with empty values are not included in the signature;
+     * The digits involved in the signature must not end with the digit 0;
+     * for example, 1.0001000, please use 1.0001 for the signature
+     *
+     * @param params Map
+     * @return String
      */
     public static String paramsSort(Map<String, String> params) {
         TreeMap<String, String> sortedParams = new TreeMap<>();

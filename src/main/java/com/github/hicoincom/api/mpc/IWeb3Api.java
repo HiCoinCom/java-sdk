@@ -20,6 +20,7 @@ public interface IWeb3Api {
      * @param web3TransArgs       required true
      *                            create web3 transaction args
      * @param needTransactionSign transactions require signature fields
+     * @return CreateWeb3Result
      */
     CreateWeb3Result createWeb3Trans(CreateWeb3Args web3TransArgs, boolean needTransactionSign);
 
@@ -29,6 +30,7 @@ public interface IWeb3Api {
      *
      * @param web3TransArgs required true
      *                      create web3 transaction args
+     * @return CreateWeb3Result
      */
     CreateWeb3Result createWeb3Trans(CreateWeb3Args web3TransArgs);
 
@@ -38,6 +40,7 @@ public interface IWeb3Api {
      *
      * @param accelerationArgs required true
      *                         acceleration web3 transaction args
+     * @return boolean
      */
     boolean accelerationWeb3Trans(Web3AccelerationArgs accelerationArgs);
 
@@ -49,6 +52,7 @@ public interface IWeb3Api {
      *
      * @param requestIds required: true
      *                   many request_id string
+     * @return Web3RecordResult
      */
     Web3RecordResult getWeb3Records(List<String> requestIds);
 
@@ -59,6 +63,7 @@ public interface IWeb3Api {
      *
      * @param maxId required: true
      *              Starting ID of Web3 transactions, default:0
+     * @return Web3RecordResult
      */
     Web3RecordResult syncWeb3Records(Integer maxId);
 

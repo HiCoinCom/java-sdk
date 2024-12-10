@@ -39,6 +39,8 @@ public class RSAHelper {
 
 	/**
 	 * Generate public and private keys
+	 *
+	 * @return RSAKey
 	 */
 	public static RSAKey genRSAKeys() {
 		RSAKey key = null;
@@ -73,7 +75,8 @@ public class RSAHelper {
 	 * get the public key
 	 *
 	 * @param key public key string (base 64 encoded)
-	 * @throws Exception
+	 * @return PublicKey
+	 * @throws Exception msg
 	 */
 	public static PublicKey getPublicKey(String key) throws Exception {
 		byte[] keyBytes;
@@ -98,7 +101,8 @@ public class RSAHelper {
 	 * get private key
 	 *
 	 * @param key Private key string (base 64 encoded)
-	 * @throws Exception
+	 * @return  PrivateKey
+	 * @throws Exception msg
 	 */
 	public static PrivateKey getPrivateKey(String key) throws Exception {
 		byte[] keyBytes;
@@ -112,7 +116,9 @@ public class RSAHelper {
 	/**
 	 * Get the key string (base64 encoded)
 	 *
-	 * @return
+	 * @param key to string
+	 * @return String
+	 * @throws Exception msg
 	 */
 	public static String getKeyString(Key key) throws Exception {
 		byte[] keyBytes = key.getEncoded();
@@ -125,8 +131,8 @@ public class RSAHelper {
 	 * @param data Data to be verified
 	 * @param sigStr Signature to be verified
 	 * @param pubKey  base 64 public key
-	 * @return
-	 * @throws Exception
+	 * @return boolean
+	 * @throws Exception msg
 	 */
 	public static boolean verifySign(byte[] data, String sigStr, String pubKey) throws Exception {
 		byte[] sign = Base64.decodeBase64(sigStr);
@@ -150,8 +156,8 @@ public class RSAHelper {
 	 *  Private key to generate signature
 	 * @param data data to be signed
 	 * @param privKey base 64 private key
-	 * @return
-	 * @throws Exception
+	 * @return String
+	 * @throws Exception msg
 	 */
 	public static String getSign(byte[] data,  String privKey) throws Exception{
 		PrivateKey key = getPrivateKey(privKey);
@@ -193,15 +199,15 @@ public class RSAHelper {
 		return strBuild;
 	}
 
-	/** *//**
+	/**
 	 * <p>
 	 * public key decryption
 	 * </p>
 	 *
 	 * @param encryptedData encrypted data
 	 * @param publicKey public key base 64 encoded
-	 * @return
-	 * @throws Exception
+	 * @return byte[]
+	 * @throws Exception msg
 	 */
 	public static byte[] decryptByPublicKey(byte[] encryptedData, String publicKey)
 			throws Exception {
@@ -236,7 +242,7 @@ public class RSAHelper {
 	 *  Public key segment decryption
 	 * @param encryptedData encrypted base 64 data
 	 * @param publicKey rsa public key
-	 * @return
+	 * @return String
 	 */
 	public static String decryptByPublicKey(String encryptedData, String publicKey){
 		if(StringUtils.isBlank(encryptedData) || StringUtils.isBlank(publicKey)){
@@ -257,15 +263,15 @@ public class RSAHelper {
 		return "";
 	}
 
-	/** *//**
+	/**
 	 * <p>
 	 * private key encryption
 	 * </p>
 	 *
 	 * @param data source data
 	 * @param privateKey Private key (BASE 64 encoded)
-	 * @return
-	 * @throws Exception
+	 * @return byte[]
+	 * @throws Exception msg
 	 */
 	public static byte[] encryptByPrivateKey(byte[] data, String privateKey)
 			throws Exception {
@@ -300,7 +306,7 @@ public class RSAHelper {
 	 *  Private key segment decryption
 	 * @param data data to be encrypted
 	 * @param privateKey  private key
-	 * @return
+	 * @return String
 	 */
 	public static String encryptByPrivateKey(String data, String privateKey){
 		if(StringUtils.isBlank(data) || StringUtils.isBlank(privateKey)){

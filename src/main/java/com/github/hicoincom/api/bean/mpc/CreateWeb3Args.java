@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * @author ChainUp Custody
- * @description Create Web3 Transaction, https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/web3/web3-create
+ * Create Web3 Transaction, https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/web3/web3-create
  */
 public class CreateWeb3Args extends BaseArgs implements Serializable {
 

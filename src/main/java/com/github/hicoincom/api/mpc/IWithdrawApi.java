@@ -20,6 +20,8 @@ public interface IWithdrawApi {
      * @param withdrawArgs        required true
      *                            withdraw info args
      * @param needTransactionSign transactions require signature fields
+     *
+     * @return WithdrawResult
      */
     WithdrawResult withdraw(WithdrawArgs withdrawArgs, boolean needTransactionSign);
 
@@ -30,6 +32,7 @@ public interface IWithdrawApi {
      *
      * @param withdrawArgs required true
      *                     withdraw info args
+     * @return WithdrawResult
      */
     WithdrawResult withdraw(WithdrawArgs withdrawArgs);
 
@@ -40,6 +43,7 @@ public interface IWithdrawApi {
      *
      * @param requestIds required: true
      *                   many request_id string
+     * @return WithdrawRecordResult
      */
     WithdrawRecordResult getWithdrawRecords(List<String> requestIds);
 
@@ -49,6 +53,7 @@ public interface IWithdrawApi {
      *
      * @param maxId required: true
      *              transfer record initial id, default: 0
+     * @return WithdrawRecordResult
      */
     WithdrawRecordResult syncWithdrawRecords(Integer maxId);
 }
