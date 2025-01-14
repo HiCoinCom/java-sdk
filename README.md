@@ -10,10 +10,11 @@ mvn clean install -DskipTests=true
 
 maven project direct reference
 ```
+<!-- https://mvnrepository.com/artifact/com.github.hicoincom/waas-sdk -->
 <dependency>
-  <groupId>com.github.hicoincom</groupId>
-  <artifactId>waas-sdk</artifactId>
-  <version>2.0.0</version>
+    <groupId>com.github.hicoincom</groupId>
+    <artifactId>waas-sdk</artifactId>
+    <version>2.0.1</version>
 </dependency>
 ```
 
