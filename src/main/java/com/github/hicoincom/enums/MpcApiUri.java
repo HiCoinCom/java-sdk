@@ -102,6 +102,13 @@ public enum MpcApiUri {
     DEPOSIT_RECORDS("/api/mpc/billing/deposit_list", HttpGet.METHOD_NAME),
 
     /**
+     * Sync Receiving record
+     * Get all wallet receiving records under the workspace
+     * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/deposit/deposit-sync-list
+     */
+    SYNC_DEPOSIT_RECORDS("/api/mpc/billing/sync_deposit_list", HttpGet.METHOD_NAME),
+
+    /**
      * Create Web3 Transaction
      * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/web3/web3-create
      */

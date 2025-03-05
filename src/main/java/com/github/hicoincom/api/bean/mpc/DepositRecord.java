@@ -80,7 +80,7 @@ public class DepositRecord implements Serializable {
 
     /**
      * receiving status: 1000 unconfirmed, 1100 confirmed (transaction block confirmed),
-     * 2000 completed (shown at account), 3000 abnormal
+     * 2000 completed (shown at account), 3000 abnormal, 4000 Returned
      */
     private Integer status;
 
@@ -107,6 +107,12 @@ public class DepositRecord implements Serializable {
      */
     @JSONField(name = "updated_at")
     private Long updatedAt;
+
+    /**
+     * Returned amount
+     */
+    @JSONField(name = "refund_amount")
+    private String refundAmount;
 
     public Integer getId() {
         return id;
@@ -242,5 +248,13 @@ public class DepositRecord implements Serializable {
 
     public void setUpdatedAt(Long updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getRefundAmount() {
+        return refundAmount;
+    }
+
+    public void setRefundAmount(String refundAmount) {
+        this.refundAmount = refundAmount;
     }
 }

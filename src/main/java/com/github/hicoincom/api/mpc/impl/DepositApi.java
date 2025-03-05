@@ -40,6 +40,6 @@ public class DepositApi extends WaasApi implements IDepositApi {
         SyncDepositRecordArgs args = new SyncDepositRecordArgs();
         args.setMaxId(ObjectUtils.isEmpty(maxId) ? 0 : maxId);
 
-        return this.invoke(MpcApiUri.SYNC_WITHDRAW_RECORDS, args, DepositRecordResult.class);
+        return this.invoke(MpcApiUri.SYNC_DEPOSIT_RECORDS, args, DepositRecordResult.class);
     }
 }
