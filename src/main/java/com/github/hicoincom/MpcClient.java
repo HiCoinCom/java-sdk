@@ -21,6 +21,9 @@ public class MpcClient {
 
     private INotifyApi notifyApi;
 
+    private ITronBuyResourceApi tronBuyResourceApi;
+
+
     public IWorkSpaceApi getWorkSpaceApi() {
         return workSpaceApi;
     }
@@ -77,6 +80,14 @@ public class MpcClient {
         this.notifyApi = notifyApi;
     }
 
+    public ITronBuyResourceApi getTronBuyResourceApi() {
+        return tronBuyResourceApi;
+    }
+
+    public void setTronBuyResourceApi(ITronBuyResourceApi tronBuyResourceApi) {
+        this.tronBuyResourceApi = tronBuyResourceApi;
+    }
+
     public static final class MpcClientBuilder {
         private IWorkSpaceApi workSpaceApi;
         private IWalletApi walletApi;
@@ -85,6 +96,7 @@ public class MpcClient {
         private IWeb3Api web3Api;
         private IAutoSweepApi autoSweepApi;
         private INotifyApi notifyApi;
+        private ITronBuyResourceApi tronBuyResourceApi;
 
         private MpcClientBuilder() {
         }
@@ -128,6 +140,12 @@ public class MpcClient {
             return this;
         }
 
+        public MpcClientBuilder tronBuyResourceApi(ITronBuyResourceApi tronBuyResourceApi) {
+            this.tronBuyResourceApi = tronBuyResourceApi;
+            return this;
+        }
+
+
         public MpcClient build() {
             MpcClient mpcClient = new MpcClient();
             mpcClient.setWorkSpaceApi(workSpaceApi);
@@ -137,6 +155,7 @@ public class MpcClient {
             mpcClient.setWeb3Api(web3Api);
             mpcClient.setAutoSweepApi(autoSweepApi);
             mpcClient.setNotifyApi(notifyApi);
+            mpcClient.setTronBuyResourceApi(tronBuyResourceApi);
             return mpcClient;
         }
     }

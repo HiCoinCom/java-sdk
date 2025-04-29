@@ -40,6 +40,7 @@ public class WaasClientFactory {
                 .web3Api(new Web3Api(cfg, crypto))
                 .autoSweepApi(new AutoSweepApi(cfg, crypto))
                 .notifyApi(new NotifyApi(cfg, crypto))
+                .tronBuyResourceApi(new TronBuyResourceApi(cfg, crypto))
                 .build();
     }
 

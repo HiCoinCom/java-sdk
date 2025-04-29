@@ -2,6 +2,7 @@ package org.example;
 
 import com.github.hicoincom.MpcConfig;
 import com.github.hicoincom.MpcClient;
+import com.github.hicoincom.WaasClient;
 import com.github.hicoincom.WaasClientFactory;
 import com.github.hicoincom.api.bean.mpc.*;
 import com.github.hicoincom.enums.AppShowStatus;
@@ -23,9 +24,9 @@ public class MpcTest {
     public void initMpcClient() {
 
         MpcConfig cfg = new MpcConfig();
-        cfg.setAppId("custody app id");
-        cfg.setUserPrivateKey("user private key");
-        cfg.setWaasPublickKey("custody public key");
+        cfg.setAppId("cf5934ee4fc1fcd33970b2623df4376d");
+        cfg.setUserPrivateKey("MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCvNkj5g2Ob19TJqFtz3qhnIf/ZRS03R3+N/3kOpCn55w1owLqkqxAqbXJHU/rSvggGODV0mmNGaxA1uBZRN2bXXS2FqHBSymePnexuM3W7cTgR59KGxnIV9uf3mbvZNEJvu0dvtrVFgiZrJaB6Gta5TvaOso8R5Ua7x6mE6fmYZzwsiyj9noAIb9WJY4ibFIW+YbDOePHfnfhFP41W5S8HxR4m68XQi8dnE+t/yLkOtlg8Y0GgI0IldlImSQ9/atdUntwo7WGoXRQNsWmoW08PaZJctBj4y0nydsphHL3zO5mB28FXVYmAQEARPUyyQO5kdi2VPf4Q5L9zYDrWzjmjAgMBAAECggEAAsyUN+BAfCHjlWEqLNy2xgcGBluTkFmFESiur2wx+3sUfMLveGf/Nx5OgBM4Y5uDl03YlMdOpLZbKPCK8rs22mPzsTnyqW/wXZwBRfVugRMa+TZB58NN2Un7hLohBSRPl2dficpadQTSRk3wlWLOYWGAkOELZhbKnX9gFu6B/UxKIZWCnsj0AF8YPpA+gbA8lZyOEs2Bj/6vCTyFc3lieVmSTek6C5SGuUe1ZbjYVxL1Ac+uEQWtFniJIbE+h7zc5x5+b4yhBBMM2nrSthZghnswsSqBH7B2yaRXDJiCd5fGWUQQ0NHfL3f8FwfX/Gv4AEa0zMBTb39fbItBbGJduQKBgQDEf1LM0SovtdUVUUCIOTij117MgbsPn0PaDcWhYjlJjRi2cmA4eAQ8F+4YA7rHjEwENykEtIXaKW7J948zeLaqJabzVzDCafBULp4W+sJrWyM/Le6Jr9baGlCgADn3e7f7yYPs0ejfxQwdBAJcbBK2353EdtI08R4MtPY3/a2uvQKBgQDkROciJy3ymME7iPMPjulDf4zfE9/H922rznIsgcr2K6+rEk5vkCM4tngPSKYDIkBAwsw9PNrAN0recCmLlmDjGhaU8UM1MylIa/3CcLFvWl2CxlGXjQdkU5gujQFSyhlE9CVxCM0+EH7R3wjPcfVjOdpZHSryAAl31nRJ1/S/3wKBgDwxdL/hYzbyULATD92rCbrHAvdK1m7WrwZhKaViXYI2gteA+hDSUxnFit44ZkMyqyavbxVN56MJBjNAbtGprOs6VYY9s2Ya5dAj57HKZzxT0txLycLL5tkxLnmVGCzD7XxoIs2tD9Vcm3VYAREm2iTDI6VHcOVe54Gk/bfxMf9RAoGAXegesgUuONwwul5HqAHh4pvJh0g0yp32pzRh8f9fUNB+D0GTtP+2DbG7SIZZjXZ8umepABRV5beZfFLmNH+j0im8Wn+6Z1tpw1px5ZjY1fd1+sO9czxYayScuaHWhomPxbcu5AZ78Ol2Ur6PcE/wZGa7deey8CWlv4AhDPPjwz8CgYAKosORvLsxfVRZmlbPzjjYtI/vWuMIg3ERtWO/KxcndBO/pPGr0eI3wXeZuB3wF8ObpG4puHwxqnLrEnxXyUpPJaQDo75sTbuob93mdJMxJl3zXD3X5csB/3zb9AyYhJSLswKwOOgY5Rpo5kqCchOnpIOVom6GGRksWF4e8sazQA==");
+        cfg.setWaasPublickKey("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv5EI5FFNThNICmsipyN2fg14aAZSGabXpVsZAMGIbJ0ixQO+tLSdryOaMfppUehNw1zGYKUXmdQMJD+dHVHtLWA+rZsBWGgM4AsX0KWFzbmZBLKrMwxC7ypUFZfmUwnMMsUWBveyAd9Fw6UmhBTSxZ8qXjAPkQ7cVQD3yiCCt10KXsmTmJ4/sqUC8GJdtMDOa7LiknM8g3VSx7iKamaOLqE+TOtvkTAenM9IpGwlxsHT9mSufetjEKVKfMsfUkl1DXnk0xmpvEY6XBq1vAwsfIjx1RjlvHgW6igjnt8v6ede7+gtr0t5pxHnGMCkWMorQ3kC7IjZ8TMs8AXm8BsIIQIDAQAB");
         cfg.setSignPrivateKey("sign private key");
         cfg.setEnableLog(Boolean.FALSE);
         mpcClient = WaasClientFactory.CreateMpcClient(cfg);
@@ -159,7 +160,33 @@ public class MpcTest {
         System.out.println("deposit records: " + depositRecords.toJson());
     }
 
+    @Test
+    public void buyTronResource() {
+        TronBuyResourceArgs tronBuyResourceArgs = new TronBuyResourceArgs();
+        tronBuyResourceArgs.setRequestId("test-2");
+        tronBuyResourceArgs.setResourceType(0);
+        tronBuyResourceArgs.setBuyType(0);
+        tronBuyResourceArgs.setAddressFrom("TXxtczsXf1EYgWEbwSxwC85iMfdv6CGNRa");
+        tronBuyResourceArgs.setAddressTo("TRscY4wLBQiCJ4ETQAQi6df5mwyxB1PL5H");
+        tronBuyResourceArgs.setContractAddress("TED4rvM5VAG8kzKULTb7GXXY6ph9aTwjt3");
+        tronBuyResourceArgs.setServiceChargeType("10010");
+        TronBuyResourceResult tronDelegateResult = mpcClient.getTronBuyResourceApi().createTronDelegate(tronBuyResourceArgs);
+        System.out.println("buyTronResource result: " + tronDelegateResult.toJson());//{"code":"0","data":{"trans_id":48},"msg":"success","success":true}
+    }
 
+    @Test
+    public void buyTronResourceList() {
+        TronBuyResourceRecordResult buyResourceRecords = mpcClient.getTronBuyResourceApi()
+                .getBuyResourceRecords(Collections.singletonList("test-1"));
+
+        System.out.println("buyTronResource records: " + buyResourceRecords.toJson());
+    }
+
+    @Test
+    public void syncBuyTronResourceList() {
+        TronBuyResourceRecordResult tronBuyResourceRecordResult = mpcClient.getTronBuyResourceApi().syncBuyResourceRecords(47);
+        System.out.println("sync buyTronResource records: " + tronBuyResourceRecordResult.toJson());
+    }
 
 
 
