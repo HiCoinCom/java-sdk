@@ -20,7 +20,7 @@ public class WaasConfig {
     /**
      * Custody domain name
      */
-    private String domain = "https://openapi.hicoin.vip/api/v2";
+    private String domain = "https://openapi.chainup.com/api/v2";
 
     private String version = "v2";
 
