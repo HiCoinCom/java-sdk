@@ -157,6 +157,25 @@ public enum MpcApiUri {
      */
     SYNC_AUTO_SWEEP_RECORDS("/api/mpc/billing/sync_auto_collect_list", HttpGet.METHOD_NAME),
 
+    /**
+     * Create Delegate (Buy Tron Resource)
+     * https://custodydocs-zh.chainup.com/api-references/mpc-apis/apis/tron/delegate-create
+     */
+    TRON_CREATE_DELEGATE("/api/mpc/tron/delegate", HttpPost.METHOD_NAME),
+
+    /**
+     * Buy Tron Resource Records
+     * https://custodydocs-zh.chainup.com/api-references/mpc-apis/apis/tron/delegate-record-list
+     */
+    TRON_DELEGATE_RECORDS("/api/mpc/tron/delegate/trans_list", HttpPost.METHOD_NAME),
+
+
+    /**
+     * Sync Buy Tron Resource Records
+     * https://custodydocs-zh.chainup.com/api-references/mpc-apis/apis/tron/delegate-record-sync-list
+     */
+    SYNC_TRON_DELEGATE_RECORDS("/api/mpc/tron/delegate/sync_trans_list", HttpPost.METHOD_NAME),
+
     ;
 
     private String value;
