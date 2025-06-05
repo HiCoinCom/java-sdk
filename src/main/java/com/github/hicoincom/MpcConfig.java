@@ -13,7 +13,7 @@ public class MpcConfig extends WaasConfig {
     /**
      * Custody domain name
      */
-    private String domain = "https://openapi.hicoin.vip";
+    private String domain = "https://openapi.chainup.com";
 
     private String charset = "utf-8";
 
