@@ -98,5 +98,7 @@ System.out.println("Get transfer records：---"+client.getTransferApi().getAccou
 
 System.out.println("Sync transfer records：---"+client.getTransferApi().syncAccountTransferList(0).toJson());
 
+// Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());   RSA/ECB/PKCS1Padding
+
 ```
 
