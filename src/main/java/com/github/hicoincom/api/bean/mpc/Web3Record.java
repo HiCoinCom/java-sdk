@@ -125,6 +125,10 @@ public class Web3Record implements Serializable {
     @JSONField(name = "trans_source")
     private Integer transSource;
 
+    @JSONField(name = "trans_type")
+    private Integer transType;
+
+
     public Integer getId() {
         return id;
     }
@@ -283,5 +287,13 @@ public class Web3Record implements Serializable {
 
     public void setTransSource(Integer transSource) {
         this.transSource = transSource;
+    }
+
+    public Integer getTransType() {
+        return transType;
+    }
+
+    public void setTransType(Integer transType) {
+        this.transType = transType;
     }
 }
