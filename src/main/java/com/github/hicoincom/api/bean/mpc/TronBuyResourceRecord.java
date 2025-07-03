@@ -56,6 +56,23 @@ public class TronBuyResourceRecord implements Serializable {
     @JSONField(name = "energy_txid")
     private String energyTxid;
 
+    @JSONField(name = "reclaim_net_txid")
+    private String reclaimNetTxid;
+
+    @JSONField(name = "reclaim_energy_txid")
+    private String reclaimEnergyTxid;
+
+    @JSONField(name = "net_time")
+    private Long netTime;
+
+    @JSONField(name = "energy_time")
+    private Long energyTime;
+
+    @JSONField(name = "reclaim_net_time")
+    private Long reclaimNetTime;
+
+    @JSONField(name = "reclaim_energy_time")
+    private Long reclaimEnergyTime;
     @JSONField(name = "net_price")
     private String netPrice;
 
@@ -167,6 +184,54 @@ public class TronBuyResourceRecord implements Serializable {
 
     public void setEnergyTxid(String energyTxid) {
         this.energyTxid = energyTxid;
+    }
+
+    public String getReclaimNetTxid() {
+        return reclaimNetTxid;
+    }
+
+    public void setReclaimNetTxid(String reclaimNetTxid) {
+        this.reclaimNetTxid = reclaimNetTxid;
+    }
+
+    public String getReclaimEnergyTxid() {
+        return reclaimEnergyTxid;
+    }
+
+    public void setReclaimEnergyTxid(String reclaimEnergyTxid) {
+        this.reclaimEnergyTxid = reclaimEnergyTxid;
+    }
+
+    public Long getNetTime() {
+        return netTime;
+    }
+
+    public void setNetTime(Long netTime) {
+        this.netTime = netTime;
+    }
+
+    public Long getEnergyTime() {
+        return energyTime;
+    }
+
+    public void setEnergyTime(Long energyTime) {
+        this.energyTime = energyTime;
+    }
+
+    public Long getReclaimNetTime() {
+        return reclaimNetTime;
+    }
+
+    public void setReclaimNetTime(Long reclaimNetTime) {
+        this.reclaimNetTime = reclaimNetTime;
+    }
+
+    public Long getReclaimEnergyTime() {
+        return reclaimEnergyTime;
+    }
+
+    public void setReclaimEnergyTime(Long reclaimEnergyTime) {
+        this.reclaimEnergyTime = reclaimEnergyTime;
     }
 
     public String getNetPrice() {
