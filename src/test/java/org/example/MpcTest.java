@@ -60,7 +60,7 @@ public class MpcTest {
 
     @Test
     public void getCoinDetails() {
-        CoinDetailsResult coinDetails = mpcClient.getWorkSpaceApi().getCoinDetails("", "HECO", Boolean.TRUE);
+        CoinDetailsResult coinDetails = mpcClient.getWorkSpaceApi().getCoinDetails("", "", Boolean.TRUE, 123, 10);
         System.out.println("coin info: " + coinDetails.toJson());
     }
 

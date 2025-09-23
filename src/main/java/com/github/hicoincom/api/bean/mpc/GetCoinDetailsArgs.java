@@ -33,6 +33,12 @@ public class GetCoinDetailsArgs extends BaseArgs implements Serializable {
     @JSONField(name = "open_chain")
     private Boolean openChain;
 
+    @JSONField(name = "max_id")
+    private Integer maxId;
+
+    @JSONField(name = "limit")
+    private Integer limit;
+
     public String getSymbol() {
         return symbol;
     }
@@ -57,4 +63,19 @@ public class GetCoinDetailsArgs extends BaseArgs implements Serializable {
         this.openChain = openChain;
     }
 
+    public Integer getMaxId() {
+        return maxId;
+    }
+
+    public void setMaxId(Integer maxId) {
+        this.maxId = maxId;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
 }
