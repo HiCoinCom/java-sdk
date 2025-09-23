@@ -25,11 +25,13 @@ public class WorkSpaceApi extends WaasApi implements IWorkSpaceApi {
     }
 
     @Override
-    public CoinDetailsResult getCoinDetails(String symbol, String baseSymbol, Boolean openChain) {
+    public CoinDetailsResult getCoinDetails(String symbol, String baseSymbol, Boolean openChain, Integer maxId, Integer limit) {
         GetCoinDetailsArgs args = new GetCoinDetailsArgs();
         args.setSymbol(symbol);
         args.setBaseSymbol(baseSymbol);
         args.setOpenChain(openChain);
+        args.setMaxId(maxId);
+        args.setLimit(limit);
         return this.invoke(MpcApiUri.COIN_DETAILS, args, CoinDetailsResult.class);
     }
 

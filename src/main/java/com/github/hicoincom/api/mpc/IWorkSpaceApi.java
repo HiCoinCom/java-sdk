@@ -29,9 +29,13 @@ public interface IWorkSpaceApi {
      *                   Main chain coins, Unique identifier for the coin, used for transfers, e.g.：ETH
      * @param openChain  required: false
      *                   Main chain coin, default to getting all, true to get opened coins, false to get unopened coins
+     * @param maxId      required: false
+     *                   The starting id of the currency, If not passed, the default return is the latest 1500 currencies
+     * @param limit      required: false
+     *                   The number of currencies to be obtained each time. If not passed, the default value is 1500
      * @return CoinDetailsResult
      */
-    CoinDetailsResult getCoinDetails(String symbol, String baseSymbol, Boolean openChain);
+    CoinDetailsResult getCoinDetails(String symbol, String baseSymbol, Boolean openChain, Integer maxId, Integer limit);
 
 
     /**

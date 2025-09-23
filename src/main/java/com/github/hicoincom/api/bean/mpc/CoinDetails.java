@@ -12,6 +12,12 @@ public class CoinDetails implements Serializable {
     private static final long serialVersionUID = 3004088185231976665L;
 
     /**
+     * Coin id
+     */
+    @JSONField(name = "id")
+    private Integer id;
+
+    /**
      * Unique identifier of the base coin of the main chain, e.g.：MATIC1
      */
     @JSONField(name = "base_symbol")
@@ -127,6 +133,18 @@ public class CoinDetails implements Serializable {
      */
     @JSONField(name = "coin_type")
     private Integer coinType;
+
+    /**
+     * Minimum withdrawal amount
+     */
+    @JSONField(name = "min_withdraw")
+    private String minWithdraw;
+
+    /**
+     * Withdrawal unlock confirmation number
+     */
+    @JSONField(name = "withdraw_confirmation")
+    private Integer withdrawConfirmation;
 
     public String getBaseSymbol() {
         return baseSymbol;
@@ -286,5 +304,29 @@ public class CoinDetails implements Serializable {
 
     public void setCoinType(Integer coinType) {
         this.coinType = coinType;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getMinWithdraw() {
+        return minWithdraw;
+    }
+
+    public void setMinWithdraw(String minWithdraw) {
+        this.minWithdraw = minWithdraw;
+    }
+
+    public Integer getWithdrawConfirmation() {
+        return withdrawConfirmation;
+    }
+
+    public void setWithdrawConfirmation(Integer withdrawConfirmation) {
+        this.withdrawConfirmation = withdrawConfirmation;
     }
 }
