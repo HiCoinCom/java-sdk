@@ -113,6 +113,12 @@ public class WithdrawRecord implements Serializable {
     private Integer withdrawSource;
 
     /**
+     * TRON delegate fee
+     */
+    @JSONField(name = "delegate_fee")
+    private String delegateFee;
+
+    /**
      * Creation time timestamp
      */
     @JSONField(name = "created_at")
@@ -266,6 +272,14 @@ public class WithdrawRecord implements Serializable {
 
     public void setWithdrawSource(Integer withdrawSource) {
         this.withdrawSource = withdrawSource;
+    }
+
+    public String getDelegateFee() {
+        return delegateFee;
+    }
+
+    public void setDelegateFee(String delegateFee) {
+        this.delegateFee = delegateFee;
     }
 
     public Long getCreatedAt() {

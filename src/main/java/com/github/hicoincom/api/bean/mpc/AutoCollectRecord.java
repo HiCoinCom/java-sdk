@@ -107,6 +107,12 @@ public class AutoCollectRecord implements Serializable {
     @JSONField(name ="contract_address")
     private String contractAddress;
 
+    /**
+     * TRON delegate fee
+     */
+    @JSONField(name = "delegate_fee")
+    private String delegateFee;
+
     public Integer getId() {
         return id;
     }
@@ -241,5 +247,13 @@ public class AutoCollectRecord implements Serializable {
 
     public void setContractAddress(String contractAddress) {
         this.contractAddress = contractAddress;
+    }
+
+    public String getDelegateFee() {
+        return delegateFee;
+    }
+
+    public void setDelegateFee(String delegateFee) {
+        this.delegateFee = delegateFee;
     }
 }
