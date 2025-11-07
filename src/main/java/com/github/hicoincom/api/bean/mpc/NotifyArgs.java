@@ -73,6 +73,12 @@ public class NotifyArgs extends BaseArgs implements Serializable {
     private String withdrawSource;
 
     /**
+     * TRON delegate fee
+     */
+    @JSONField(name = "delegate_fee")
+    private String delegateFee;
+
+    /**
      * below web3 info
      */
     @JSONField(name ="main_chain_symbol")
