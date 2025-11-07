@@ -270,6 +270,14 @@ public class NotifyArgs extends BaseArgs implements Serializable {
         this.withdrawSource = withdrawSource;
     }
 
+    public String getDelegateFee() {
+        return delegateFee;
+    }
+
+    public void setDelegateFee(String delegateFee) {
+        this.delegateFee = delegateFee;
+    }
+
     public String getMainChainSymbol() {
         return mainChainSymbol;
     }
