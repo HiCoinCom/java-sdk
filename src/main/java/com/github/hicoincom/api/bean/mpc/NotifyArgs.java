@@ -76,7 +76,7 @@ public class NotifyArgs extends BaseArgs implements Serializable {
      * TRON delegate fee
      */
     @JSONField(name = "delegate_fee")
-    private String delegateFee;
+    private BigDecimal delegateFee;
 
     /**
      * below web3 info
@@ -270,11 +270,11 @@ public class NotifyArgs extends BaseArgs implements Serializable {
         this.withdrawSource = withdrawSource;
     }
 
-    public String getDelegateFee() {
+    public BigDecimal getDelegateFee() {
         return delegateFee;
     }
 
-    public void setDelegateFee(String delegateFee) {
+    public void setDelegateFee(BigDecimal delegateFee) {
         this.delegateFee = delegateFee;
     }
 
