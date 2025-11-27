@@ -12,6 +12,11 @@ public class WalletAddress implements Serializable {
     private static final long serialVersionUID = 3962401229470065720L;
 
     /**
+     * custody address id
+     */
+    private Integer id;
+
+    /**
      * Created address
      */
     private String address;
@@ -28,6 +33,14 @@ public class WalletAddress implements Serializable {
      * Memo assigned for Memo types under the main chain
      */
     private String memo;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getAddress() {
         return address;
