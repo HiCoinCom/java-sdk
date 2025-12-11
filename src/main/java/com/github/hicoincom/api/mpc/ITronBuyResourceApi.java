@@ -3,6 +3,7 @@ package com.github.hicoincom.api.mpc;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceArgs;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceRecordResult;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceResult;
+import com.github.hicoincom.api.bean.mpc.TronFeeRuleResult;
 import com.github.hicoincom.api.bean.mpc.WithdrawRecordResult;
 
 import java.util.List;
@@ -34,4 +35,9 @@ public interface ITronBuyResourceApi {
      */
     TronBuyResourceRecordResult syncBuyResourceRecords(Integer maxId);
 
+    /**
+     * Obtain Fee Rules
+     * @return
+     */
+    TronFeeRuleResult getTronFeeRule();
 }

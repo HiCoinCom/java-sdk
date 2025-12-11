@@ -2,11 +2,13 @@ package com.github.hicoincom.api.mpc.impl;
 
 import com.github.hicoincom.MpcConfig;
 import com.github.hicoincom.api.WaasApi;
+import com.github.hicoincom.api.bean.BaseArgs;
 import com.github.hicoincom.api.bean.mpc.GetTransactionRecordArgs;
 import com.github.hicoincom.api.bean.mpc.SyncTransactionRecordArgs;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceArgs;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceRecordResult;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceResult;
+import com.github.hicoincom.api.bean.mpc.TronFeeRuleResult;
 import com.github.hicoincom.api.mpc.ITronBuyResourceApi;
 import com.github.hicoincom.crypto.IDataCrypto;
 import com.github.hicoincom.enums.MpcApiUri;
@@ -53,5 +55,11 @@ public class TronBuyResourceApi extends WaasApi implements ITronBuyResourceApi {
         args.setMaxId(ObjectUtils.isEmpty(maxId) ? 0 : maxId);
 
         return this.invoke(MpcApiUri.SYNC_TRON_DELEGATE_RECORDS, args, TronBuyResourceRecordResult.class);
+    }
+
+    @Override
+    public TronFeeRuleResult getTronFeeRule() {
+        BaseArgs args = new BaseArgs();
+        return this.invoke(MpcApiUri.GET_TRON_FEE_RULE, args, TronFeeRuleResult.class);
     }
 }
