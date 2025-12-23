@@ -1,6 +1,12 @@
 package com.github.hicoincom;
 
 /**
+ * Configuration class for MPC client
+ * 
+ * This class extends WaasConfig and adds MPC-specific configuration
+ * parameters. It includes an additional signing private key used for
+ * enhanced security in withdrawal and Web3 transaction operations.
+ * 
  * @author ChainUp Custody
  */
 public class MpcConfig extends WaasConfig {

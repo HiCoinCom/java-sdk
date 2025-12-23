@@ -1,5 +1,11 @@
 package com.github.hicoincom;
 
+/**
+ * Configuration class for WaaS client
+ * 
+ * This class holds all necessary configuration parameters for connecting
+ * to and authenticating with the ChainUp WaaS service.
+ */
 public class WaasConfig {
 
     /**
@@ -22,10 +28,19 @@ public class WaasConfig {
      */
     private String domain = "https://openapi.chainup.com/api/v2";
 
+    /**
+     * API version
+     */
     private String version = "v2";
 
+    /**
+     * Character encoding for requests and responses
+     */
     private String charset = "utf-8";
 
+    /**
+     * Flag to enable/disable logging
+     */
     private Boolean enableLog = true;
 
     public String getAppId() {

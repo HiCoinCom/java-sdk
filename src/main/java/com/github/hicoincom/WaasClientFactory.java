@@ -6,15 +6,34 @@ import com.github.hicoincom.crypto.DataCrypto;
 import com.github.hicoincom.crypto.IDataCrypto;
 
 /**
+ * Factory class for creating WaaS and MPC client instances
+ * 
+ * This factory provides convenient methods to create fully configured
+ * client instances with all necessary API implementations and encryption
+ * settings.
+ * 
  * @author ChainUp Custody
  */
 public class WaasClientFactory {
 
+    /**
+     * Create a WaaS client with default crypto implementation
+     * 
+     * @param cfg WaasConfig containing API credentials and settings
+     * @return WaasClient fully configured client instance
+     */
     public static WaasClient CreateClient(WaasConfig cfg) {
         DataCrypto crypto = new DataCrypto(cfg.getUserPrivateKey(), cfg.getWaasPublickKey());
         return CreateClient(cfg, crypto);
     }
 
+    /**
+     * Create a WaaS client with custom crypto implementation
+     * 
+     * @param cfg WaasConfig containing API credentials and settings
+     * @param crypto IDataCrypto custom encryption/decryption implementation
+     * @return WaasClient fully configured client instance
+     */
     public static WaasClient CreateClient(WaasConfig cfg, IDataCrypto crypto) {
         return WaasClient.WaasClientBuilder.builder()
                 .accountApi(new AccountApi(cfg, crypto))

@@ -3,6 +3,19 @@ package com.github.hicoincom;
 import com.github.hicoincom.api.mpc.*;
 
 /**
+ * MPC (Multi-Party Computation) Client for ChainUp Custody
+ * 
+ * This is the main client class for interacting with ChainUp's MPC wallet service.
+ * It provides access to various API modules including:
+ * - Workspace management
+ * - Wallet operations
+ * - Deposit management
+ * - Withdrawal operations
+ * - Web3 transactions
+ * - Auto-sweep functionality
+ * - Notification handling
+ * - Tron resource management
+ * 
  * @author ChainUp Custody
  */
 public class MpcClient {

@@ -3,6 +3,17 @@ package com.github.hicoincom;
 import com.github.hicoincom.api.waas.*;
 
 /**
+ * WaaS (Wallet as a Service) Client for ChainUp Custody
+ * 
+ * This is the main client class for interacting with ChainUp's WaaS service.
+ * It provides access to various API modules including:
+ * - Account management
+ * - User management
+ * - Billing (deposits/withdrawals)
+ * - Cryptocurrency information
+ * - Transfer operations
+ * - Async notification handling
+ * 
  * @author ChainUp Custody
  */
 public class WaasClient {
@@ -19,14 +30,29 @@ public class WaasClient {
 
     private ITransferApi transferApi;
 
+    /**
+     * Get the Account API instance
+     * 
+     * @return IAccountApi for account-related operations
+     */
     public IAccountApi getAccountApi() {
         return accountApi;
     }
 
+    /**
+     * Set the Account API instance
+     * 
+     * @param accountApi the IAccountApi implementation to set
+     */
     public void setAccountApi(IAccountApi accountApi) {
         this.accountApi = accountApi;
     }
 
+    /**
+     * Get the Async Notify API instance
+     * 
+     * @return IAsyncNotifyApi for handling async notifications
+     */
     public IAsyncNotifyApi getAsyncNotifyApi() {
         return asyncNotifyApi;
     }

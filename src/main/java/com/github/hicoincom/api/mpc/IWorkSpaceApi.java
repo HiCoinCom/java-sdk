@@ -2,6 +2,7 @@ package com.github.hicoincom.api.mpc;
 
 import com.github.hicoincom.api.bean.mpc.GetLastBlockHeightResult;
 import com.github.hicoincom.api.bean.mpc.CoinDetailsResult;
+import com.github.hicoincom.api.bean.mpc.GetCoinDetailsArgs;
 import com.github.hicoincom.api.bean.mpc.SupportMainChainResult;
 
 /**
@@ -36,6 +37,16 @@ public interface IWorkSpaceApi {
      * @return CoinDetailsResult
      */
     CoinDetailsResult getCoinDetails(String symbol, String baseSymbol, Boolean openChain, Integer maxId, Integer limit);
+
+    /**
+     * Get MPC Workspace Coin Details (overload with args structure)
+     * Get the details of MPC workspace's main chain coins and tokens supported
+     * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/wallet/coin-list
+     *
+     * @param args GetCoinDetailsArgs structure containing query parameters
+     * @return CoinDetailsResult containing coin details information
+     */
+    CoinDetailsResult getCoinDetails(GetCoinDetailsArgs args);
 
 
     /**

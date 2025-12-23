@@ -9,6 +9,7 @@ mvn clean install -DskipTests=true
 ```
 
 maven project direct reference
+
 ```
 <!-- https://mvnrepository.com/artifact/com.github.hicoincom/waas-sdk -->
 <dependency>
@@ -102,3 +103,37 @@ System.out.println("Sync transfer records：---"+client.getTransferApi().syncAcc
 
 ```
 
+## MPC Client Usage
+
+### Get Coin Details - Two Methods Available
+
+```java
+MpcConfig mpcConfig = new MpcConfig();
+mpcConfig.setAppId("app id");
+mpcConfig.setUserPrivateKey("Merchant private key");
+mpcConfig.setWaasPublickKey("waas public key");
+mpcConfig.setSignPrivateKey("sign private key");
+
+MpcClient mpcClient = WaasClientFactory.CreateMpcClient(mpcConfig);
+
+// Method 1: Using individual parameters
+CoinDetailsResult result1 = mpcClient.getWorkSpaceApi().getCoinDetails(
+    "USDTERC20",  // symbol
+    "ETH",        // baseSymbol
+    true,         // openChain
+    0,            // maxId
+    100           // limit
+);
+
+// Method 2: Using GetCoinDetailsArgs structure (Recommended)
+GetCoinDetailsArgs args = new GetCoinDetailsArgs();
+args.setSymbol("USDTERC20");
+args.setBaseSymbol("ETH");
+args.setOpenChain(true);
+args.setMaxId(0);
+args.setLimit(100);
+
+CoinDetailsResult result2 = mpcClient.getWorkSpaceApi().getCoinDetails(args);
+System.out.println(result2.toJson());
+
+```

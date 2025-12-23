@@ -177,10 +177,16 @@ public class RSAHelper {
 		return "";
 	}
 
+	/**
+	 * Build HTTP parameters string from map
+	 * @param parameters Map of parameters to build into query string
+	 * @return String formatted parameter string
+	 */
 	public static String httpParamsBuild(Map parameters){
 		StringBuffer sb = new StringBuffer();
 		Map<String, Object> sortedParams = new TreeMap<String, Object>(parameters);
-		Set es = sortedParams.entrySet();//所有参与传参的参数按照accsii排序（升序）
+		// All parameters sorted by ASCII in ascending order
+		Set es = sortedParams.entrySet();
 		Iterator it = es.iterator();
 		while(it.hasNext()) {
 			Map.Entry entry = (Map.Entry)it.next();

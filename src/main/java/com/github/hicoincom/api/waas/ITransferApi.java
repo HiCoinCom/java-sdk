@@ -5,33 +5,54 @@ import com.github.hicoincom.api.bean.waas.TransferListResult;
 import com.github.hicoincom.api.bean.waas.TransferResult;
 
 /**
+ * Transfer operation related API interface
+ * 
+ * This interface provides methods for internal transfers between
+ * merchant users within the WaaS platform.
+ * 
  * @author ChainUp Custody
- * Transfer operation related api
  */
 public interface ITransferApi {
 
+    /**
+     * Query type constant: by request ID
+     */
     String REQUEST_ID = "request_id";
+    
+    /**
+     * Query type constant: by receipt
+     */
     String RECEIPT = "receipt";
 
     /**
-     * WaaS internal merchants transfer money to each other
-     * @param  args TransferArgs
-     * @return TransferResult
+     * Execute internal transfer between WaaS merchant users
+     * 
+     * Transfers funds from one user account to another within the same merchant.
+     * 
+     * @param args TransferArgs containing transfer details (amount, from/to users, etc.)
+     * @return TransferResult containing transfer operation result
      */
     TransferResult accountTransfer(TransferArgs args);
 
     /**
-     * Query transfer records
-     * @param idsType String
-     * @param ids String
-     * @return  TransferListResult
+     * Query transfer records by IDs
+     * 
+     * Retrieve transfer records using either request IDs or receipts.
+     * 
+     * @param ids comma-separated list of IDs to query
+     * @param idsType type of IDs: REQUEST_ID or RECEIPT
+     * @return TransferListResult containing list of transfer records
      */
     TransferListResult getAccountTransferList(String ids, String idsType);
 
     /**
-     * Sync transfer records
-     * @param maxId Integer
-     * @return TransferListResult
+     * Synchronize transfer records
+     * 
+     * Retrieves transfer records with ID greater than the specified maxId,
+     * useful for incremental synchronization.
+     * 
+     * @param maxId maximum ID from previous sync (0 for first sync)
+     * @return TransferListResult containing list of new transfer records
      */
     TransferListResult syncAccountTransferList(Integer maxId);
 
