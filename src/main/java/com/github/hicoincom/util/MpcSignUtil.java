@@ -71,6 +71,7 @@ public class MpcSignUtil {
         signParamsMap.put("address_to", withdrawArgs.getAddressTo());
         signParamsMap.put("amount", withdrawArgs.getAmount());
         signParamsMap.put("memo", withdrawArgs.getMemo());
+        signParamsMap.put("outputs", withdrawArgs.getOutputs());
         return signParamsMap;
     }
 

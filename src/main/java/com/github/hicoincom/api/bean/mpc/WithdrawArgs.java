@@ -65,6 +65,12 @@ public class WithdrawArgs extends BaseArgs implements Serializable {
     private String remark;
 
     /**
+     * Utxo withdrawal details to multiple addresses, note that sum(params.outputs.amount) must equal params.amount; params.outputs.address_to needs to include params.address_to
+     * required : false
+     */
+    private String outputs;
+
+    /**
      * RSA private key signature. Parameters involved in the signature: “request_id”, “sub_wallet_id”, “symbol”, “address_to”, “amount”, “memo”.
      * For signature rules
      * signature rules: https://custodydocs-en.chainup.com/api-references/mpc-apis/co-signer/sign-verify
@@ -134,6 +140,14 @@ public class WithdrawArgs extends BaseArgs implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getOutputs() {
+        return outputs;
+    }
+
+    public void setOutputs(String outputs) {
+        this.outputs = outputs;
     }
 
     public String getSign() {
