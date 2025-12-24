@@ -148,7 +148,7 @@ public enum MpcApiUri {
      * Set the minimum auto-sweep amount and the maximum miner fee for refueling.
      * https://custodydocs-en.chainup.com/api-references/mpc-apis/apis/consolidation/consolidation-symbol-set
      */
-    SET_AUTO_COLLECT_SYMBOL("/api/mpc/billing/auto_collect/symbol/set", HttpPost.METHOD_NAME),
+    SET_AUTO_COLLECT_SYMBOL("/api/mpc/auto_collect/symbol/set", HttpPost.METHOD_NAME),
 
     /**
      * Sync Auto Sweeping Records
