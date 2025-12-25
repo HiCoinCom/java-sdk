@@ -10,11 +10,24 @@ public class UserAddress implements Serializable {
 
     private static final long serialVersionUID = -8412092540025155623L;
 
+    /**
+     * Just for api: address/syncList, dot not use for other api
+     */
+    private Integer id;
+
     private Integer uid;
 
     private String address;
 
     private String symbol;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getUid() {
         return uid;

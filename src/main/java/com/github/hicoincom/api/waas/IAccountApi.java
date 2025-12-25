@@ -2,6 +2,7 @@ package com.github.hicoincom.api.waas;
 
 import com.github.hicoincom.api.bean.waas.UserAccountResult;
 import com.github.hicoincom.api.bean.waas.AccountResult;
+import com.github.hicoincom.api.bean.waas.UserAddressListResult;
 import com.github.hicoincom.api.bean.waas.UserAddressResult;
 
 /**
@@ -47,5 +48,7 @@ public interface IAccountApi {
      * @return UserAddressResult containing address details
      */
     UserAddressResult getUserAddressInfo(String address) ;
+
+    UserAddressListResult syncUserAddressList(Integer maxId) ;
 
 }

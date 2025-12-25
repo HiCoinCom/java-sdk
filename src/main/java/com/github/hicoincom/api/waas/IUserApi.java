@@ -1,5 +1,6 @@
 package com.github.hicoincom.api.waas;
 
+import com.github.hicoincom.api.bean.waas.UserInfoListResult;
 import com.github.hicoincom.api.bean.waas.UserInfoResult;
 
 /**
@@ -45,4 +46,6 @@ public interface IUserApi {
      * @return UserInfoResult containing user information
      */
     UserInfoResult getEmailUser(String email);
+
+    UserInfoListResult syncUserList(Integer maxId);
 }

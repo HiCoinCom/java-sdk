@@ -25,6 +25,11 @@ public enum ApiUri {
     GET_USER_INFO("/user/info", HttpPost.METHOD_NAME),
 
     /**
+     * Query user list
+     */
+    GET_USER_LIST("/user/syncList", HttpPost.METHOD_NAME),
+
+    /**
      * obtain merchant's coin list
      */
     COIN_LIST("/user/getCoinList", HttpPost.METHOD_NAME),
@@ -43,6 +48,11 @@ public enum ApiUri {
      * Obtain the address of the user-specified coin account
      */
     USER_DEPOSIT_ADDRESS("/account/getDepositAddress", HttpPost.METHOD_NAME),
+
+    /**
+     * Deposit address list
+     */
+    USER_DEPOSIT_ADDRESS_LIST("/address/syncList", HttpPost.METHOD_NAME),
 
     /**
      * Input a specific address and get the response of the corresponding custody user and currency information

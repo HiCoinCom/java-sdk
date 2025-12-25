@@ -47,4 +47,11 @@ public class AccountApi extends WaasApi implements IAccountApi {
         args.setAddress(address);
         return this.invoke(ApiUri.USER_DEPOSIT_ADDRESS_INFO, args, UserAddressResult.class);
     }
+
+    @Override
+    public UserAddressListResult syncUserAddressList(Integer maxId) {
+        SyncUserListArgs args = new SyncUserListArgs();
+        args.setMaxId(maxId);
+        return this.invoke(ApiUri.USER_DEPOSIT_ADDRESS_LIST, args, UserAddressListResult.class);
+    }
 }

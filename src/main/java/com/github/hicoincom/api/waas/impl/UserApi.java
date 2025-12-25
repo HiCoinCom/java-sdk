@@ -2,11 +2,9 @@ package com.github.hicoincom.api.waas.impl;
 
 import com.github.hicoincom.WaasConfig;
 import com.github.hicoincom.api.WaasApi;
+import com.github.hicoincom.api.bean.waas.*;
 import com.github.hicoincom.api.waas.IUserApi;
 import com.github.hicoincom.enums.ApiUri;
-import com.github.hicoincom.api.bean.waas.RegisterArgs;
-import com.github.hicoincom.api.bean.waas.UserInfoArgs;
-import com.github.hicoincom.api.bean.waas.UserInfoResult;
 import com.github.hicoincom.crypto.IDataCrypto;
 
 /**
@@ -47,5 +45,12 @@ public class UserApi extends WaasApi implements IUserApi {
         UserInfoArgs args = new UserInfoArgs();
         args.setEmail(email);
         return this.invoke(ApiUri.GET_USER_INFO, args, UserInfoResult.class);
+    }
+
+    @Override
+    public UserInfoListResult syncUserList(Integer maxId) {
+        SyncUserListArgs args = new SyncUserListArgs();
+        args.setMaxId(maxId);
+        return this.invoke(ApiUri.GET_USER_LIST, args, UserInfoListResult.class);
     }
 }
