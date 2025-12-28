@@ -31,7 +31,7 @@ public class WithdrawApi extends WaasApi implements IWithdrawApi {
         if (ObjectUtils.isEmpty(withdrawArgs)) {
             throw new ArgsNullException("mpc withdraw args empty");
         }
-        if (needTransactionSign && StringUtils.isBlank(((MpcConfig) this.cfg).getSignPrivateKey())) {
+        if (needTransactionSign && !this.dataCrypto.hasSignKey()) {
             logger.error("mpc withdrawal, requires the 'sign' parameter, but the configured 'signPrivateKey' data is empty");
             throw new ConfigException("configure 'signPrivateKey' as empty");
         }
@@ -44,7 +44,7 @@ public class WithdrawApi extends WaasApi implements IWithdrawApi {
             }
             this.info("mpc withdrawal, sign params string:{}, md5:{}", signData, Md5Util.getMd5(signData));
 
-            String sign = MpcSignUtil.sign(signData, ((MpcConfig) this.cfg).getSignPrivateKey());
+            String sign = this.dataCrypto.sign(Md5Util.getMd5(signData));
             if (StringUtils.isBlank(sign)) {
                 throw new CryptoException("mpc withdrawal, sign parameter error");
             }

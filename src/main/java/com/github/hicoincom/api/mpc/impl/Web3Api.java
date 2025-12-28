@@ -33,7 +33,7 @@ public class Web3Api extends WaasApi implements IWeb3Api {
             throw new ArgsNullException("mpc create web3 transaction args empty");
         }
 
-        if (needTransactionSign && StringUtils.isBlank(((MpcConfig) this.cfg).getSignPrivateKey())) {
+        if (needTransactionSign && !this.dataCrypto.hasSignKey()) {
             logger.error("mpc create web3 transaction, requires the 'sign' parameter, but the configured 'signPrivateKey' data is empty");
             throw new ConfigException("configure 'signPrivateKey' as empty");
         }
@@ -46,7 +46,7 @@ public class Web3Api extends WaasApi implements IWeb3Api {
             }
             this.info("mpc create web3 transaction, sign params string:{}, md5:{}", signData, Md5Util.getMd5(signData));
 
-            String sign = MpcSignUtil.sign(signData, ((MpcConfig) this.cfg).getSignPrivateKey());
+            String sign = this.dataCrypto.sign(Md5Util.getMd5(signData));
             if (StringUtils.isBlank(sign)) {
                 throw new CryptoException("mpc create web3 transaction, sign parameter error");
             }
