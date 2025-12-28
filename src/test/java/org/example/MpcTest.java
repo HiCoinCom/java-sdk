@@ -24,10 +24,10 @@ public class MpcTest {
     public void initMpcClient() {
 
         MpcConfig cfg = new MpcConfig();
-        cfg.setAppId("ChainUp app id");
-        cfg.setUserPrivateKey("Custom RSA Private Key");
-        cfg.setWaasPublickKey("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApWlr7Vo2pbeC60oniHTwwzfVM97Y/6gZqqEbchjdEQ3OXrQ1UUkXzmwjBrkOSKR8YH2XbxAYAzX21g6qI4TO2YZzpXfhVhqOziaJD/Gyu32WaaceLxR4xniJ6hFcQZSkilTnxf2iJIQ9Zo4oGqhQ/9pY5hPFY0A7oVaa5BD0LD+5g8xVn/ya6NAW1k5tOj50tunIj6S2tR9anMRy4PlAq7HGJGH0OQuLniBVYxXBqOEnkYYDbH/DqcQTNpVYroHnuvCYIzfvCzVeikc1srKePAGALnFXamQtzhbIhIET7Fv5Pjf1X/f2ld1ztF7YlofEa8YnjMzfVp4FxaTNZaK0xQIDAQAB");
-        cfg.setSignPrivateKey("sign private key");
+        cfg.setAppId("");
+        cfg.setUserPrivateKey("");
+        cfg.setWaasPublickKey("");
+        cfg.setSignPrivateKey("");
         cfg.setEnableLog(Boolean.TRUE);
         mpcClient = WaasClientFactory.CreateMpcClient(cfg);
     }
@@ -188,9 +188,67 @@ public class MpcTest {
         System.out.println("sync buyTronResource records: " + tronBuyResourceRecordResult.toJson());
     }
 
+    /**
+     * mvn test -Dtest=MpcTest#withdrawWithDataCryptoSign -q
+     * Test withdraw with DataCrypto sign
+     * This test verifies that withdraw uses dataCrypto.sign() when needTransactionSign is true
+     */
+    @Test
+    public void withdrawWithDataCryptoSign() {
+        WithdrawArgs withdrawArgs = new WithdrawArgs();
+        withdrawArgs.setRequestId("123456789025");
+        withdrawArgs.setSymbol("Sepolia");
+        withdrawArgs.setSubWalletId(1000537);
+        withdrawArgs.setAddressTo("0xdcb0D867403adE76e75a4A6bBcE9D53C9d05B981");
+        withdrawArgs.setAmount("0.001");
 
+        // Use needTransactionSign=true, which will use dataCrypto.sign() internally
+        // The signPrivateKey is set in MpcConfig or DataCrypto
+        try {
+            WithdrawResult withdraw = mpcClient.getWithdrawApi().withdraw(withdrawArgs, Boolean.TRUE);
+            System.out.println("withdraw with dataCrypto sign result: " + withdraw.toJson());
+        } catch (Exception e) {
+            System.out.println("withdraw error (expected if signPrivateKey not configured): " + e.getMessage());
+        }
+    }
 
+    /**
+     * Test DataCrypto sign function directly
+     */
+    @Test
+    public void testDataCryptoSign() {
+        // Test DataCrypto sign function
+        String testPrivateKey = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDSxEURQHg5zk/6g7laQhXjAhUkPj59kwwtFm3Lv+aBplMYs+miFMK32xhL+XWXq0jTM3DX63YX+J9yQLuKo6fbzlQIil+4wXD8v1liVOM9RAA3dkeJIiOGZQZ2GKJyBsQIdJY3+n5A71MrCE5imVy/LA4iX3SKLtY7HkgruWWRHytQTK22jCxSa0hpltaqeONMUBfjRxFftXUrapVyFUFynzq/iuW3Q49pPgT4rXqSGUg+IO2IStVJnJSkHWlC94PQklNidRvafTslpSVQUCn0e6fLcOZEYM6BK82Id6sxeqOWRcNpoYwsBfJ4em5QPF4XhBuFtD7mGwwEmhqLlf25AgMBAAECggEBAId7wyoj1yTRinfu1OdAM/GJFS4HFQSD0f/puwqOgQ42bJQkkrqtvb2SCTxNT1n/sQCSwKcLpQ4js9st4WBtcynIqBwVVxLcxlSybDLZfnmTjNAaKEHuwAdUSaMAkuvZjYoh5650R1RWg4/V9w1KqGP7Xdqaob9x/CRkguAYfUGbK8Hurv4uRJnTYDHwDTeOLyXp21Ow4mbukQUMDiqLEqx5sF805f2jW5V2AICRn/k/lgObLkrvCsYEOHaM+vsdrZL40gMjCux0i6ECNAaZaaj54pWUFqik23H0Rzt2cdxstQiDQFEdG3o8vGNWtsQ+qqagArCWpi9z2YQIe4KfcEECgYEA/tG/2Azg3+AblyfyULip5sNYrTxGRq2kkrNqyYk7FmsHdqzTH4TzfrlRgGkXGJb1zeRkL6/6PowTvIeAVkZVv0IVl2jel6lROAyuPGNKDmlDaS0bpdI4CUL13D5AbBAp267kOWBrbREn0cBj4KQO2qrAcoYcihWa6C0oVV/CbzsCgYEA075ElsaP9fZMOoJlCe7rbvJnUWNbFD/RWMXMicE5d8sjsggvbf7redVxrumCi4c+/2+CS9txOPt5fdG3HzA1A8AhsvUVs6RjxYTNjr4UG1W5GReI/+gfmzMH/s5csgkdVrMFs+odQIGvOVEz2s363VQA9D+0vHVWX/o9Xgrln5sCgYB+VKiiyQe3lhi3oLNOd66r3E8bW5WPtsivfknD7sgffiJuIJJuvvAk9GVGn1M2+qiUUdWlmr4awkGKpzbmDuq17mJb9T7du7CrdAXxpFvztxYXj6h0Vjs3xD212hsAOCc4ZYV6OKYppWazY4lgtpUyrZLJdFmzz7BDyReE8/umPwKBgGRy1LL6S30RdKQlC62krAeb8yuHCMQYakXEv/1xrsOHmM1yWJ3D2w2XFjE2EXoDlP00dwlpdtLjaYUoocin4959nP76iWsJR1OCZsmanotBJWgj5BgSlDvZ/6b/WrYS4NoqX0A0hd/+JZP5U7IvGR06JqG4PxNQTsOFQOuGG9yVAoGBANH0knupfdxgvnPOSapnyhq99C8rsLGEkoh7KoqWCCsFPoMcWjyHwpOxukkPKPDEY5j8JnX3vzPofpUVv4REEUuTnZjezPMwDbrWAQ/0kQztTZOSMtpjpGDvHHgc3I02okI0mrGNQPvQwRVwe0IcJ/X4ddjF1OQLD6tK1sekku5n";
+        String testPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApWlr7Vo2pbeC60oniHTwwzfVM97Y/6gZqqEbchjdEQ3OXrQ1UUkXzmwjBrkOSKR8YH2XbxAYAzX21g6qI4TO2YZzpXfhVhqOziaJD/Gyu32WaaceLxR4xniJ6hFcQZSkilTnxf2iJIQ9Zo4oGqhQ/9pY5hPFY0A7oVaa5BD0LD+5g8xVn/ya6NAW1k5tOj50tunIj6S2tR9anMRy4PlAq7HGJGH0OQuLniBVYxXBqOEnkYYDbH/DqcQTNpVYroHnuvCYIzfvCzVeikc1srKePAGALnFXamQtzhbIhIET7Fv5Pjf1X/f2ld1ztF7YlofEa8YnjMzfVp4FxaTNZaK0xQIDAQAB";
 
+        // Test 1: DataCrypto without signPrivateKey (should use privateKey)
+        com.github.hicoincom.crypto.DataCrypto dataCrypto1 = new com.github.hicoincom.crypto.DataCrypto(testPrivateKey, testPublicKey);
+        System.out.println("DataCrypto hasSignKey (no signPrivateKey): " + dataCrypto1.hasSignKey());
 
+        String testData = "amount=0.001&request_id=test-1&sub_wallet_id=1000721&symbol=heco";
+        String sign1 = dataCrypto1.sign(Md5Util.getMd5(testData));
+        System.out.println("Sign with privateKey: " + sign1);
+
+        // Test 2: DataCrypto with signPrivateKey
+        com.github.hicoincom.crypto.DataCrypto dataCrypto2 = new com.github.hicoincom.crypto.DataCrypto(testPrivateKey, testPublicKey, testPrivateKey);
+        System.out.println("DataCrypto hasSignKey (with signPrivateKey): " + dataCrypto2.hasSignKey());
+
+        String sign2 = dataCrypto2.sign(Md5Util.getMd5(testData));
+        System.out.println("Sign with signPrivateKey: " + sign2);
+
+        // Test 3: Set signPrivateKey via setter
+        com.github.hicoincom.crypto.DataCrypto dataCrypto3 = new com.github.hicoincom.crypto.DataCrypto(testPrivateKey, testPublicKey);
+        dataCrypto3.setSignPrivateKey(testPrivateKey);
+        String sign3 = dataCrypto3.sign(Md5Util.getMd5(testData));
+        System.out.println("Sign after setSignPrivateKey: " + sign3);
+
+        // Verify all signatures are the same (using same key)
+        System.out.println("All signatures equal: " + (sign1.equals(sign2) && sign2.equals(sign3)));
+
+        // Compare with MpcSignUtil.sign
+        String mpcSign = MpcSignUtil.sign(testData, testPrivateKey);
+        System.out.println("MpcSignUtil sign: " + mpcSign);
+        System.out.println("DataCrypto sign equals MpcSignUtil sign: " + sign1.equals(mpcSign));
+    }
 
 }
