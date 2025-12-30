@@ -15,7 +15,7 @@ maven project direct reference
 <dependency>
     <groupId>com.github.hicoincom</groupId>
     <artifactId>waas-sdk</artifactId>
-    <version>2.0.2</version>
+    <version>2.1.2</version>
 </dependency>
 ```
 
