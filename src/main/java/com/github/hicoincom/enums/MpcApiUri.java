@@ -176,6 +176,11 @@ public enum MpcApiUri {
      */
     SYNC_TRON_DELEGATE_RECORDS("/api/mpc/tron/delegate/sync_trans_list", HttpPost.METHOD_NAME),
 
+    /**
+     * Get Tron Fee Rules
+     */
+    GET_TRON_FEE_RULE("/api/mpc/tron/delegate/fee_rule", HttpPost.METHOD_NAME),
+
     ;
 
     private String value;
