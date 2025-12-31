@@ -46,7 +46,7 @@ public class WaasClientFactory {
     }
 
     public static MpcClient CreateMpcClient(MpcConfig cfg) {
-        DataCrypto crypto = new DataCrypto(cfg.getUserPrivateKey(), cfg.getWaasPublickKey());
+        DataCrypto crypto = new DataCrypto(cfg.getUserPrivateKey(), cfg.getWaasPublickKey(), cfg.getSignPrivateKey());
         return CreateMpcClient(cfg, crypto);
     }
 
