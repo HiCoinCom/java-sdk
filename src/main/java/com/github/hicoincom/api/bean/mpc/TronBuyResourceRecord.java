@@ -5,6 +5,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
+ * TRON buy resource (delegate) record bean.
+ * Represents a single buy resource (delegate) operation record returned by the MPC APIs.
+ * Contains request identifiers, addresses, resource quantities, txids, times and prices.
+ *
  * @author jiamin.bai
  * @since 2025-04-29
  */
@@ -13,72 +17,133 @@ public class TronBuyResourceRecord implements Serializable {
     private static final long serialVersionUID = -9095946267485228021L;
 
     /**
-     * buy resource id
+     * internal numeric ID for the buy resource record
      */
     private Integer id;
 
     /**
-     * The unique identifier for buy resource
+     * The unique request identifier for this buy resource operation
      */
     @JSONField(name = "request_id")
     private String requestId;
 
+    /**
+     * sender / owner address (address from which the request was made)
+     */
     @JSONField(name = "address_from")
     private String addressFrom;
 
+    /**
+     * service charge rate (percentage or rate string)
+     */
     @JSONField(name = "service_charge_rate")
     private String serviceChargeRate;
 
+    /**
+     * service charge amount (string to preserve precision)
+     */
     @JSONField(name = "service_charge")
     private String serviceCharge;
 
+    /**
+     * related contract address (if any)
+     */
     @JSONField(name = "contract_address")
     private String contractAddress;
 
+    /**
+     * recipient address for the resource (address to)
+     */
     @JSONField(name = "address_to")
     private String addressTo;
 
+    /**
+     * resource type (e.g. net=1, energy=2) as defined by API
+     */
     @JSONField(name = "resource_type")
     private Integer resourceType;
 
+    /**
+     * buy type (purchase subtype defined by API)
+     */
     @JSONField(name = "buy_type")
     private Integer buyType;
 
+    /**
+     * number of NET units bought
+     */
     @JSONField(name = "net_num")
     private Integer netNum;
 
+    /**
+     * number of ENERGY units bought
+     */
     @JSONField(name = "energy_num")
     private Integer energyNum;
 
+    /**
+     * transaction id for NET buy operation
+     */
     @JSONField(name = "net_txid")
     private String netTxid;
 
+    /**
+     * transaction id for ENERGY buy operation
+     */
     @JSONField(name = "energy_txid")
     private String energyTxid;
 
+    /**
+     * transaction id for reclaiming NET (if reclaimed)
+     */
     @JSONField(name = "reclaim_net_txid")
     private String reclaimNetTxid;
 
+    /**
+     * transaction id for reclaiming ENERGY (if reclaimed)
+     */
     @JSONField(name = "reclaim_energy_txid")
     private String reclaimEnergyTxid;
 
+    /**
+     * timestamp (ms) when NET transaction occurred
+     */
     @JSONField(name = "net_time")
     private Long netTime;
 
+    /**
+     * timestamp (ms) when ENERGY transaction occurred
+     */
     @JSONField(name = "energy_time")
     private Long energyTime;
 
+    /**
+     * timestamp (ms) when NET reclaim occurred
+     */
     @JSONField(name = "reclaim_net_time")
     private Long reclaimNetTime;
 
+    /**
+     * timestamp (ms) when ENERGY reclaim occurred
+     */
     @JSONField(name = "reclaim_energy_time")
     private Long reclaimEnergyTime;
+
+    /**
+     * NET unit price (string to preserve precision)
+     */
     @JSONField(name = "net_price")
     private String netPrice;
 
+    /**
+     * ENERGY unit price (string to preserve precision)
+     */
     @JSONField(name = "energy_price")
     private String energyPrice;
 
+    /**
+     * current status of the buy resource record (status codes as defined by API)
+     */
     @JSONField(name = "status")
     private Integer status;
 

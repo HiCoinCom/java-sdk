@@ -13,16 +13,27 @@ import java.io.Serializable;
  */
 public class TronFeeRule implements Serializable {
     private static final long serialVersionUID = -872345672345672345L;
-
+    /**
+     * resourceType :energy/net
+     */
     @JSONField(name = "resource_type")
     private String resourceType;
 
+    /**
+     * The single transaction of 64,400 energy is equivalent to TRX quantity.
+     */
     @JSONField(name = "single_price_trx")
     private String singlePriceTrx;
 
+    /**
+     *
+     */
     @JSONField(name = "type")
     private String type;
 
+    /**
+     * The unit price of resource (SUN) .
+     */
     @JSONField(name = "price_sun")
     private String priceSun;
 
