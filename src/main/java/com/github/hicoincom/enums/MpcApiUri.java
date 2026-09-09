@@ -164,6 +164,11 @@ public enum MpcApiUri {
     TRON_CREATE_DELEGATE("/api/mpc/tron/delegate", HttpPost.METHOD_NAME),
 
     /**
+     * Create Tron Energy Flash Open
+     */
+    TRON_FLASH_OPEN("/api/mpc/tron/delegate/flash/open", HttpPost.METHOD_NAME),
+
+    /**
      * Buy Tron Resource Records
      * https://custodydocs-zh.chainup.com/api-references/mpc-apis/apis/tron/delegate-record-list
      */

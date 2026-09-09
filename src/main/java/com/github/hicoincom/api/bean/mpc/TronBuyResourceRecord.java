@@ -147,6 +147,12 @@ public class TronBuyResourceRecord implements Serializable {
     @JSONField(name = "status")
     private Integer status;
 
+    /**
+     * Flash/swap details; null for ordinary delegate records.
+     */
+    @JSONField(name = "swap_info")
+    private TronBuyResourceSwapInfo swapInfo;
+
     public Integer getId() {
         return id;
     }
@@ -321,5 +327,13 @@ public class TronBuyResourceRecord implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public TronBuyResourceSwapInfo getSwapInfo() {
+        return swapInfo;
+    }
+
+    public void setSwapInfo(TronBuyResourceSwapInfo swapInfo) {
+        this.swapInfo = swapInfo;
     }
 }

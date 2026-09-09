@@ -4,6 +4,7 @@ import com.github.hicoincom.api.bean.mpc.TronBuyResourceArgs;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceRecordResult;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceResult;
 import com.github.hicoincom.api.bean.mpc.TronFeeRuleResult;
+import com.github.hicoincom.api.bean.mpc.TronFlashOpenArgs;
 import com.github.hicoincom.api.bean.mpc.TronReclaimArgs;
 import com.github.hicoincom.api.bean.mpc.TronReclaimResult;
 
@@ -24,6 +25,15 @@ public interface ITronBuyResourceApi {
      * @return TronBuyResourceResult the creation result, contains request id and status
      */
     TronBuyResourceResult createTronDelegate(TronBuyResourceArgs buyResourceArgs);
+
+    /**
+     * Create a TRON energy flash open request.
+     *
+     * @param flashOpenArgs required: true
+     *                      request id, energy amount and receiving address
+     * @return TronBuyResourceResult the creation result, contains the transfer id
+     */
+    TronBuyResourceResult createTronFlashOpen(TronFlashOpenArgs flashOpenArgs);
 
     /**
      * Get TRON buy resource (delegate) records by request IDs

@@ -9,6 +9,7 @@ import com.github.hicoincom.api.bean.mpc.TronBuyResourceArgs;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceRecordResult;
 import com.github.hicoincom.api.bean.mpc.TronBuyResourceResult;
 import com.github.hicoincom.api.bean.mpc.TronFeeRuleResult;
+import com.github.hicoincom.api.bean.mpc.TronFlashOpenArgs;
 import com.github.hicoincom.api.bean.mpc.TronReclaimArgs;
 import com.github.hicoincom.api.bean.mpc.TronReclaimResult;
 import com.github.hicoincom.api.mpc.ITronBuyResourceApi;
@@ -37,6 +38,20 @@ public class TronBuyResourceApi extends WaasApi implements ITronBuyResourceApi {
         }
 
         return this.invoke(MpcApiUri.TRON_CREATE_DELEGATE, buyResourceArgs, TronBuyResourceResult.class);
+    }
+
+    @Override
+    public TronBuyResourceResult createTronFlashOpen(TronFlashOpenArgs flashOpenArgs) {
+        // Flash recharge accepts only the business request ID, requested energy and receiving address.
+        if (ObjectUtils.isEmpty(flashOpenArgs)
+                || StringUtils.isBlank(flashOpenArgs.getRequestId())
+                || StringUtils.isBlank(flashOpenArgs.getAddressFrom())
+                || ObjectUtils.isEmpty(flashOpenArgs.getEnergyNum())
+                || flashOpenArgs.getEnergyNum() <= 0) {
+            throw new ArgsNullException("mpc flashOpenArgs required args empty or invalid");
+        }
+
+        return this.invoke(MpcApiUri.TRON_FLASH_OPEN, flashOpenArgs, TronBuyResourceResult.class);
     }
 
     @Override
