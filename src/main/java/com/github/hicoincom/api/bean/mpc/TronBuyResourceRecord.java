@@ -58,7 +58,7 @@ public class TronBuyResourceRecord implements Serializable {
     private String addressTo;
 
     /**
-     * resource type (e.g. net=1, energy=2) as defined by API
+     * resource type: 0 means energy and bandwidth, 1 means energy, 2 means bandwidth
      */
     @JSONField(name = "resource_type")
     private Integer resourceType;

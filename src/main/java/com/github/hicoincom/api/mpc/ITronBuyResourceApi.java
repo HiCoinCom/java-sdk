@@ -27,10 +27,10 @@ public interface ITronBuyResourceApi {
     TronBuyResourceResult createTronDelegate(TronBuyResourceArgs buyResourceArgs);
 
     /**
-     * Create a TRON energy flash open request.
+     * Create a TRON energy or bandwidth flash open request.
      *
      * @param flashOpenArgs required: true
-     *                      request id, energy amount and receiving address
+     *                      request id, resource type (defaults to energy), resource amount and receiving address
      * @return TronBuyResourceResult the creation result, contains the transfer id
      */
     TronBuyResourceResult createTronFlashOpen(TronFlashOpenArgs flashOpenArgs);

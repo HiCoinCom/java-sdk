@@ -6,7 +6,7 @@ import com.github.hicoincom.api.bean.BaseArgs;
 import java.io.Serializable;
 
 /**
- * Arguments for TRON energy flash open.
+ * Arguments for TRON energy or bandwidth flash open.
  *
  * @author ChainUp Custody
  * @since 2026-08-25
@@ -24,13 +24,26 @@ public class TronFlashOpenArgs extends BaseArgs implements Serializable {
 
     /**
      * Energy amount requested by the user.
-     * required: true
+     * Required for energy flash recharge; otherwise omit or pass zero.
      */
     @JSONField(name = "energy_num")
     private Integer energyNum;
 
     /**
-     * Address receiving the energy.
+     * Resource type: 1 means energy, 2 means bandwidth. Omit to default to energy.
+     */
+    @JSONField(name = "resource_type")
+    private Integer resourceType;
+
+    /**
+     * Bandwidth amount requested by the user. Required for bandwidth flash recharge;
+     * otherwise omit or pass zero.
+     */
+    @JSONField(name = "net_num")
+    private Integer netNum;
+
+    /**
+     * Address receiving the requested resource.
      * required: true
      */
     @JSONField(name = "address_from")
@@ -56,6 +69,26 @@ public class TronFlashOpenArgs extends BaseArgs implements Serializable {
 
     public void setEnergyNum(Integer energyNum) {
         this.energyNum = energyNum;
+    }
+
+    /** Get the requested resource type; null uses the server's energy default. */
+    public Integer getResourceType() {
+        return resourceType;
+    }
+
+    /** Set the resource type: 1 for energy, 2 for bandwidth. */
+    public void setResourceType(Integer resourceType) {
+        this.resourceType = resourceType;
+    }
+
+    /** Get the requested bandwidth amount. */
+    public Integer getNetNum() {
+        return netNum;
+    }
+
+    /** Set the requested bandwidth amount. */
+    public void setNetNum(Integer netNum) {
+        this.netNum = netNum;
     }
 
     public String getAddressFrom() {

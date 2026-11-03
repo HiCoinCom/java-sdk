@@ -14,6 +14,7 @@ import com.github.hicoincom.api.bean.mpc.TronReclaimArgs;
 import com.github.hicoincom.api.bean.mpc.TronReclaimResult;
 import com.github.hicoincom.api.mpc.ITronBuyResourceApi;
 import com.github.hicoincom.crypto.IDataCrypto;
+import com.github.hicoincom.constants.TronResourceConstant;
 import com.github.hicoincom.enums.MpcApiUri;
 import com.github.hicoincom.exception.ArgsNullException;
 import org.apache.commons.lang3.ObjectUtils;
@@ -42,13 +43,28 @@ public class TronBuyResourceApi extends WaasApi implements ITronBuyResourceApi {
 
     @Override
     public TronBuyResourceResult createTronFlashOpen(TronFlashOpenArgs flashOpenArgs) {
-        // Flash recharge accepts only the business request ID, requested energy and receiving address.
+        // 1. Validate common fields before checking the selected resource quantity.
         if (ObjectUtils.isEmpty(flashOpenArgs)
                 || StringUtils.isBlank(flashOpenArgs.getRequestId())
-                || StringUtils.isBlank(flashOpenArgs.getAddressFrom())
-                || ObjectUtils.isEmpty(flashOpenArgs.getEnergyNum())
-                || flashOpenArgs.getEnergyNum() <= 0) {
+                || StringUtils.isBlank(flashOpenArgs.getAddressFrom())) {
+            logger.error("createTronFlashOpen required arguments missing");
             throw new ArgsNullException("mpc flashOpenArgs required args empty or invalid");
+        }
+        // 2. Older clients omit resource_type and continue to request energy.
+        int resourceType = flashOpenArgs.getResourceType() == null
+                ? TronResourceConstant.ENERGY : flashOpenArgs.getResourceType();
+        if (resourceType != TronResourceConstant.ENERGY && resourceType != TronResourceConstant.BANDWIDTH) {
+            logger.error("createTronFlashOpen invalid resource type:{}", resourceType);
+            throw new ArgsNullException("mpc flashOpenArgs resource_type must be 1 or 2");
+        }
+        // 3. Require a positive quantity for the selected resource; the other must be absent or zero.
+        boolean bandwidth = resourceType == TronResourceConstant.BANDWIDTH;
+        Integer quantity = bandwidth ? flashOpenArgs.getNetNum() : flashOpenArgs.getEnergyNum();
+        Integer otherQuantity = bandwidth ? flashOpenArgs.getEnergyNum() : flashOpenArgs.getNetNum();
+        if (quantity == null || quantity <= 0 || (otherQuantity != null && otherQuantity != 0)) {
+            logger.error("createTronFlashOpen invalid quantity, resourceType:{}, quantity:{}, otherQuantity:{}",
+                    resourceType, quantity, otherQuantity);
+            throw new ArgsNullException("mpc flashOpenArgs resource quantity invalid");
         }
 
         return this.invoke(MpcApiUri.TRON_FLASH_OPEN, flashOpenArgs, TronBuyResourceResult.class);
